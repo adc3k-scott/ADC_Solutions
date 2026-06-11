@@ -8,10 +8,42 @@ Prepared for: Scott Tomsu
 
 ADC Solutions / Trappey's Compute Center
 
-May 2026  |  CONFIDENTIAL
+May 2026 (Rev 1.3 update: 2026-06-10)  |  CONFIDENTIAL
 
 | PURPOSE: This document explains — from first principles — how Redfish works, how it maps to the OCP Project Deschutes CDU, and how artificial intelligence can manage all four tiers of a modern AI data center: IT hardware, cooling distribution, facility systems, and outside environmental monitoring. Every technical term is defined in plain language. |
 | :---- |
+
+# **REVISION 1.3 — ALIGNMENT TO THE 2026.1 PLATFORM BASELINE (2026-06-10)**
+
+This revision brings the v1.2 teaching reference up to ADC's current
+standards as set by **MGN-TEL-001 Rev 0.1** (Unified Telemetry &
+Observability BoD), the **ADC-SYS-001 system registry** (`system/`),
+and the 2026-06-10 OCP/DMTF currency check
+(`ops/research/2026-06-10-ocp-spec-currency.md`). The teaching body
+below is preserved; where it differs from this section, **this section
+and MGN-TEL-001 govern.**
+
+| # | v1.2 said | Current standard (Rev 1.3) |
+| :---- | :---- | :---- |
+| 1 | No Redfish release baseline stated (written against the 2025.4-era bundle) | Build on **DMTF 2026.1 bundle / Specification DSP0266 v1.24.0** (official date 2026-04-02; still latest as of 2026-06-10). Pin the schema tag before bridge/validator work (TEL-001). |
+| 2 | Leak detection = detector state only | **LeakDetector v1.6.0** adds Voltage/CurrentAmps; **Environmental registry v1.5.0** adds **coolant-connector pair-reversal** messages (catches supply/return cross-connection at commissioning) and **dew-point** messages (condensation risk) — subscribe to both. These post-date v1.2 and are a direct reason to move to 2026.1. |
+| 3 | N+1 described in prose | Encode with **Redundancy v1.7.0** MinNumNeededForFaultTolerance and **CoolingUnit v1.5.0** CoolingUnitRedundancy — same pattern used for the genset 4-of-5 on the power island. |
+| 4 | 1 s / 5 s / 60 s polling rates | Formal cadence classes **P / A / B / C / D** per MGN-TEL-001 §9, including Class D compliance data to an immutable historian. Enable **Sensor v1.12.0** PeakIntervalReading / LowestIntervalReading on transient-critical points so load-step extremes between samples are never lost. |
+| 5 | Bridge polls; AI reads the database | Prefer **streaming**: TelemetryService MetricReportDefinitions push per cadence class; TelemetryData for bulk pulls; `clientcontext` (Spec v1.24.0) for incremental collection reads; EventService subscriptions for alarms. **AggregationSource now federates Modbus sources directly** — pilot it before writing custom bridge code (TEL-AGG). |
+| 6 | Four tiers (IT / CDU / facility / external) | The four-tier model remains valid as the **cooling + compute teaching view**. The platform standard is MGN-TEL-001's **five domains and six layers**, which add **D1 — the power island** (gensets, grid-forming BESS, 4.16 kV switchgear, SCR) under the same bridge pattern, plus the §10 cross-domain load-step correlation that joins GPUs, BESS, gensets, and the CDU/TCS on one clock. |
+| 7 | No common-time requirement | A single **PTP/NTP-disciplined time base is mandatory** [L] — without it, cross-domain correlation is meaningless (TEL-TIME). |
+| 8 | Validation = Redfish-Service-Validator | Conformance gate = **Service + Protocol + Interop validators** against the pinned 2026.1 schemas **plus a site Interoperability Profile** (DSP0272 1.10.0) per asset class — pass/fail artifacts for customers and lenders (TEL-PROFILE). |
+| 9 | HTTPS noted | Full posture per MGN-TEL-001 §13: HTTPS + RBAC north-bound, Purdue-style OT/IT segmentation with bridges as the only crossing, optional SPDM attestation, and the fail-safe rule — local control continues, north-bound goes stale, never the reverse. |
+| 10 | POC Phases 1–6 (cooling + IT only) | Superseded by MGN-TEL-001 §14, which inserts the **power-island bridge** at Phase 3. Phase 1 is already implemented: the ADC-SYS-001 registry and the executable twin (`system/twin/`) run the §10 correlation in simulation today. |
+| 11 | §8.1 lists depth 40.29″, weight 6,910 lb wet, primary ΔP 15–27 psi | ADC-SYS-001 registry (sourced from Deschutes §3.1) carries **depth 42.29″, 6,900 lb wet, facility ΔP basis 15–30 psi**. Discrepancy flagged (SYS-OI-07) — resolve against the final OCP drawing package; until then the registry governs ADC documents. |
+
+Terminology bridge: Tier 1 = domain **D2** (compute), Tier 2 = **D3**
+(cooling — CDU + TCS), Tier 3 = **D4** (facility), Tier 4 = **D5**
+(external). **D1 (power island) has no counterpart in this document** —
+see MGN-TEL-001 §4. The AI layers (rule → PID → ML, §5) and the
+PLC-keeps-safety-authority rule are unchanged and are now platform-wide
+law — this document's clearest contribution, extended verbatim to the
+gensets and BESS.
 
 # **Table of Contents**
 
@@ -550,7 +582,7 @@ Here is the complete data flow from physical sensor to AI decision to hardware a
 | Thermal capacity | 2,000 kW (2 MW) |  |
 | Secondary loop flow rate | 500 GPM |  |
 | Secondary loop pressure available | 80–90 psi | To racks |
-| Primary loop pressure drop | 15-27 psi | Facility side; verify against final OCP spec revision and supplier submittal |
+| Primary loop pressure drop | 15-27 psi | Facility side; verify against final OCP spec revision and supplier submittal. *Rev 1.3: ADC registry carries 15–30 psi facility ΔP basis per Deschutes §3.1 (SYS-OI-07).* |
 | Approach temperature target | 3°C | CDU HX performance target |
 | Operating liquid temperature | 18–55°C |  |
 | Input power (CDU) | 380–416 Vac, 3-phase, 50/60 Hz |  |
@@ -562,8 +594,8 @@ Here is the complete data flow from physical sensor to AI decision to hardware a
 | Control valve | Belimo B6500 | Primary side |
 | Control protocol | Modbus/TCP (IPv4 \+ IPv6 dual stack) | PLC native |
 | Management protocol | Redfish (via bridge) | OCP/DCIM layer |
-| CDU dimensions (W×H×D) | 65.25" x 91.44" x 40.29" | Public Deschutes technical material lists 40.29" depth; verify with final drawing package |
-| CDU weight (wet/dry) | 6,910 lbs / 5,310 lbs | Use supplier shipping and installation documents for final rigging |
+| CDU dimensions (W×H×D) | 65.25" x 91.44" x 40.29" | Public Deschutes technical material lists 40.29" depth; verify with final drawing package. *Rev 1.3: ADC registry carries 42.29" depth per Deschutes §3.1 — registry governs ADC documents until the drawing package settles it (SYS-OI-07).* |
+| CDU weight (wet/dry) | 6,910 lbs / 5,310 lbs | Use supplier shipping and installation documents for final rigging. *Rev 1.3: ADC registry carries 6,900 lb wet per Deschutes §3.1 (SYS-OI-07).* |
 | Coolants | DI water or PG25 |  |
 | Leak detection | 3 zones, PLC-integrated |  |
 | TCS sensor integration | Secondary rack-loop telemetry interface | Includes rack supply/return temps, branch flow, branch Delta-P, balancing valve position, leak zones, coolant quality, and filter Delta-P |
@@ -595,11 +627,12 @@ Here is the complete data flow from physical sensor to AI decision to hardware a
 | :---- | :---- |
 | Document Title | OCP Project Deschutes — Redfish, AI Control & Four-Tier Data Center Management |
 | Prepared By | Scott Tomsu |
-| Date | May 2026 |
-| Based On | OCP-Specification-Deschutes v1.0 (Effective Feb 26, 2026\) |
+| Date | May 2026 (Rev 1.3: 2026-06-10) |
+| Based On | OCP-Specification-Deschutes v1.0 (Effective Feb 26, 2026\); DMTF Redfish 2026.1 / DSP0266 v1.24.0 (2026-04-02); MGN-TEL-001 Rev 0.1; ADC-SYS-001 registry |
 | Classification | CONFIDENTIAL |
-| Version | 1.2 \- Technology Cooling System (TCS) rack-loop integration |
-| **Revision Update** | Defined TCS as the CDU-to-rack Technology Cooling System; added balancing sensors and separated heat rejection into facility/HRS context |
+| Version | 1.3 \- Aligned to the 2026.1 platform baseline (see REVISION 1.3 section at top) |
+| **Revision Update (1.3)** | Updated Redfish baseline to 2026.1/v1.24.0; added pair-reversal/dew-point/peak-dip/Redundancy v1.7.0 capabilities; reconciled four-tier model to MGN-TEL-001 five domains (adds D1 power island); cadence classes, common time base, conformance gate, security posture; flagged §8.1 numeric discrepancies vs ADC-SYS-001 registry (SYS-OI-07) |
+| **Revision Update (1.2)** | Defined TCS as the CDU-to-rack Technology Cooling System; added balancing sensors and separated heat rejection into facility/HRS context |
 
 | NOTE: This document is a teaching and engineering reference. All component specifications should be verified against the applicable OCP-Specification-Deschutes revision and supplier submittals. Open source software references are publicly available under their respective licenses. Redfish schemas are published by DMTF under open license. This revision defines TCS as the Technology Cooling System secondary distribution loop from CDU to racks and separates outdoor/facility heat-rejection telemetry into HRS/facility context. |
 | :---- |

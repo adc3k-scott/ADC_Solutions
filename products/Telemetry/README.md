@@ -20,7 +20,7 @@ conformance contract.
 | MGN-TEL-001 Unified Telemetry & Observability BoD Rev 0.1 | [products/Microgrid/](../Microgrid/README.md) | Parent — defines the substrate (Layers 0–5, five domains, cadences, security) |
 | ADC-SYS-001 system registry | [system/](../../system/README.md) | The machine-readable model this OS reads — implemented, validated |
 | Executable twin (POC Phase 1) | [system/twin/](../../system/twin/README.md) | The first running implementation — implemented |
-| OCP Deschutes Redfish/AI & Four-Tier Reference v1.2 | **not yet in repo** (SYS-OI-01) | Named parent of MGN-TEL-001 |
+| Deschutes Redfish/AI & Four-Tier Reference (internal ADC teaching doc) | [Rev 1.3 in this folder](Deschutes_Redfish_AI_Control_Reference_TCS_Technology_Cooling_System.docx.md) | Parent of MGN-TEL-001 — updated 2026-06-10 to the 2026.1 baseline (SYS-OI-01 closed); its four tiers map to domains D2–D5 |
 
 ## What the product is
 
