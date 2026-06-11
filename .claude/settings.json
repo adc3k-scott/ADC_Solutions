@@ -59,7 +59,13 @@
       "PowerShell($raw = Get-Content \"$env:TEMP\\\\adc-deschutes.txt\"; $j = \\($raw[37100..37700] -join ' '\\) -replace '\\\\s+', ' '; $j)",
       "PowerShell($raw = Get-Content \"$env:TEMP\\\\adc-deschutes.txt\"; $j = \\($raw[36500..37100] -join ' '\\) -replace '\\\\s+', ' '; $j)",
       "PowerShell($raw = Get-Content \"$env:TEMP\\\\adc-deschutes.txt\"; $j = \\($raw[36100..36500] -join ' '\\) -replace '\\\\s+', ' '; $j)",
-      "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" add products/HAC/README.md)"
+      "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" add products/HAC/README.md)",
+      "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" add products/Microgrid/README.md products/CDU/README.md products/TCS/README.md products/HAC/README.md)",
+      "PowerShell(& \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\\\\system\\\\tools\\\\validate-registry.ps1\")",
+      "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" add system)",
+      "PowerShell(& \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\\\\system\\\\twin\\\\tools\\\\run-scenario.ps1\")",
+      "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" add system/twin)",
+      "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" add products/OS README.md MISSION.md)"
     ]
   }
 }
