@@ -64,9 +64,12 @@ ADC's product is the structure kit:
 | Transport aisle width | 6 ft (1,800 mm) clearance in at least 1 transport row; 10 ft (3.048 m) in the other |
 | Min ceiling height | 14 ft (4.26 m) |
 
-> Note: the OCP table prints "102″ (2210 mm)" — 102″ is 2,590.91 mm per
-> Figure 18.3.1. Treat the metric value in the table as a typo; the figure
-> governs (HAC-OI-02).
+> Note: the OCP table prints "102″ (2210 mm)" — **confirmed a typo
+> against the OCP source PDF** (HAC-OI-02, closed 2026-06-11): Figure
+> 18.3.1 prints 2,590.91 mm, and 2,210 mm (= 87″) would be narrower than
+> the 90″ post centers it encloses. Inch values govern; ADC metric
+> drawings print 2,590.8 mm (exact ×25.4). Proof:
+> [ops/research/2026-06-11-hac-oi-02-ocp-102in-metric-typo.md](../../ops/research/2026-06-11-hac-oi-02-ocp-102in-metric-typo.md).
 
 ## Floor layout — one repeatable bay (Figure 18.3.1, all critical)
 
@@ -162,8 +165,11 @@ public; ADC open items before fabrication drawings:
   dynamic, seismic). OCP explicitly excludes this; Lafayette sites are
   SDC B, far milder than the West-Coast assumptions elsewhere in the
   stack (see TCS SUP-01).
-- **HAC-OI-02** — confirm the 102″ metric typo (2,210 vs 2,590.91 mm)
-  against the OCP source before any metric drawing is issued.
+- ~~**HAC-OI-02**~~ — **RESOLVED 2026-06-11:** the 102″ metric typo is
+  confirmed against the OCP source
+  ([research note](../../ops/research/2026-06-11-hac-oi-02-ocp-102in-metric-typo.md));
+  metric drawings print 2,590.8 mm. Metric drawing release no longer
+  gated.
 - **HAC-OI-03** — steel sourcing: HSS, plate, and strut from Gulf Coast
   suppliers (Stuart Steel, Baton Rouge; Continental Steel, Houston),
   consistent with the TCS Louisiana sourcing strategy.

@@ -29,7 +29,25 @@ Static, dynamic, and seismic analysis of the Redmond repeatable bay:
 - Design loads per OCP Deschutes Table 18.4.1: Level 1 wall manifold
   31.7 lbs/ft at 100.5″ AFF; Levels 2/3 cabling 29.9 lbs/ft at
   115.5″/127.5″; Level 4 13.8 + 14.5 lbs/ft at 139.5″; overall height
-  168″; plus 8× 600 A busducts in the hot aisle (vendor weights TBD).
+  168″.
+- **Busway load on the cross-aisle beams** (added 2026-06-11, published
+  vendor data — sources:
+  [ops/research/2026-06-11-starline-t5-busway-weights.md](../research/2026-06-11-starline-t5-busway-weights.md)):
+  **8 runs of 600 A-class track busway** suspended from the cross-aisle
+  beams (4 per side of the hot aisle), ~46 ft per run (~368 ft total):
+  - Busway distributed load: **15.5 lbs/ft per run design envelope**
+    (heaviest published Starline T5 configuration; expected selection
+    630T5 Global publishes 12.2 lbs/ft — design to the envelope until
+    vendor lock, which also bounds the Vertiv iMPB alternate).
+  - Tap boxes: **64 × 25 lbs** (published Starline TB-series T5 plug-in
+    weight) — 8 point loads per run, one per rack spot.
+  - End feeds: 8 × 85 lbs allowance at run ends [W] — vendor to confirm
+    with the busway quote (ELE-OI-01).
+  - Combined design line: **≈ 20 lbs/ft per run** (busway + tap boxes
+    smeared) → ~7,300 lbs total on the cross-aisle beam system.
+  - Hanger interface: vendor max support spacing 3 m (10 ft); ADC plan
+    ~10 hanger sets per run (≈ 5 ft spacing) to HSS cross-aisle beams,
+    placement fungible per Deschutes §18.7.
 - Anchor design for slab-on-grade AND raised-floor (extension columns
   below finished floor, 48.25″ reference) cases.
 - **Critical constraint:** all interface dimensions (post centers 90″,
