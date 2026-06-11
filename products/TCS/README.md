@@ -19,7 +19,10 @@ page is a Markdown view of it — if they disagree, the PDF wins.
 Reference specs: OCP Project Deschutes v1.0 (Feb 2026), OCP Open Data
 Center Spec v0.5.0 (Feb 2026), OCP Diablo 400 v0.7.0 (Mar 2026), and OCP
 Modular TCS Working Paper Rev 1.0 (Aug 2025, with 2026 patches).
-Companion product: the [ADC 2 MW CDU](../CDU/README.md) this TCS serves.
+Companion product: the [ADC 2 MW CDU](../CDU/README.md) this TCS serves —
+the CDU↔TCS boundary is controlled by
+[ADC-ICD-001](../CDU/ADC-ICD-001_CDU-TCS_Rev0_1.md) (Rev 0.1, pending
+approval).
 
 ## What "modular" buys
 

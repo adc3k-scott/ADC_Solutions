@@ -14,6 +14,7 @@ This page is a Markdown view of them — if they disagree, the PDFs win.
 |---|---|---|
 | OCP Project Deschutes: Data Center Facilities v1.0.0 (Google, 2026-02-26) | [OCP-Specification-Deschutes v1_0.pdf](OCP-Specification-Deschutes%20v1_0.pdf) | Public OCP specification — design basis |
 | ADC Project Deschutes CDU Procurement BOM/BoD, Doc. ADC-CDU-DES-BOM-001 (2026-05-19) | [ADC_Deschutes_CDU_BOM_v0_2_WITH_DIAGRAMS.docx.pdf](ADC_Deschutes_CDU_BOM_v0_2_WITH_DIAGRAMS.docx.pdf) | RFQ-level procurement BOM — **not** a released manufacturing BOM. Filename says v0.2; title page reads v0.1 — reconcile at next revision. |
+| ADC CDU ↔ TCS Interface Control Document, Doc. ADC-ICD-001 Rev 0.1 (2026-06-11) | [ADC-ICD-001_CDU-TCS_Rev0_1.md](ADC-ICD-001_CDU-TCS_Rev0_1.md) | Controls the CDU↔TCS boundary (demarcation, pressure cascade, materials, transients, telemetry). **Pending approval** — closes CDU-G7 on approval. |
 
 The ADC BOM also draws on: ADC Modular TCS BoD/RFQ v1 (2026-05-19),
 Deschutes Redfish/AI/TCS Reference v1.2 (May 2026), OCP Next-Generation ML
@@ -89,8 +90,9 @@ final spool/harness drawings, safety review, and validation signoff. Open
 release gates tracked in the BOM section 7: architecture-preservation
 audit, pump-curve overlay (DI and PG25), HX balance at 2 MW / 500 GPM,
 relief valve basis with AHJ, wetted-material certs, native-Redfish vs
-bridge decision, TCS interface control document, Louisiana site-specific
-seismic basis (stamped), and validation plan.
+bridge decision, TCS interface control document (drafted —
+[ADC-ICD-001 Rev 0.1](ADC-ICD-001_CDU-TCS_Rev0_1.md), pending approval),
+Louisiana site-specific seismic basis (stamped), and validation plan.
 
 ## Unified telemetry (MGN-TEL-001)
 

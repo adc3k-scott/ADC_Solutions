@@ -3,6 +3,7 @@
   "name": "CDU secondary loop ↔ TCS header hydraulic interface",
   "between": ["cdu", "tcs"],
   "description": "One end-fed 2 MW CDU serves one 46 ft TCS row. The CDU provides flow and pressure; the TCS spends a small fraction of it and returns the heat.",
+  "governing_icd": "products/CDU/ADC-ICD-001_CDU-TCS_Rev0_1.md (Rev 0.1 issued 2026-06-11, pending approval — CDU-G7)",
   "parameters": [
     {"key": "design_flow_gpm", "value": 500, "unit": "GPM", "tag": "L", "critical": true, "source": "Deschutes §3.1; ADC-MOD-TCS-001 §2"},
     {"key": "thermal_capacity_kw", "value": 2000, "unit": "kW", "tag": "L", "critical": true, "source": "Deschutes §3.1"},
