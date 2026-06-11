@@ -1,0 +1,76 @@
+# ADC HAC repeatable bay -- user parameters (HAC-OI-05)
+# Generated from the ADC-SYS-001 registry by build-hac-fusion-params.ps1.
+# Run inside Fusion 360: Utilities > Add-Ins > Scripts, create a new Python
+# script, replace its contents with this file, Run with a design open.
+# Creates or updates parameters idempotently; CRITICAL ones must not be
+# altered -- they are the OCP Redmond interface.
+
+import adsk.core, adsk.fusion, traceback
+
+PARAMS = [
+    ("ADC_PostCentersAcrossAisle", "in", "90", "CRITICAL OCP Redmond (Deschutes 18) - do not alter"),
+    ("ADC_BayWidthPostCenters", "in", "121", "CRITICAL OCP Redmond (Deschutes 18) - do not alter"),
+    ("ADC_HotAisleWithRDHx", "in", "68.41", "CRITICAL OCP Redmond (Deschutes 18) - do not alter"),
+    ("ADC_WidthBetweenBasePlates", "in", "114", "CRITICAL OCP Redmond (Deschutes 18) - do not alter"),
+    ("ADC_BasePlateOuterEnvelope", "in", "102", "CRITICAL OCP Redmond - do not alter (Fig 18.3.1; OCP table prints 2210 mm in error - HAC-OI-02)"),
+    ("ADC_OverallHeightAFF", "in", "168", "CRITICAL OCP Redmond (Deschutes 18) - do not alter"),
+    ("ADC_Level1_WMF", "in", "100.5", "CRITICAL OCP Redmond - do not alter - WMF/TCS header plane, shared with TCS"),
+    ("ADC_Level2_Cabling", "in", "115.5", "CRITICAL OCP Redmond (Deschutes 18) - do not alter"),
+    ("ADC_Level3_Cabling", "in", "127.5", "CRITICAL OCP Redmond (Deschutes 18) - do not alter"),
+    ("ADC_Level4_Cabling", "in", "139.5", "CRITICAL OCP Redmond - do not alter - space above is Colo domain"),
+    ("ADC_RackWidth", "in", "28", "CRITICAL OCP Redmond 18.1 - do not alter"),
+    ("ADC_RackDepthMax", "in", "50", "CRITICAL OCP Redmond 18.1 - do not alter (front-justified)"),
+    ("ADC_RackHeightMax", "in", "90.55", "CRITICAL OCP Redmond 18.1 - do not alter"),
+    ("ADC_RackGap", "mm", "5.05", "CRITICAL OCP Redmond Fig 18.3.1 - do not alter"),
+    ("ADC_ColdAisleMin", "in", "54", "CRITICAL OCP Redmond Table 18.2.1 minimum - do not alter"),
+    ("ADC_MinRowLength", "ft", "46", "CRITICAL OCP Redmond Table 18.2.1 - do not alter"),
+    ("ADC_MinCeilingHeight", "ft", "14", "CRITICAL OCP Redmond Table 18.2.1 - do not alter"),
+    ("ADC_PostHSS_Size", "in", "5", "HSS 5x5x1/4 vertical post"),
+    ("ADC_PostHSS_Wall", "in", "0.25", "HSS wall thickness"),
+    ("ADC_BasePlateW", "in", "12", "Base plate 12 x 8.5 x 5/8"),
+    ("ADC_BasePlateD", "in", "8.5", "Base plate depth"),
+    ("ADC_BasePlateThk", "in", "0.625", "Base plate 5/8 thickness"),
+    ("ADC_AnchorBoltDia", "in", "0.625", "4x 5/8 anchor bolts per plate"),
+    ("ADC_HangerProjection", "in", "49.05", "Cantilever tray arm projection (Detail A, both sides)"),
+    ("ADC_HangerBoxSize", "in", "3.25", "Arm section 3-1/4 x 3-1/4 box, 2x deep strut welded"),
+    ("ADC_BasketWideW", "in", "24", "24x4 wire basket (Levels 2, 3, 4-1)"),
+    ("ADC_BasketWideH", "in", "4", "Basket sits 4.00 proud of arm"),
+    ("ADC_BasketNarrowW", "in", "4", "4x4 wire basket (Level 4-2)"),
+    ("ADC_BasketNarrowH", "in", "4", ""),
+    ("ADC_WMFPipeOffset", "in", "3.00", "Fig 18.5: 2X 3.00 WMF pipe spacing - VERIFY identity against figure before modeling"),
+    ("ADC_WMFStackHeight", "in", "8.62", "Fig 18.5 Detail A dimension - VERIFY identity against figure before modeling"),
+    ("ADC_WMFAssemblyWidth", "in", "45.25", "Fig 18.5 Detail A dimension - VERIFY identity against figure before modeling"),
+    ("ADC_WMFDetailOffset", "in", "5.25", "Fig 18.5 Detail A dimension - VERIFY identity against figure before modeling"),
+    ("ADC_BelowFloorExtension", "in", "48.25", "FUNGIBLE - raised-floor extension columns, owner domain (Fig 18.4 default)"),
+    ("ADC_RacksPerSidePerBay", "", "4", "Pattern count - Redmond bay"),
+    ("ADC_BaysPerRow", "", "4", "Pattern count - 46 ft Reference Bay row (FUNGIBLE for longer rows)"),
+    ("ADC_HangersPerPost", "", "3", "Typ. 3 tray hangers per post (Levels 2-4)"),
+]
+
+def run(context):
+    ui = None
+    try:
+        app = adsk.core.Application.get()
+        ui = app.userInterface
+        design = adsk.fusion.Design.cast(app.activeProduct)
+        if not design:
+            ui.messageBox('Open a Fusion design first, then run this script.')
+            return
+        ups = design.userParameters
+        created = 0
+        updated = 0
+        for name, unit, expr, comment in PARAMS:
+            expression = expr if unit == '' else (expr + ' ' + unit)
+            existing = ups.itemByName(name)
+            if existing:
+                existing.expression = expression
+                existing.comment = comment
+                updated += 1
+            else:
+                ups.add(name, adsk.core.ValueInput.createByString(expression), unit, comment)
+                created += 1
+        ui.messageBox('ADC HAC bay parameters: {} created, {} updated.\n'
+                      'CRITICAL parameters are the OCP Redmond interface -- do not alter.'.format(created, updated))
+    except:
+        if ui:
+            ui.messageBox('Failed:\n{}'.format(traceback.format_exc()))

@@ -170,6 +170,9 @@ public; ADC open items before fabrication drawings:
 - **HAC-OI-04** — containment panel offering: decide whether ADC sells
   panels as an option or leaves them owner-supplied per OCP §18.6.
 - **HAC-OI-05** — Fusion 360 parametric model per the plan above.
+  *Parameter set ready (2026-06-10): [fusion360/](fusion360/README.md) —
+  37 registry-verified user parameters, native script + ParameterIO CSV.
+  Remaining: build the geometry.*
 
 ## Unified telemetry (MGN-TEL-001)
 

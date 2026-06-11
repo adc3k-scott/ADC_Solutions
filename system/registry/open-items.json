@@ -21,7 +21,7 @@
     {"id": "HAC-OI-02", "product": "hac", "title": "Confirm OCP 102-inch metric typo (2210 vs 2590.91 mm) before metric drawings", "gates": ["metric drawing release"]},
     {"id": "HAC-OI-03", "product": "hac", "title": "Gulf Coast steel sourcing (Stuart Steel Baton Rouge, Continental Steel Houston)", "gates": ["HAC kit pricing"]},
     {"id": "HAC-OI-04", "product": "hac", "title": "Containment panel offering decision (ADC option vs owner-supplied)", "gates": ["HAC product scope"]},
-    {"id": "HAC-OI-05", "product": "hac", "title": "Fusion 360 parametric model of the repeatable bay", "gates": ["fabrication drawings", "website/visual assets"]},
+    {"id": "HAC-OI-05", "product": "hac", "title": "Fusion 360 parametric model of the repeatable bay", "gates": ["fabrication drawings", "website/visual assets"], "status": "parameter set ready: products/HAC/fusion360/ (37 params, registry-verified); geometry build remaining"},
     {"id": "CDU-G1", "product": "cdu", "title": "Architecture-preservation audit (locked pump/HX/valve items)", "gates": ["production BOM release"]},
     {"id": "CDU-G2", "product": "cdu", "title": "Pump-curve overlay, DI and PG25", "gates": ["production BOM release"]},
     {"id": "CDU-G3", "product": "cdu", "title": "HX balance at 2 MW / 500 GPM across 3x CB210-276AH", "gates": ["production BOM release"]},
