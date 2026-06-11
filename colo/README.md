@@ -39,7 +39,7 @@ Site records **reference, never restate,** the platform standards:
 | Site | Record | Status |
 |---|---|---|
 | Trappey's Compute Center | [sites/trappeys-compute-center.md](sites/trappeys-compute-center.md) | **Filled 2026-06-11 from ST-TRAP-BOD-001 Rev 0.6** (legacy reference, external) — 22-acre cannery, Vermilion River; 91.1 MW Stage 1 BTM island. **ADC-native re-engineering decided ([0003](../ops/decisions/0003-trappeys-adc-native-reengineering.md)) — new package = TRAP-OI-03** |
-| Cameron Street (dual-utility) | [sites/cameron-street.md](sites/cameron-street.md) | Referenced by MGN-TEL-001 §4.3 via MGN-PROP-005 — **proposal doc not yet in repo (SYS-OI-02)**; MGN-PROP-004 docx dropped 2026-06-11, import pending |
+| Cameron Street (Entergy, dual-utility) | [sites/cameron-street.md](sites/cameron-street.md) | **Filled 2026-06-12 from MGN-PROP-004 Rev 0.3** (Entergy BTM proposal; 2623 Cameron St, Entergy ops site + adjacent substation; Phase-1 pilot + single 10 MW node). PROP-004 does **not** subsume MGN-PROP-005 (dual-utility) — **SYS-OI-02 stays open** |
 
 **COLO-01 CLOSED 2026-06-11:** Trappey's and Cameron Street are
 **different sites**, confirmed by Scott (decision 0003). Records stay
