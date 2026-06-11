@@ -24,7 +24,7 @@ is sized in **N★ blocks** (5 MW IT + 10 MW MGN-BOD-002 node).
 | Doc | Title | Status |
 |---|---|---|
 | ADC-TRAP-SIZE-001 | [N★ sizing study + hall concept](ADC-TRAP-SIZE-001_Rev0_2.md) | **Rev 0.2 APPROVED 2026-06-11** (rulings applied per decision 0005) |
-| ADC-TRAP-ELEC-001 | Node→block electrical (MGN-BOD-002 POI → ADC-CLU-BOM-001 RPP boundary) | TBD — on Scott's go |
+| ADC-TRAP-ELEC-001 | [Node 4.16 kV bus → block RPP distribution (the SYS-OI-09 seam)](ADC-TRAP-ELEC-001_Rev0_1.md) | **Rev 0.1 ISSUED 2026-06-11** — pending Scott approval |
 | ADC-TRAP-THERM-001 | Heat rejection per block (Heat_Rejection_5MW_IT basis, W32/W40 + trim) + water balance | TBD |
 | ADC-TRAP-TEL-001 | Site telemetry profile (MGN-TEL-001 §4.3 + TEL-PROFILE; replaces legacy AMCL/OPC-UA) | TBD |
 | ADC-TRAP-ENV-001 | Air/water permitting strategy (minor-source envelope vs Title V; LPDES) | TBD |
