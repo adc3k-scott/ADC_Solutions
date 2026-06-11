@@ -6,10 +6,10 @@
 |---|---|
 | Document | ADC-CLU-BOM-001 |
 | Title | 16-Rack Reference Cluster — Electrical & Mechanical Procurement Package (RFQ-grade) |
-| Revision | **0.1** (Working Draft) |
+| Revision | **0.1** (Approved) |
 | Company | ADC Solutions |
 | Discipline | ELEC / MECH |
-| Prepared by | Mission Control — **pending Scott Tomsu approval** |
+| Prepared by | Mission Control — **approved by Scott Tomsu 2026-06-11** |
 | Date | 2026-06-11 |
 | Parameter tags | [L] Locked · [W] Working · [O] Open |
 | Machine-readable bundles | [rfq/](rfq/) (one CSV per supplier bundle — quantities live there, this doc is the basis) |
