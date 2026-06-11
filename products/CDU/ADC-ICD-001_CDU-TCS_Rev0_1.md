@@ -6,13 +6,13 @@
 |---|---|
 | Document | ADC-ICD-001 |
 | Title | CDU ↔ TCS Interface Control Document (2 MW CDU secondary loop ↔ Modular TCS header) |
-| Revision | **0.1** (Working Draft) |
+| Revision | **0.1** (Approved) |
 | Company | ADC Solutions |
 | Discipline | MECH / HYDR / CTRL |
-| Prepared by | Mission Control — **pending Scott Tomsu approval** |
+| Prepared by | Mission Control — **approved by Scott Tomsu 2026-06-11** |
 | Date | 2026-06-11 |
 | Parameter tags | [L] Locked · [W] Working · [O] Open |
-| Closes | CDU-G7 (on approval) — "TCS interface control document", a CDU production-BOM release gate |
+| Closes | CDU-G7 — "TCS interface control document", a CDU production-BOM release gate — **CLOSED 2026-06-11** |
 | Registry record | `system/registry/interfaces/cdu-tcs-hydraulic.json` (machine index of this ICD) |
 
 ## Revision History

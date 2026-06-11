@@ -28,7 +28,7 @@
     {"id": "CDU-G4", "product": "cdu", "title": "Relief valve basis with AHJ", "gates": ["production BOM release"], "related": ["RELIEF-01"]},
     {"id": "CDU-G5", "product": "cdu", "title": "Wetted-material certs", "gates": ["production BOM release"]},
     {"id": "CDU-G6", "product": "cdu", "title": "Native-Redfish vs bridge decision for the CDU PLC", "gates": ["controls package"], "related": ["TEL-PROFILE", "TEL-AGG"]},
-    {"id": "CDU-G7", "product": "cdu", "title": "TCS interface control document", "gates": ["production BOM release"], "notes": "Machine index = ADC-SYS-001 cdu-tcs-hydraulic interface record", "status": "ICD issued 2026-06-11: products/CDU/ADC-ICD-001_CDU-TCS_Rev0_1.md (Rev 0.1) — pending Scott approval; closes on approval"},
+    {"id": "CDU-G7", "product": "cdu", "title": "TCS interface control document", "gates": ["production BOM release"], "notes": "Machine index = ADC-SYS-001 cdu-tcs-hydraulic interface record", "status": "CLOSED 2026-06-11 — ADC-ICD-001 Rev 0.1 approved by Scott (products/CDU/ADC-ICD-001_CDU-TCS_Rev0_1.md)"},
     {"id": "CDU-G8", "product": "cdu", "title": "Louisiana site-specific seismic basis (stamped)", "gates": ["production BOM release"], "related": ["SUP-01", "HAC-OI-01"], "status": "SOW issued 2026-06-10: ops/rfq/2026-06-10-SOW-louisiana-pe-structural.md (D3) — awaiting firm selection"},
     {"id": "CDU-G9", "product": "cdu", "title": "Validation plan (FAT, thermal-hydraulic curves 25–100%)", "gates": ["first article"], "related": ["CDU-01"]},
     {"id": "CDU-G10", "product": "cdu", "title": "Reconcile BOM filename v0.2 vs title page v0.1", "gates": ["next BOM revision"], "status": "errata pack ready: products/CDU/ERRATA-for-BOM-v0_3.md E1"},
