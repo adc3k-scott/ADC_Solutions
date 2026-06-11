@@ -6,7 +6,7 @@
 |---|---|
 | Document | ADC-NSTAR-001 |
 | Title | N★ Block — Governing Definition (block boundary, interfaces, scaling rules) |
-| Revision | **0.1** (Issued for approval) |
+| Revision | **0.2** (Issued for approval) |
 | Company | ADC Solutions |
 | Prepared by | Mission Control — **pending Scott Tomsu approval** (SYS-OI-08) |
 | Date | 2026-06-11 |
@@ -18,6 +18,7 @@
 | Rev | Date | Summary |
 |---|---|---|
 | 0.1 | 2026-06-11 | First issue. Codifies decisions 0004 + 0005: block = 5 MW IT (4× reference cluster) + one 10 MW MGN-BOD-002 node; independent-star scaling; boundary and interface definitions; pairing-ratio confirmation method. First applied site sizing: ADC-TRAP-SIZE-001 Rev 0.2 (19 blocks). |
+| 0.2 | 2026-06-11 | §4 rewritten: derives the SYS-OI-10 mechanical+CDU PUE (≈1.10–1.14 [W]) from `colo/Heat_Rejection_5MW_IT.pdf` (W32/W40 evaporative + chiller-trim hybrid) and ADC-CDU-DES-BOM-001 §1 CDU power, decomposing the asserted 1.15–1.25 facility-PUE band; reconciles the locked 78 kW/rack reference-cluster basis against NVL72 actuals (new open item SYS-OI-11). |
 
 ## §1 Purpose & scope
 
@@ -86,20 +87,82 @@ One N★ block =
 
 ## §4 Pairing ratio — why 10 MW carries 5 MW IT [W]
 
-| Quantity | Value |
-|---|---|
-| Block IT load | 4,992 kW |
-| Block facility load @ PUE 1.15–1.25 [O] | ≈ 5.75–6.25 MW |
-| Node firm rating (before site derate) | 10 MW |
-| Node loading | **58–63 %** |
+### §4.1 Mechanical + CDU overhead derivation (SYS-OI-10) [W]
 
-The headroom absorbs, in order of size: site-ambient firm-MW de-rate
-(ELEC-006 — Gulf Coast summers), genset transient response under AI
-load steps (the dominant island-mode risk), house/auxiliary loads, and
-future rack-density growth within the same block. **Confirmation
-[O — SYS-OI-10]:** the PUE band is asserted, not derived — confirm
-against reference-bay (TCS/HAC) cooling overheads + W32/W40 fan/pump
-power, and reconcile the 78 kW avg rack basis against NVL72 actuals.
+Block IT load = 4,992 kW ≈ 1,419 tons of heat to reject (TCS sized to
+~100% of rack electrical load, cold-plate only — ADC-MOD-TCS-001
+§2.1). Per the Lafayette heat-rejection study
+(`colo/Heat_Rejection_5MW_IT.pdf`), the recommended W32/W40
+architecture for this site is a closed-circuit evaporative
+fluid-cooler primary (partial PUE ≈1.04 — fans + spray pump) plus a
+water-cooled magnetic-bearing chiller trim sized to 15–25% of load for
+the few hundred hottest hours/year.
+
+| Regime | Mechanical overhead | Basis |
+|---|---|---|
+| Most hours — evaporative only | ≈200 kW | 0.04 × 4,992 kW (fluid-cooler partial PUE 1.04) |
+| Design day — chiller trim engaged (15–25% of 1,419 tons) | ≈279–385 kW | chiller compressor 106–177 kW (0.5 kW/ton, mag-bearing) + trim-share tower fans/pumps 23–38 kW (scaled from ≈150 kW @ 1,419 tons) + remaining 75–85% via fluid coolers ≈150–170 kW |
+
+CDU electrical draw (constant in both regimes): 4 CDUs/block × ≈74 kW
+(ADC-CDU-DES-BOM-001 §1, "total CDU power") = **296 kW**.
+
+| Quantity | Typical (evaporative) | Design day (chiller trim) |
+|---|---|---|
+| Mechanical overhead | ≈200 kW | ≈279–385 kW |
+| CDU overhead | 296 kW | 296 kW |
+| Total facility overhead | ≈496 kW | ≈575–681 kW |
+| Block facility load | ≈5,488 kW | ≈5,567–5,673 kW |
+| **Mechanical+CDU PUE** | **≈1.10** | **≈1.12–1.14** |
+| Node loading (÷10 MW) | ≈54.9% | ≈55.7–56.7% |
+
+### §4.2 Reconciling against the asserted 1.15–1.25 band [W]
+
+The derived mechanical+CDU PUE (≈1.10–1.14) sits at or just below the
+asserted facility-PUE band's lower bound. **The 1.15–1.25 band is
+retained**, now decomposed:
+
+- **Mechanical (cooling) + CDU: ≈1.10–1.14 [W]** — derived above; the
+  dominant component, now confirmed rather than asserted.
+- **House/auxiliary loads + site-ambient de-rate margin: ≈0.01–0.11
+  (≈50–550 kW) [O]** — the residual headroom in the asserted band, not
+  yet itemized (lighting, fire pumps, BESS thermal management,
+  controls/telemetry racks, ELEC-006 de-rate). Itemizing this residual
+  is the remaining piece of SYS-OI-10.
+
+Block facility load remains bracketed by **≈5,488–6,250 kW**
+(mechanical+CDU floor to the original 1.25×IT ceiling); node loading
+**≈55–63%**. The pairing ratio holds — SYS-OI-10's mechanical-overhead
+component is now derived rather than asserted.
+
+### §4.3 Rack-density reconciliation: 78 kW avg vs NVL72 actuals [O]
+
+The **78 kW/rack average** (decision 2026-06-11, ADC-CLU-BOM-001 §2)
+is a **CDU/TCS hydraulic-capacity figure**, not a GPU-platform power
+spec: it is the locked Deschutes 2 MW / 500 GPM CDU's secondary flow
+(500 GPM ÷ 16 racks = 31.25 GPM/rack) evaluated at ITE ΔT = 10 °C
+(ADC-MOD-TCS-001 §2.1/§3.2).
+
+NVIDIA GB200/GB300 NVL72 racks run materially higher — commonly cited
+in the 120–140 kW range. ADC-MOD-TCS-001 §4.4.1 already flags the
+consequence: 125 kW/rack requires ~50 GPM/rack, and 16 racks
+simultaneous at that flow would need ~804 GPM — well above the locked
+500 GPM CDU basis (the CDU BOM "no pump resize" lock does not permit
+changing this without a formal deviation).
+
+At 50 GPM/rack, the locked 500 GPM CDU supports **≈10 NVL72-density
+racks**, not 16. The reference cluster (16 racks @ 78 kW avg = 1,248
+kW) and a full-NVL72 cluster (≈10 racks @ 120–140 kW ≈
+1,200–1,400 kW) land at similar **aggregate** cluster power, but
+**rack count and per-rack density differ** — a proposal that equates
+"16-rack reference cluster" with "16× full-density NVL72 racks"
+overstates per-rack density by ~1.5–1.8×.
+
+**This does not change decision 0005** — the 78 kW reference cluster
+remains the locked IT fill unit for the 5 MW block, and the block's
+aggregate IT capacity (4,992 kW) is unaffected. It does mean any
+commercial proposal stating a *rack count* of full-density NVL72
+within a reference cluster needs this reconciliation. New open item
+**SYS-OI-11** tracks this.
 
 ## §5 Scaling rules
 
@@ -124,3 +187,4 @@ power, and reconcile the 78 kW avg rack basis against NVL72 actuals.
 | SYS-OI-08 | ADC-NSTAR-001 Rev 0.1 approval by Scott | all N★ capacity claims in proposals |
 | SYS-OI-09 | Block electrical seam: node 4.16 kV bus → cluster RPPs (transformation, switchgear, redundancy per ADC-CLU-BOM-001 §3 upstream rule) | ADC-TRAP-ELEC-001; any block construction |
 | SYS-OI-10 | Pairing-ratio confirmation: derive block PUE from reference-bay overheads + heat-rejection auxiliary power; reconcile 78 kW avg vs NVL72 actuals | firm per-block facility load; genset dispatch basis |
+| SYS-OI-11 | Rack-density reconciliation: 78 kW/rack (locked 2 MW/500 GPM CDU hydraulic basis) vs full-density NVL72 (120–140 kW/rack, ~50 GPM/rack) — locked CDU supports ≈10 NVL72-density racks/CDU, not 16 | any proposal stating an NVL72 rack count per reference cluster |

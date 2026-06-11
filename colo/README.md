@@ -41,7 +41,7 @@ MGN-BOD-002 node — the safe building block; decisions
 [0004](../ops/decisions/0004-n-star-block-topology.md) +
 [0005](../ops/decisions/0005-no-cassettes-current-product-lineup.md);
 governing definition
-[ADC-NSTAR-001](../products/NStar/ADC-NSTAR-001_Rev0_1.md), Rev 0.1
+[ADC-NSTAR-001](../products/NStar/ADC-NSTAR-001_Rev0_2.md), Rev 0.2
 pending approval — SYS-OI-08).
 
 | Site | Record | Status |
