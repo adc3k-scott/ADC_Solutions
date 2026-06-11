@@ -7,6 +7,9 @@
                    "State":  "Enabled",
                    "Health":  "OK"
                },
+    "Subscriptions":  {
+                          "@odata.id":  "/redfish/v1/EventService/Subscriptions"
+                      },
     "Oem":  {
                 "ADC":  {
                             "SubscribedRegistries":  [

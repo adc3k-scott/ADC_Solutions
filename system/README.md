@@ -28,7 +28,11 @@ system/
 │   └── open-items.json  unified register — 60 items across all documents
 │                        with cross-product gating made explicit
 ├── tools/
-│   └── validate-registry.ps1   zero-dependency validator (PS 5.1)
+│   ├── validate-registry.ps1      zero-dependency validator (PS 5.1)
+│   └── check-interop-profile.ps1  TEL-PROFILE conformance checker —
+│                                  asserts the twin tree (or a bridge
+│                                  endpoint dump) against the draft
+│                                  interop profile (PS 5.1)
 └── twin/                executable twin (Phase 2 — see twin/README.md)
 ```
 
@@ -59,6 +63,17 @@ cross-references (both directions), parameter schema (key/value/source/
 L-W-O tag, critical⇒locked), open-item id uniqueness, product validity,
 and `related` linkage. Run it after any registry or spec-sheet change;
 a sheet that contradicts the registry is a bug in one of them.
+
+```powershell
+.\system\tools\check-interop-profile.ps1   # [-TwinRoot <v1 dir>]
+```
+
+Asserts the twin Redfish tree against the draft TEL-PROFILE interop
+profile: every profile class instantiated, every Mandatory property
+present on every instance, all `@odata.id` links resolve, protocol
+floor met. Run after regenerating the twin tree or editing the
+profile; point `-TwinRoot` at a bridge-endpoint dump to use it as the
+vendor acceptance test.
 
 Current state: **6 assets · 6 interfaces · 90 parameters (36 critical) ·
 60 open items — PASS.**

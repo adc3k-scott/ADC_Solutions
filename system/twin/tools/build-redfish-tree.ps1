@@ -45,7 +45,7 @@ Res 'redfish\v1' ([ordered]@{
 # --- chassis collection ---
 $chassisIds = @()
 1..$nGensets | ForEach-Object { $chassisIds += "Genset-$_" }
-$chassisIds += 'BESS-1'; $chassisIds += 'Switchgear-4kV'; $chassisIds += 'CDU-1'
+$chassisIds += 'BESS-1'; $chassisIds += 'Switchgear-4kV'   # CDU is ThermalEquipment/CDUs/1, not a chassis member
 1..$nRacks | ForEach-Object { $chassisIds += ('Rack-{0:D2}' -f $_) }
 Res 'redfish\v1\Chassis' ([ordered]@{
     '@odata.id' = '/redfish/v1/Chassis'; '@odata.type' = '#ChassisCollection.ChassisCollection'
@@ -344,7 +344,22 @@ Res 'redfish\v1\EventService' ([ordered]@{
     '@odata.id' = '/redfish/v1/EventService'; '@odata.type' = '#EventService.v1_11_0.EventService'
     Id = 'EventService'; Name = 'Event Service'
     Status = @{ State = 'Enabled'; Health = 'OK' }
+    Subscriptions = @{ '@odata.id' = '/redfish/v1/EventService/Subscriptions' }
     Oem = @{ ADC = @{ SubscribedRegistries = @('Environmental v1.5.0 (pair-reversal, dew-point)', 'Power v1.3.0 (chassis power-limit)', 'ManagerEvent v1.0.0', 'ResourceEvent v1.5.0') } }
+})
+Res 'redfish\v1\EventService\Subscriptions' ([ordered]@{
+    '@odata.id' = '/redfish/v1/EventService/Subscriptions'; '@odata.type' = '#EventDestinationCollection.EventDestinationCollection'
+    Name = 'Event Subscriptions'; 'Members@odata.count' = 1
+    Members = @(@{ '@odata.id' = '/redfish/v1/EventService/Subscriptions/TelemetryOS' })
+})
+Res 'redfish\v1\EventService\Subscriptions\TelemetryOS' ([ordered]@{
+    '@odata.id' = '/redfish/v1/EventService/Subscriptions/TelemetryOS'; '@odata.type' = '#EventDestination.v1_15_0.EventDestination'
+    Id = 'TelemetryOS'; Name = 'ADC Telemetry OS event collector'
+    Destination = 'https://telemetry-os.adc.local/redfish-events'   # mock endpoint, POC Phase 1
+    SubscriptionType = 'RedfishEvent'; Protocol = 'Redfish'; EventFormatType = 'Event'
+    DeliveryRetryPolicy = 'RetryForever'
+    Status = @{ State = 'Enabled'; Health = 'OK' }
+    Oem = @{ ADC = @{ MustDeliver = @('leak (LeakDetector)', 'redundancy-loss (Redundancy)', 'pair-reversal + dew-point (Environmental v1.5.0)', 'chassis power-limit (Power v1.3.0)', 'ManagerEvent', 'ResourceEvent') } }
 })
 
 $count = (Get-ChildItem $out -Recurse -Filter index.json).Count

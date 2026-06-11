@@ -8,7 +8,7 @@
 ```
 
 `build-redfish-tree.ps1` generates a DMTF-mockup-style resource tree
-(97 resources) from ADC-SYS-001 registry constants: 5 genset chassis
+(99 resources) from ADC-SYS-001 registry constants: 5 genset chassis
 with Oem Engine/Aftertreatment blocks and Sensor v1.12.0 peak/dip
 capture, the grid-forming BESS with signed ±P, the 4.16 kV bus with
 **Redundancy v1.7.0 `MinNumNeededForFaultTolerance = 4 of 5`**, the CDU
@@ -23,7 +23,13 @@ This is the API target for dashboards and AI code before metal exists,
 and the working companion to the draft site Interoperability Profile in
 [profile/adc-site-interop-profile-draft.json](profile/adc-site-interop-profile-draft.json)
 (TEL-PROFILE groundwork): the profile says what every asset class MUST
-expose; the mockup shows it. POC Phases 2–3 swap mockup folders for
+expose; the mockup shows it; and
+`system\tools\check-interop-profile.ps1` **asserts it** — every
+mandatory property on every instance, link integrity, protocol floor —
+exit 0/1. Run it after regenerating the tree or editing the profile.
+The same check is the bridge-vendor acceptance test: dump a candidate
+endpoint as a mockup tree, point the checker at it with `-TwinRoot`.
+POC Phases 2–3 swap mockup folders for
 live bridge endpoints — same URLs, same contract.
 
 A zero-dependency implementation of MGN-TEL-001 §14 Phase 1: the

@@ -2,7 +2,7 @@
     "@odata.id":  "/redfish/v1/Chassis",
     "@odata.type":  "#ChassisCollection.ChassisCollection",
     "Name":  "Chassis Collection",
-    "Members@odata.count":  24,
+    "Members@odata.count":  23,
     "Members":  [
                     {
                         "@odata.id":  "/redfish/v1/Chassis/Genset-1"
@@ -24,9 +24,6 @@
                     },
                     {
                         "@odata.id":  "/redfish/v1/Chassis/Switchgear-4kV"
-                    },
-                    {
-                        "@odata.id":  "/redfish/v1/Chassis/CDU-1"
                     },
                     {
                         "@odata.id":  "/redfish/v1/Chassis/Rack-01"

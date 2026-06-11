@@ -1,0 +1,27 @@
+{
+    "@odata.id":  "/redfish/v1/EventService/Subscriptions/TelemetryOS",
+    "@odata.type":  "#EventDestination.v1_15_0.EventDestination",
+    "Id":  "TelemetryOS",
+    "Name":  "ADC Telemetry OS event collector",
+    "Destination":  "https://telemetry-os.adc.local/redfish-events",
+    "SubscriptionType":  "RedfishEvent",
+    "Protocol":  "Redfish",
+    "EventFormatType":  "Event",
+    "DeliveryRetryPolicy":  "RetryForever",
+    "Status":  {
+                   "State":  "Enabled",
+                   "Health":  "OK"
+               },
+    "Oem":  {
+                "ADC":  {
+                            "MustDeliver":  [
+                                                "leak (LeakDetector)",
+                                                "redundancy-loss (Redundancy)",
+                                                "pair-reversal + dew-point (Environmental v1.5.0)",
+                                                "chassis power-limit (Power v1.3.0)",
+                                                "ManagerEvent",
+                                                "ResourceEvent"
+                                            ]
+                        }
+            }
+}
