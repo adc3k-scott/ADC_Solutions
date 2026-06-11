@@ -15,7 +15,7 @@ MGN-PROP-005 lands.
 | Site control | [O] | [O] | MGN-PROP-005 (not in repo) |
 | Governing proposal doc | MGN-PROP-005 — **missing from repo, SYS-OI-02** | [O] | MGN-TEL-001 §4.3 |
 | Stage | [O] | [O] | — |
-| Identity vs Trappey's Compute Center | **COLO-01 — unconfirmed whether same site** | [O] | no repo source either way |
+| Identity vs Trappey's Compute Center | **COLO-01 — different sites (proposed answer, 2026-06-11):** Trappey's = 22-acre cannery on the Vermilion River, BTM permanent island, no utility interconnect day one (ST-TRAP-BOD-001 P-01/E-01); Cameron Street = Entergy+LUS dual-utility grid site. Closes on Scott confirmation. | [W] | ST-TRAP-BOD-001 Rev 0.6 vs MGN-TEL-001 §4.3 |
 
 ## What the repo establishes (the only sourced facts)
 
@@ -40,11 +40,12 @@ filling.
 | ID | Item | Gates |
 |---|---|---|
 | SYS-OI-02 | MGN-PROP-005 not in repo — file it (or its facts) here | site telemetry requirements; this entire record |
-| COLO-01 | Confirm whether this site and Trappey's Compute Center are the same | site register structure (merge or keep split) |
+| COLO-01 | Different-sites answer proposed (see Identity table) — Scott to confirm; records stay split | site register structure |
 
 ## Source documents
 
 | Document | Location | Status |
 |---|---|---|
 | MGN-PROP-005 (Cameron Street dual-utility site proposal) | **not in repo** | SYS-OI-02 — awaiting file drop |
+| MGN-PROP-004 Rev 0.3 — Entergy Technical Proposal (.md.docx) | [colo/Entergy Cameron Street/](../Entergy%20Cameron%20Street/) | dropped 2026-06-11, untracked — **not yet imported**; likely fills this record (extract pending) |
 | MGN-TEL-001 Rev 0.2 §4.3 | [products/Microgrid/MGN-TEL-001_Rev0_2.md](../../products/Microgrid/MGN-TEL-001_Rev0_2.md) | only repo document citing this site |

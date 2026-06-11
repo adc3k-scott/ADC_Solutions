@@ -38,13 +38,13 @@ Site records **reference, never restate,** the platform standards:
 
 | Site | Record | Status |
 |---|---|---|
-| Trappey's Compute Center | [sites/trappeys-compute-center.md](sites/trappeys-compute-center.md) | Named site (appears on the Telemetry reference title page); site facts pending |
-| Cameron Street (dual-utility) | [sites/cameron-street.md](sites/cameron-street.md) | Referenced by MGN-TEL-001 §4.3 via MGN-PROP-005 — **proposal doc not yet in repo (SYS-OI-02)** |
+| Trappey's Compute Center | [sites/trappeys-compute-center.md](sites/trappeys-compute-center.md) | **Filled 2026-06-11 from ST-TRAP-BOD-001 Rev 0.6** (external: gpu-learning-lab/adc3k-deploy/trappeys/) — 22-acre cannery, Vermilion River; 91.1 MW Stage 1 BTM island, cassette architecture (out-of-stack, see record flag) |
+| Cameron Street (dual-utility) | [sites/cameron-street.md](sites/cameron-street.md) | Referenced by MGN-TEL-001 §4.3 via MGN-PROP-005 — **proposal doc not yet in repo (SYS-OI-02)**; MGN-PROP-004 docx dropped 2026-06-11, import pending |
 
-Open question **COLO-01**: whether Trappey's Compute Center and the
-Cameron Street site are the same site is not recorded anywhere in the
-repo — Scott to confirm; the two records merge or stay split
-accordingly.
+Open question **COLO-01**: answer proposed 2026-06-11 — **different
+sites** (Trappey's = BTM-island cannery site per ST-TRAP-BOD-001;
+Cameron Street = Entergy+LUS dual-utility site). Records stay split;
+closes on Scott's confirmation.
 
 ## Open items
 
