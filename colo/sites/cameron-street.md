@@ -15,7 +15,7 @@ MGN-PROP-005 lands.
 | Site control | [O] | [O] | MGN-PROP-005 (not in repo) |
 | Governing proposal doc | MGN-PROP-005 — **missing from repo, SYS-OI-02** | [O] | MGN-TEL-001 §4.3 |
 | Stage | [O] | [O] | — |
-| Identity vs Trappey's Compute Center | **COLO-01 — different sites (proposed answer, 2026-06-11):** Trappey's = 22-acre cannery on the Vermilion River, BTM permanent island, no utility interconnect day one (ST-TRAP-BOD-001 P-01/E-01); Cameron Street = Entergy+LUS dual-utility grid site. Closes on Scott confirmation. | [W] | ST-TRAP-BOD-001 Rev 0.6 vs MGN-TEL-001 §4.3 |
+| Identity vs Trappey's Compute Center | **Different sites — CONFIRMED by Scott 2026-06-11 (decision 0003). COLO-01 CLOSED;** records stay split. | [L] | ops/decisions/0003 |
 
 ## What the repo establishes (the only sourced facts)
 
@@ -40,7 +40,7 @@ filling.
 | ID | Item | Gates |
 |---|---|---|
 | SYS-OI-02 | MGN-PROP-005 not in repo — file it (or its facts) here | site telemetry requirements; this entire record |
-| COLO-01 | Different-sites answer proposed (see Identity table) — Scott to confirm; records stay split | site register structure |
+| ~~COLO-01~~ | **CLOSED 2026-06-11** — different sites, confirmed (decision 0003); records stay split | — |
 
 ## Source documents
 

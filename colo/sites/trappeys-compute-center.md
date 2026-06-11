@@ -1,25 +1,30 @@
 # Trappey's Compute Center — Site Record
 
 **Filled from ST-TRAP-BOD-001 Rev 0.6** (Basis of Design, 2026-04-23),
-imported 2026-06-11. The governing engineering package lives **outside
-this repo** at
-`gpu-learning-lab/adc3k-deploy/trappeys/` (~18 governing docs + a
-README index, Rev 1.7) — pending Scott's decision whether it moves into
-ADC_Solutions or stays referenced. Tags below carry the BOD's own
-L/W/O status; source column cites the BOD ledger ID.
+imported 2026-06-11. Per decision
+[0003](../../ops/decisions/0003-trappeys-adc-native-reengineering.md)
+the ST-TRAP package at `gpu-learning-lab/adc3k-deploy/trappeys/`
+(~18 docs + README index Rev 1.7) is **legacy reference only** — a new
+ADC-native engineering package will be created (TRAP-OI-03). Site
+facts, regulatory posture, and load targets below carry over;
+third-party platform products do not (see the
+[third-party scan](../../ops/research/2026-06-11-trappeys-third-party-product-scan.md)).
+Tags carry the BOD's own L/W/O status; source column cites the BOD
+ledger ID.
 
 > **Name note:** the engineering package calls the project **"Trappey's
 > AI Center"**; the Telemetry reference title page says **"Trappey's
 > Compute Center."** This record keeps the repo's existing slug; treat
 > the names as the same project until Scott rules otherwise.
 
-> **Platform divergence (flag):** this site is engineered on its own
-> **Cassette platform** (40 ft ISO cassettes, 2,070 kW IT each, internal
-> 800 VDC, CoolIT CHx2000 CDU) with Cat CG260-16 gensets at 13.8 kV in
-> 11 × 4 blocks — **not** the ADC product stack (MGN-BOD-002 10 MW
-> node, ADC CDU/TCS/HAC bay). Scale (91.1 MW Stage 1) also far exceeds
-> the MISSION §BL2 5–10 MW brownfield profile. How this site relates to
-> the ADC platform standards is an open item (TRAP-OI-01 below).
+> **Platform divergence (resolved by decision 0003):** the legacy set
+> engineers the site on its own **Cassette platform** (40 ft ISO
+> cassettes, internal 800 VDC, CoolIT CHx2000 CDU) with Cat CG260-16
+> gensets at 13.8 kV in 11 × 4 blocks — not the ADC product stack.
+> Scott's ruling 2026-06-11: **re-engineer on ADC products only**
+> (ADC CDU, Modular TCS, HAC, n× MGN-BOD-002 nodes, ADC-CLU-BOM-001
+> electrical pattern, Telemetry). Scale (91.1 MW Stage 1) still far
+> exceeds the MISSION §BL2 5–10 MW profile — carried as a target.
 
 ## Identity & status
 
@@ -33,7 +38,7 @@ L/W/O status; source column cites the BOD ledger ID.
 | Governing doc | ST-TRAP-BOD-001 Rev 0.6 (working draft; external repo) | [W] | doc header |
 | Stage | diligence/proposal — engineering package in active development; C1 critical-path gates all open (NVIDIA allocation, Cat CSA, tower sizing, SHPO Part 1, LPDES + Title V pre-apps, ITEP, gas supply) | [W] | ST-TRAP-BOD-001 §M |
 | Revenue model | Colocation only, base case; LUS sell-back excluded (future optionality) | [L] | P-09, P-10 |
-| Identity vs Cameron Street (COLO-01) | **Different sites (proposed answer)** — Trappey's is a 22-acre cannery on the Vermilion River operating as a behind-the-meter permanent island with no utility interconnect day one (E-01); Cameron Street is the Entergy+LUS dual-utility site (MGN-TEL-001 §4.3, MGN-PROP-004/005). Closes on Scott confirmation. | [W] | ST-TRAP-BOD-001 P-01/E-01 vs MGN-TEL-001 §4.3 |
+| Identity vs Cameron Street (COLO-01) | **Different sites — CONFIRMED by Scott 2026-06-11 (decision 0003). COLO-01 CLOSED;** records stay split. | [L] | ops/decisions/0003 |
 
 ## Brownfield qualification checklist (MISSION.md §BL2)
 
@@ -106,9 +111,10 @@ L/W/O status; source column cites the BOD ledger ID.
 
 | ID | Item | Gates |
 |---|---|---|
-| COLO-01 | Different-sites answer proposed above — Scott to confirm; records stay split | site register structure |
-| TRAP-OI-01 | Reconcile Trappey's cassette/block architecture with ADC platform standards (or record it as deliberately out-of-stack); decide whether the ST-TRAP doc set moves into ADC_Solutions or stays referenced in gpu-learning-lab | this record's source-of-truth chain |
-| TRAP-OI-02 | Map AMCL/SCADA telemetry to TEL-PROFILE (or scope Trappey's out of it) | site Redfish interop profile |
+| ~~COLO-01~~ | **CLOSED 2026-06-11** — different sites, confirmed (decision 0003) | — |
+| ~~TRAP-OI-01~~ | **RESOLVED 2026-06-11 by decision 0003** — re-engineer ADC-native; ST-TRAP set = legacy reference, stays in gpu-learning-lab | — |
+| ~~TRAP-OI-02~~ | **FOLDED into TRAP-OI-03** — new package uses Telemetry, not AMCL/Jetson/OPC-UA | — |
+| TRAP-OI-03 | **Create the ADC-native Trappey's engineering package** (ADC CDU, Modular TCS, HAC, n× MGN-BOD-002 nodes, ADC-CLU-BOM-001 pattern, Telemetry/TEL-PROFILE). Removal/replacement checklist: [third-party scan](../../ops/research/2026-06-11-trappeys-third-party-product-scan.md). Carry-over: site facts, regulatory posture, load targets per scan §C | all site engineering; supersedes legacy ST-TRAP citations |
 
 (C1 critical-path engineering gates — NVIDIA allocation, Cat CSA, tower
 sizing, SHPO/LDEQ/ITEP filings, gas lock — are tracked in
@@ -118,7 +124,7 @@ ST-TRAP-BOD-001 §M, not duplicated here.)
 
 | Document | Location | Status |
 |---|---|---|
-| ST-TRAP-BOD-001 Rev 0.6 — Basis of Design (canonical; all values above) | `gpu-learning-lab/adc3k-deploy/trappeys/TRAP-BOD-001_Rev0.6.md` (external repo) | Working draft; imported 2026-06-11 |
-| ST-TRAP-MASTER-ENG-001 Rev 0.4 + ~16 sibling docs (ELEC, THERMAL-BASIS, COOLING-TOWER, BESS, SOLAR, CTRL, CYBER, FIRE, MODES, TAGS, Cassette-MASS/SIS…) | same folder; indexed by its README Rev 1.7 | Not imported — cite BOD-001 per its own rule |
+| ST-TRAP-BOD-001 Rev 0.6 — Basis of Design (source of the facts above) | `gpu-learning-lab/adc3k-deploy/trappeys/TRAP-BOD-001_Rev0.6.md` (external repo) | **Legacy reference per decision 0003** — facts imported 2026-06-11; not governing |
+| ST-TRAP-MASTER-ENG-001 Rev 0.4 + ~16 sibling docs (ELEC, THERMAL-BASIS, COOLING-TOWER, BESS, SOLAR, CTRL, CYBER, FIRE, MODES, TAGS, Cassette-MASS/SIS…) | same folder; indexed by its README Rev 1.7 | Legacy reference — superseded by TRAP-OI-03 package when issued |
 | Deschutes Redfish/AI Reference Rev 1.3 (title page names the site) | [products/Telemetry/](../../products/Telemetry/Deschutes_Redfish_AI_Control_Reference_TCS_Technology_Cooling_System.docx.md) | name only |
 | Investor/gallery HTML pages | [colo/Trappey's Compute Center/](../Trappey's%20Compute%20Center/) | dropped 2026-06-11, untracked; marketing, not engineering source |
