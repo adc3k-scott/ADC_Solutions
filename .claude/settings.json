@@ -30,7 +30,20 @@
       "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" status -sb)",
       "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" log origin/main --oneline)",
       "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" add products/CDU/README.md)",
-      "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" push)"
+      "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" push)",
+      "PowerShell(if \\(Test-Path \"$env:TEMP\\\\adc-pdf-extract.ps1\"\\) { \"extractor present\" } else { \"extractor missing\" }; \\(Get-Item \"C:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\\\\products\\\\TCS\\\\ADC_Solutions_Modular_TCS_BOM_Version_1_WITH_DIAGRAMS.docx.pdf\"\\).Length)",
+      "PowerShell(& \"$env:TEMP\\\\adc-pdf-extract.ps1\" -PdfPath \"C:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\\\\products\\\\TCS\\\\ADC_Solutions_Modular_TCS_BOM_Version_1_WITH_DIAGRAMS.docx.pdf\" -OutPath \"$env:TEMP\\\\adc-tcs.txt\"; \\(Get-Item \"$env:TEMP\\\\adc-tcs.txt\"\\).Length)",
+      "PowerShell(Get-Content \"$env:TEMP\\\\adc-pdf-extract.ps1\" -Tail 15)",
+      "PowerShell(& \"$env:TEMP\\\\adc-pdf-extract.ps1\" -Path \"C:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\\\\products\\\\TCS\\\\ADC_Solutions_Modular_TCS_BOM_Version_1_WITH_DIAGRAMS.docx.pdf\" | Out-File \"$env:TEMP\\\\adc-tcs.txt\" -Encoding utf8; \\(Get-Item \"$env:TEMP\\\\adc-tcs.txt\"\\).Length)",
+      "PowerShell($t = Get-Content \"$env:TEMP\\\\adc-tcs.txt\" -Raw; $t = $t -replace \"\\(\\\\r?\\\\n\\)+ \\(\\\\r?\\\\n\\)+\", \" \"; $t | Out-File \"$env:TEMP\\\\adc-tcs-clean.txt\" -Encoding utf8; $lines = Get-Content \"$env:TEMP\\\\adc-tcs-clean.txt\"; \"lines: $\\($lines.Count\\)\"; $i=0; foreach \\($l in $lines\\) { \"{0}: {1}\" -f $i, $l.Length; $i++ })",
+      "PowerShell($lines = Get-Content \"$env:TEMP\\\\adc-tcs-clean.txt\" | Where-Object { $_.Trim\\(\\).Length -gt 0 }; $lines | Out-File \"$env:TEMP\\\\adc-tcs-dense.txt\" -Encoding utf8; \"lines: $\\($lines.Count\\)\"; \"chars: $\\(\\(Get-Item \"$env:TEMP\\\\adc-tcs-dense.txt\"\\).Length\\)\")",
+      "PowerShell($lines = Get-Content \"$env:TEMP\\\\adc-tcs-dense.txt\"; $keep = foreach \\($l in $lines\\) { $ascii = \\([regex]::Matches\\($l, '[\\\\x20-\\\\x7E]'\\)\\).Count; if \\($l.Length -gt 0 -and $ascii / $l.Length -gt 0.95 -and $l -match '[a-zA-Z]{3}'\\) { $l } }; $keep | Out-File \"$env:TEMP\\\\adc-tcs-text.txt\" -Encoding utf8; \"kept: $\\($keep.Count\\) lines, $\\(\\(Get-Item \"$env:TEMP\\\\adc-tcs-text.txt\"\\).Length\\) chars\")",
+      "PowerShell(git -C \"C:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" log --oneline -3)",
+      "PowerShell(git -C \"C:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" show --stat --format=\"%h %s\" f59fe51)",
+      "PowerShell(git -C \"C:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" rev-parse origin/main)",
+      "PowerShell(git -C \"C:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" rev-parse main)",
+      "PowerShell(git -C \"C:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" add products/TCS/README.md)",
+      "PowerShell(git -C \"C:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" push origin main)"
     ]
   }
 }
