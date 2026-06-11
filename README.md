@@ -15,7 +15,8 @@ Start with [CLAUDE.md](CLAUDE.md) (AI agent context) and [MISSION.md](MISSION.md
 | [ops/systems-of-record.md](ops/systems-of-record.md) | What lives where (GitHub / Notion / Drive / Workspace / website) |
 | [ops/decisions/](ops/decisions/) | Numbered decision log |
 | [company/](company/) | Legal, brand, formation documents (as Markdown) |
-| [products/](products/) | Specs: CDUs, TCS, HAC structures, NG microgrid |
+| [products/](products/) | Specs: CDUs, TCS, HAC structures, NG microgrid, AI-native OS |
+| [system/](system/) | ADC-SYS-001 machine-readable system registry + executable twin |
 | [colo/](colo/) | Colocation business: brownfield pipeline, greenfield, oilfield AI enterprise |
 | [website/](website/) | Source for ADC3K.com |
 
@@ -23,7 +24,8 @@ Start with [CLAUDE.md](CLAUDE.md) (AI agent context) and [MISSION.md](MISSION.md
 
 1. **Modular infrastructure** — CDUs (2 MW, 5 MW in development), modular
    Technology Cooling Systems, Hot Aisle Containment structures
-   (Google/NVIDIA bay form factors), 10 MW NG genset microgrids with unified
+   (Google/NVIDIA bay form factors), 10 MW NG genset microgrids — operated
+   as one machine by the [AI-native OS](products/OS/README.md) over unified
    Redfish telemetry.
 2. **Colocation (CSP)** — brownfield 5–10 MW site repurposing, greenfield
    NG/water-rich development, AI enterprise for Louisiana oilfield services.
