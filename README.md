@@ -24,7 +24,8 @@ Start with [CLAUDE.md](CLAUDE.md) (AI agent context) and [MISSION.md](MISSION.md
 
 1. **Modular infrastructure** — CDUs (2 MW, 5 MW in development), modular
    Technology Cooling Systems, Hot Aisle Containment structures
-   (Google/NVIDIA bay form factors), 10 MW NG genset microgrids — operated
+   (Google/OCP Redmond engineered; NVIDIA MGX variant in development),
+   10 MW NG genset microgrids — operated
    as one machine by [Telemetry](products/Telemetry/README.md), our
    AI-native operating system.
 2. **Colocation (CSP)** — brownfield 5–10 MW site repurposing, greenfield

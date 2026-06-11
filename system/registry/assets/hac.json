@@ -8,7 +8,7 @@
   "parameters": [
     {"key": "product_form", "value": "factory-cut, pre-drilled, barcoded, site-bolted structure kit (posts, base plates, X-beams, cross-aisle beams, hangers, baskets, unistrut) — no field welding", "tag": "W", "source": "products/HAC/README.md scope"},
     {"key": "owner_fungible", "value": "containment panels (§18.6), busduct attachment (§18.7), RDHx + its containment (§18.9), PCW above Level 4", "tag": "L", "source": "Deschutes §18"},
-    {"key": "form_factor_compatibility", "value": "Google 28-in x 4-wide drop-in (Redmond); NVIDIA 24-in x 5-wide per MISSION.md — NVIDIA variant not yet engineered", "tag": "O", "source": "MISSION.md; gap noted in SYS-OI-03"},
+    {"key": "form_factor_compatibility", "value": "Google/OCP Redmond 28-in x 4-wide: ENGINEERED. NVIDIA MGX 600 mm: CONCEPT — rack 600x1068-1200mm, 48U, ~3000-3500 lb, >=150 kW/rack design, whip-fed, 12-15 kW/rack residual air heat; no published containment interface ('5-wide' was an ADC assumption); gated on NVIDIA/OEM data package or OCP ODS 1.0", "tag": "O", "source": "ops/research/2026-06-10-nvidia-mgx-hac-variant.md (SYS-OI-03)"},
     {"key": "fusion360_plan", "value": "parametric repeatable bay, inch-primary, fixed critical params vs fungible params per products/HAC/README.md (HAC-OI-05)", "tag": "W", "source": "products/HAC/README.md"}
   ]
 }

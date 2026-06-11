@@ -16,8 +16,10 @@ components:
   cooling while accelerating on-site construction through plug-and-play
   installation.
 - **Hot Aisle Containment (HAC) Structures** — custom-built architectural
-  frameworks designed for immediate drop-in compatibility with Google
-  (28" × 4-wide) and NVIDIA (24" × 5-wide) bay form factors.
+  frameworks with immediate drop-in compatibility with the Google / OCP
+  Redmond bay (28" × 4-wide, fully engineered); an NVIDIA MGX (600 mm)
+  bay variant is in development pending an NVIDIA/OEM site-planning data
+  package (see `ops/research/2026-06-10-nvidia-mgx-hac-variant.md`).
 - **10 MW Natural Gas Genset Microgrid** — a fungible 10 MW natural gas genset
   microgrid designed to scale, fully controlled through our unified Redfish
   telemetry architecture.

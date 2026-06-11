@@ -184,6 +184,23 @@ deliver the "4 makes 3" power whose rack-level power-limit events close
 the loop back to the microgrid. Level 1 (100.5″) carries the WMF / TCS
 header. See [Microgrid + Unified Telemetry](../Microgrid/README.md).
 
+## NVIDIA MGX variant (concept — SYS-OI-03)
+
+Researched 2026-06-10
+([full report](../../ops/research/2026-06-10-nvidia-mgx-hac-variant.md)):
+**Redmond is the only published OCP HAC interface** — no NVIDIA/OCP
+containment spec, elevations, or bay geometry exists publicly, and the
+"5-wide" bay was an ADC assumption (plausible: 5 × 600 mm = 118.1″ vs
+Redmond's 121″, structurally adjacent to this design — but unendorsed).
+Published basis for concept design: rack 600 mm W × 1,068–1,200 mm D ×
+48U (88–91″), ~3,000–3,500 lb loaded; **135 kW TDP / 155 kW peak**
+(design ≥150 kW/rack); whip-fed power (6–8× 60 A IEC 60309 per rack —
+the structure routes whips, not busduct); 59–177 LPM liquid per rack
+with **~12–15 kW/rack residual air heat** for the containment to
+manage; footprint stable through the Vera Rubin generation. Full
+engineering is gated on an NVIDIA/OEM site-planning package (NDA) or
+the OCP Open Data Center 1.0 spec, where NVIDIA is a named contributor.
+
 ## Roadmap
 
 The bay structure scales with the same deployment families as the TCS:
