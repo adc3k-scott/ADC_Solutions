@@ -114,7 +114,7 @@ ledger ID.
 | ~~COLO-01~~ | **CLOSED 2026-06-11** — different sites, confirmed (decision 0003) | — |
 | ~~TRAP-OI-01~~ | **RESOLVED 2026-06-11 by decision 0003** — re-engineer ADC-native; ST-TRAP set = legacy reference, stays in gpu-learning-lab | — |
 | ~~TRAP-OI-02~~ | **FOLDED into TRAP-OI-03** — new package uses Telemetry, not AMCL/Jetson/OPC-UA | — |
-| TRAP-OI-03 | **Create the ADC-native Trappey's engineering package** (ADC CDU, Modular TCS, HAC, n× MGN-BOD-002 nodes, ADC-CLU-BOM-001 pattern, Telemetry/TEL-PROFILE). Removal/replacement checklist: [third-party scan](../../ops/research/2026-06-11-trappeys-third-party-product-scan.md). Carry-over: site facts, regulatory posture, load targets per scan §C | all site engineering; supersedes legacy ST-TRAP citations |
+| TRAP-OI-03 | **Create the ADC-native Trappey's engineering package** (ADC CDU, Modular TCS, HAC, n× MGN-BOD-002 nodes, ADC-CLU-BOM-001 pattern, Telemetry/TEL-PROFILE). Removal/replacement checklist: [third-party scan](../../ops/research/2026-06-11-trappeys-third-party-product-scan.md). Carry-over: site facts, regulatory posture, load targets per scan §C. **Phase 1 skeleton ISSUED 2026-06-11** ([trappeys-engineering/](trappeys-engineering/): ADC-TRAP-SIZE-001 Rev 0.1 — 19 N★ blocks Stage 1 recommended, candidate fill = 4× reference cluster) — awaiting Scott review; package-local items TRAP-OI-04..07 live in the [package README](trappeys-engineering/README.md) | all site engineering; supersedes legacy ST-TRAP citations |
 
 (C1 critical-path engineering gates — NVIDIA allocation, Cat CSA, tower
 sizing, SHPO/LDEQ/ITEP filings, gas lock — are tracked in
