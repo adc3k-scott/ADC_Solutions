@@ -171,6 +171,16 @@ public; ADC open items before fabrication drawings:
   panels as an option or leaves them owner-supplied per OCP §18.6.
 - **HAC-OI-05** — Fusion 360 parametric model per the plan above.
 
+## Unified telemetry (MGN-TEL-001)
+
+The HAC structure physically carries the platform's unified telemetry
+plane: the Level 2–4 cable trays (115.5″ / 127.5″ / 139.5″) route the
+telemetry, fabric, and observability network that puts gensets, BESS,
+CDU, TCS, and racks in one Redfish namespace, and the hot-aisle busducts
+deliver the "4 makes 3" power whose rack-level power-limit events close
+the loop back to the microgrid. Level 1 (100.5″) carries the WMF / TCS
+header. See [Microgrid + Unified Telemetry](../Microgrid/README.md).
+
 ## Roadmap
 
 The bay structure scales with the same deployment families as the TCS:

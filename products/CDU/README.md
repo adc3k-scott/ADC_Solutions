@@ -87,6 +87,15 @@ relief valve basis with AHJ, wetted-material certs, native-Redfish vs
 bridge decision, TCS interface control document, Louisiana site-specific
 seismic basis (stamped), and validation plan.
 
+## Unified telemetry (MGN-TEL-001)
+
+The CDU is telemetry domain **D3 (cooling, Tier 2)** of the platform-wide
+unified telemetry plane — its PLC is bridged Modbus→Redfish per the
+Deschutes reference and federated with the gensets, BESS, TCS, and IT
+racks into one Redfish namespace on one clock. The PLC retains safety
+authority; the plane is supervisory only. See
+[Microgrid + Unified Telemetry](../Microgrid/README.md).
+
 ## Roadmap
 
 A 5 MW-class CDU is in development as the follow-on product

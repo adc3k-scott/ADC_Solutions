@@ -102,6 +102,17 @@ selection)**, AIR-01 (deferred campus air separator), QAQC-01 (installer
 traceability), CDU-01 (CDU-as-flushing-rig approval), RELIEF-01 (relief
 setpoint schedule).
 
+## Unified telemetry (MGN-TEL-001)
+
+TCS telemetry — per-branch flow and ΔT, end-of-line ΔP, balancing-valve
+position, filter ΔP, coolant quality, and the 3-zone leak ropes — rides
+the platform-wide unified telemetry plane as **Tier 2 under the CDU**
+(domain D3), reaching Redfish via the CDU bridge as `Oem/TCSInterface/*`
+and `SecondaryCoolantConnectors/{rack}`. Environmental registry v1.5.0
+pair-reversal events catch supply/return cross-connection at
+commissioning; dew-point events flag condensation risk. See
+[Microgrid + Unified Telemetry](../Microgrid/README.md).
+
 ## Roadmap
 
 The Reference Bay is the "small" 2026/2027 deployment family (≤ 20 MW
