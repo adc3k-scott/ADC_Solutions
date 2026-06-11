@@ -1,7 +1,7 @@
 # Cameron Street (Entergy, dual-utility) — Site Record
 
 **Filled from MGN-PROP-004 Rev 0.3** (Entergy Louisiana Technical
-Proposal, Working Draft, 2026-06-08), imported 2026-06-12 from the
+Proposal, Working Draft, 2026-06-08), imported 2026-06-11 from the
 tracked docx in
 [colo/Entergy Cameron Street/](../Entergy%20Cameron%20Street/).
 The proposal is a Working Draft prepared by Scott, so its facts carry
@@ -123,16 +123,18 @@ terms, #7 IEEE 1547/export settings, #8 site ambient (ELEC-006),
 
 | ID | Item | Gates |
 |---|---|---|
-| SYS-OI-02 | MGN-PROP-005 (dual-utility) still not in repo — **PROP-004 checked 2026-06-12: does NOT subsume it** (no LUS/dual-utility content); also confirms/denies whether PROP-005's site is this parcel | dual-utility fact; island-separation TEL-PROFILE requirement |
+| SYS-OI-02 | MGN-PROP-005 (dual-utility) still not in repo — **PROP-004 checked 2026-06-11: does NOT subsume it** (no LUS/dual-utility content); also confirms/denies whether PROP-005's site is this parcel | dual-utility fact; island-separation TEL-PROFILE requirement |
 | CAM-OI-01 | Entergy §5 data exchange — threshold #1 parcel status + #2 adjacent substation (voltage/capacity/spare bay); then #3–#10 | site control; POI/step-up scheme; every [O] row above |
-| CAM-OI-02 | Re-base proposal on MGN-BOD-002 Rev 0.2 (+ errata) at next rev — PROP-004 Rev 0.3 cites Rev 0.1 | next MGN-PROP-004 revision |
+| CAM-OI-02 | Re-base proposal on MGN-BOD-002 Rev 0.2 (+ errata) at next rev — PROP-004 Rev 0.3 cites Rev 0.1 and the preview.html deck cites Rev 0.3 (does not exist in repo) | next MGN-PROP-004 revision |
+| CAM-OI-03 | **Retail-territory check:** the Entergy deep-dive (partners/Entergy/Entergy Info.pdf) flags genuine uncertainty whether 2623 Cameron Street is in Entergy retail territory at all — west Lafayette is heavily SLEMCO/LUS. Resolve at the §5 working session (it reshapes the standby-service and metering asks, #5–#6) | proposal viability; standby/metering structure |
 | ~~COLO-01~~ | **CLOSED 2026-06-11** — different sites, confirmed (decision 0003); records stay split | — |
 
 ## Source documents
 
 | Document | Location | Status |
 |---|---|---|
-| MGN-PROP-004 Rev 0.3 — Entergy Technical Proposal (.md.docx + preview.html) | [colo/Entergy Cameron Street/](../Entergy%20Cameron%20Street/) | tracked (commit 2b420f4); **imported into this record 2026-06-12** |
+| MGN-PROP-004 Rev 0.3 — Entergy Technical Proposal (.md.docx + preview.html) | [colo/Entergy Cameron Street/](../Entergy%20Cameron%20Street/) | tracked (commit 2b420f4); **imported into this record 2026-06-11** |
+| Entergy corporate / interconnection deep-dive | [partners/Entergy/Entergy Info.pdf](../../partners/Entergy/Entergy%20Info.pdf) | tracked; no text layer — render to read; source of CAM-OI-03 |
 | MGN-PROP-005 (Cameron Street dual-utility site proposal) | **not in repo** | SYS-OI-02 — awaiting file drop; PROP-004 does not subsume it |
 | MGN-BOD-002 Rev 0.2 | [products/Microgrid/MGN-BOD-002_Rev0_2.md](../../products/Microgrid/MGN-BOD-002_Rev0_2.md) | governing node basis (PROP-004 cites Rev 0.1 — CAM-OI-02) |
 | MGN-TEL-001 Rev 0.2 §4.3 | [products/Microgrid/MGN-TEL-001_Rev0_2.md](../../products/Microgrid/MGN-TEL-001_Rev0_2.md) | only source for the dual-utility / island-separation fact |

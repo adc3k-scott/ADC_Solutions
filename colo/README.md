@@ -36,10 +36,17 @@ Site records **reference, never restate,** the platform standards:
 
 ## Site register
 
+Sites scale in **N★ blocks** (5 MW IT heat load + 10 MW MGN-BOD-002
+node — the safe building block, decision
+[0004](../ops/decisions/0004-n-star-block-topology.md)).
+
 | Site | Record | Status |
 |---|---|---|
 | Trappey's Compute Center | [sites/trappeys-compute-center.md](sites/trappeys-compute-center.md) | **Filled 2026-06-11 from ST-TRAP-BOD-001 Rev 0.6** (legacy reference, external) — 22-acre cannery, Vermilion River; 91.1 MW Stage 1 BTM island. **ADC-native re-engineering decided ([0003](../ops/decisions/0003-trappeys-adc-native-reengineering.md)) — new package = TRAP-OI-03** |
-| Cameron Street (Entergy, dual-utility) | [sites/cameron-street.md](sites/cameron-street.md) | **Filled 2026-06-12 from MGN-PROP-004 Rev 0.3** (Entergy BTM proposal; 2623 Cameron St, Entergy ops site + adjacent substation; Phase-1 pilot + single 10 MW node). PROP-004 does **not** subsume MGN-PROP-005 (dual-utility) — **SYS-OI-02 stays open** |
+| Cameron Street (Entergy, dual-utility) | [sites/cameron-street.md](sites/cameron-street.md) | **Filled 2026-06-11 from MGN-PROP-004 Rev 0.3** (Entergy BTM proposal; 2623 Cameron St, Entergy ops site + adjacent substation; Phase-1 pilot + single 10 MW node). PROP-004 does **not** subsume MGN-PROP-005 — **SYS-OI-02 stays open**; retail-territory check = CAM-OI-03 |
+| Willow Glen Compute Campus | [sites/willow-glen.md](sites/willow-glen.md) | **Created 2026-06-11** — retired riverfront power station (WGT campus, Zydeco/Yorktown); deal playbook = ground lease/option, gated on independent Entergy/MISO load inquiry (COLO-02). Comp: Hut 8 River Bend 25 mi north |
+| Marlie Hub (MARLIE 1) | [sites/marlie-hub.md](sites/marlie-hub.md) | **Created 2026-06-11** — seed-round POC site: first 3 Pure-DC cassettes (Ornn thread). Origin of the legacy "Marlie-pattern block" name. Scope doc needed (COLO-03) |
+| Evangeline Distribution Hub | [sites/evangeline-distribution-hub.md](sites/evangeline-distribution-hub.md) | **Created 2026-06-11** — 1016 SW Evangeline Thruway: $6M leasehold-only offer (land = Union Pacific), 173 kSF warehouse / 12.26 ac; likely BL1 distribution hub; ground-lease diligence = COLO-04 |
 
 **COLO-01 CLOSED 2026-06-11:** Trappey's and Cameron Street are
 **different sites**, confirmed by Scott (decision 0003). Records stay
@@ -49,7 +56,11 @@ split.
 
 Colo-relevant items live in the unified register
 (`system/registry/open-items.json`): SYS-OI-02 (MGN-PROP-005 file
-drop), COLO-01 (site identity), ENV-001 (PTE / minor-source — gates
-every 200 MW campus commitment), ELEC-006 (firm-MW de-rate to site
-ambient — gates every commercial commitment), CIVIL-001/002 (footprint,
-acoustics — gate site layout/selection).
+drop), COLO-02 (Willow Glen site control), COLO-03 (MARLIE 1 POC
+scope), COLO-04 (Evangeline use decision + ground-lease diligence),
+ENV-001 (PTE / minor-source — gates every 200 MW campus commitment),
+ELEC-006 (firm-MW de-rate to site ambient — gates every commercial
+commitment), CIVIL-001/002 (footprint, acoustics — gate site
+layout/selection). Site-local items (CAM-/WG-/MAR-/EVA-/TRAP-OI-xx)
+live in their site records. Drop survey:
+[ops/research/2026-06-11-colo-drops-survey.md](../ops/research/2026-06-11-colo-drops-survey.md).
