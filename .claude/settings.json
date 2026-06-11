@@ -43,7 +43,23 @@
       "PowerShell(git -C \"C:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" rev-parse origin/main)",
       "PowerShell(git -C \"C:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" rev-parse main)",
       "PowerShell(git -C \"C:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" add products/TCS/README.md)",
-      "PowerShell(git -C \"C:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" push origin main)"
+      "PowerShell(git -C \"C:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" push origin main)",
+      "PowerShell(& \"$env:TEMP\\\\adc-pdf-extract.ps1\" -Path \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\\\\products\\\\CDU\\\\OCP-Specification-Deschutes v1_0.pdf\" | Out-File \"$env:TEMP\\\\adc-deschutes.txt\" -Encoding utf8; \\(Get-Item \"$env:TEMP\\\\adc-deschutes.txt\"\\).Length)",
+      "PowerShell($lines = Get-Content \"$env:TEMP\\\\adc-deschutes.txt\"; $keep = $lines | Where-Object { $ascii = \\([regex]::Matches\\($_, '[\\\\x20-\\\\x7E]'\\)\\).Count; $_.Length -gt 0 -and $ascii / $_.Length -gt 0.95 -and $_ -match '[a-zA-Z]{3}' }; $keep | Out-File \"$env:TEMP\\\\adc-deschutes-text.txt\" -Encoding utf8; $keep.Count)",
+      "PowerShell($lines = Get-Content \"$env:TEMP\\\\adc-deschutes-text.txt\"; $sec = $lines[6070..7330] -join ' '; $sec = $sec -replace '\\\\s+', ' '; $sec | Out-File \"$env:TEMP\\\\adc-deschutes-hac.txt\" -Encoding utf8; $sec.Length)",
+      "PowerShell(Select-String -Path \"$env:TEMP\\\\adc-deschutes-text.txt\" -Pattern \"Aisle\" | Select-Object -First 20 LineNumber, Line)",
+      "PowerShell(Select-String -Path \"$env:TEMP\\\\adc-deschutes.txt\" -Pattern \"Min bay width|Min row length|ceiling height\" | Select-Object LineNumber, Line)",
+      "PowerShell($raw = Get-Content \"$env:TEMP\\\\adc-deschutes.txt\"; $idx = 0..\\($raw.Count-1\\) | Where-Object { $raw[$_] -match '^bay$|^bay ' } | Select-Object -First 5; $idx; $m = \\(Select-String -Path \"$env:TEMP\\\\adc-deschutes.txt\" -Pattern \"width\" | Select-Object -First 30 LineNumber, Line\\); $m)",
+      "PowerShell($raw = Get-Content \"$env:TEMP\\\\adc-deschutes.txt\"; \\($raw[38150..38650] -join ' '\\) -replace '\\\\s+', ' ')",
+      "PowerShell($raw = Get-Content \"$env:TEMP\\\\adc-deschutes.txt\"; $j = \\($raw[38650..39400] -join ' '\\) -replace '\\\\s+', ' '; $j)",
+      "PowerShell($raw = Get-Content \"$env:TEMP\\\\adc-deschutes.txt\"; $j = \\($raw[39400..40300] -join ' '\\) -replace '\\\\s+', ' '; $j)",
+      "PowerShell($raw = Get-Content \"$env:TEMP\\\\adc-deschutes.txt\"; $j = \\($raw[40300..41400] -join ' '\\) -replace '\\\\s+', ' '; $j)",
+      "PowerShell($raw = Get-Content \"$env:TEMP\\\\adc-deschutes.txt\"; $j = \\($raw[41400..42400] -join ' '\\) -replace '\\\\s+', ' '; $j)",
+      "PowerShell($raw = Get-Content \"$env:TEMP\\\\adc-deschutes.txt\"; $a = \\($raw[37700..38170] -join ' '\\) -replace '\\\\s+', ' '; $b = \\($raw[42400..42900] -join ' '\\) -replace '\\\\s+', ' '; \"=== START ===\"; $a; \"=== TAIL ===\"; $b)",
+      "PowerShell($raw = Get-Content \"$env:TEMP\\\\adc-deschutes.txt\"; $j = \\($raw[37100..37700] -join ' '\\) -replace '\\\\s+', ' '; $j)",
+      "PowerShell($raw = Get-Content \"$env:TEMP\\\\adc-deschutes.txt\"; $j = \\($raw[36500..37100] -join ' '\\) -replace '\\\\s+', ' '; $j)",
+      "PowerShell($raw = Get-Content \"$env:TEMP\\\\adc-deschutes.txt\"; $j = \\($raw[36100..36500] -join ' '\\) -replace '\\\\s+', ' '; $j)",
+      "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" add products/HAC/README.md)"
     ]
   }
 }
