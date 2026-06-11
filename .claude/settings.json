@@ -1,7 +1,17 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell(Add-Type -AssemblyName System.IO.Compression.FileSystem; $zip = [System.IO.Compression.ZipFile]::OpenRead\\(\"$PWD\\\\ADC Solutions Mission Context.docx\"\\); $entry = $zip.GetEntry\\('word/document.xml'\\); $reader = New-Object System.IO.StreamReader\\($entry.Open\\(\\)\\); $xml = $reader.ReadToEnd\\(\\); $reader.Close\\(\\); $zip.Dispose\\(\\); $xml = $xml -replace '</w:p>', \"`n\"; $text = $xml -replace '<[^>]+>', ''; $text = [System.Net.WebUtility]::HtmlDecode\\($text\\); $text)"
+      "PowerShell(Add-Type -AssemblyName System.IO.Compression.FileSystem; $zip = [System.IO.Compression.ZipFile]::OpenRead\\(\"$PWD\\\\ADC Solutions Mission Context.docx\"\\); $entry = $zip.GetEntry\\('word/document.xml'\\); $reader = New-Object System.IO.StreamReader\\($entry.Open\\(\\)\\); $xml = $reader.ReadToEnd\\(\\); $reader.Close\\(\\); $zip.Dispose\\(\\); $xml = $xml -replace '</w:p>', \"`n\"; $text = $xml -replace '<[^>]+>', ''; $text = [System.Net.WebUtility]::HtmlDecode\\($text\\); $text)",
+      "PowerShell(gh auth status)",
+      "PowerShell(git config user.name)",
+      "PowerShell(git config user.email)",
+      "PowerShell(git ls-remote https://github.com/Scott-adc3k/ADC_Solutions.git)",
+      "PowerShell(Get-ChildItem \"$env:USERPROFILE\\\\OneDrive\\\\Documents\\\\GitHub\" -Directory | ForEach-Object { $remote = git -C $_.FullName remote get-url origin 2>$null; if \\($remote\\) { \"$\\($_.Name\\): $remote\" } })",
+      "PowerShell($cred = \"url=https://github.com`nprotocol=https`nhost=github.com`n\" | git credential fill; $token = \\($cred | Select-String 'password=\\(.+\\)'\\).Matches[0].Groups[1].Value; $body = @{name='ADC_Solutions'; description='ADC Solutions Inc - company single source of truth'; private=$true} | ConvertTo-Json; try { $r = Invoke-RestMethod -Uri 'https://api.github.com/user/repos' -Method Post -Headers @{Authorization=\"token $token\"; Accept='application/vnd.github+json'} -Body $body -ContentType 'application/json'; \"Created: $\\($r.html_url\\) \\(private: $\\($r.private\\)\\)\" } catch { \"FAILED: $\\($_.Exception.Message\\) - $\\($_.ErrorDetails.Message\\)\" })",
+      "PowerShell(git ls-remote https://github.com/adc3k-scott/ADC_Solutions.git; if \\($?\\) { \"---\"; $cred = \"url=https://github.com`nprotocol=https`nhost=github.com`n\" | git credential fill; $token = \\($cred | Select-String 'password=\\(.+\\)'\\).Matches[0].Groups[1].Value; $r = Invoke-RestMethod -Uri 'https://api.github.com/repos/adc3k-scott/ADC_Solutions' -Headers @{Authorization=\"token $token\"}; \"private: $\\($r.private\\), default_branch: $\\($r.default_branch\\), size: $\\($r.size\\), pushed: $\\($r.pushed_at\\), desc: $\\($r.description\\)\" })",
+      "PowerShell(git branch -m master main)",
+      "PowerShell(git remote add origin https://adc3k-scott@github.com/adc3k-scott/ADC_Solutions.git)",
+      "PowerShell(git push -u origin main)"
     ]
   }
 }
