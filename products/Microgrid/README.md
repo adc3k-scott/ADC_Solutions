@@ -20,8 +20,9 @@ Markdown view of them — if they disagree, the documents win.
 
 | Document | File | Status |
 |---|---|---|
-| MGN-BOD-002 — 10 MW AC-MV Natural-Gas Microgrid Node, Basis of Design, Rev 0.1 (2026-06-08) | [MGN-BOD-002_10MW_Rev0_1.md.docx](MGN-BOD-002_10MW_Rev0_1.md.docx) | Working draft; parameters tagged [L] Locked / [W] Working / [O] Open |
-| MGN-TEL-001 — Unified Telemetry & Observability Architecture (Power + Compute), Basis of Design, Rev 0.1 (2026-06-08) | [MGN-TEL-001_Unified_Telemetry_Rev0_1.md (1).docx](MGN-TEL-001_Unified_Telemetry_Rev0_1.md%20(1).docx) | Working draft; parents: MGN-BOD-002 + OCP Deschutes Redfish/AI reference v1.2 |
+| MGN-BOD-002 — 10 MW AC-MV Natural-Gas Microgrid Node, Basis of Design, **Rev 0.2** (2026-06-10) | [MGN-BOD-002_Rev0_2.md](MGN-BOD-002_Rev0_2.md) | **Governing** (Markdown, errata applied — pending Scott's approval); Rev 0.1 docx retained as history |
+| MGN-TEL-001 — Unified Telemetry & Observability Architecture, Basis of Design, **Rev 0.2** (2026-06-10) | [MGN-TEL-001_Rev0_2.md](MGN-TEL-001_Rev0_2.md) | **Governing** (Markdown, errata applied — pending Scott's approval); Rev 0.1 docx retained as history |
+| Rev 0.1 history | [MGN-BOD-002_10MW_Rev0_1.md.docx](MGN-BOD-002_10MW_Rev0_1.md.docx) · [MGN-TEL-001_Unified_Telemetry_Rev0_1.md (1).docx](MGN-TEL-001_Unified_Telemetry_Rev0_1.md%20(1).docx) | Superseded 2026-06-10 |
 
 ## The node (MGN-BOD-002)
 

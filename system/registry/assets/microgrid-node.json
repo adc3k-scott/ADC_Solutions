@@ -2,7 +2,7 @@
   "id": "microgrid-node",
   "name": "ADC 10 MW AC-MV natural-gas microgrid node",
   "spec_sheet": "products/Microgrid/README.md",
-  "source_documents": ["MGN-BOD-002_10MW_Rev0_1.md.docx (Rev 0.1, 2026-06-08)"],
+  "source_documents": ["products/Microgrid/MGN-BOD-002_Rev0_2.md (Rev 0.2, 2026-06-10, governing; Rev 0.1 docx = history)"],
   "telemetry_domain": "D1 (gensets, BESS, switchgear, SCR — Modbus/J1939/DNP3-61850/SunSpec → Redfish bridge)",
   "interfaces": ["node-compute-electrical", "telemetry-northbound"],
   "parameters": [
