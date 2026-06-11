@@ -11,7 +11,26 @@
       "PowerShell(git ls-remote https://github.com/adc3k-scott/ADC_Solutions.git; if \\($?\\) { \"---\"; $cred = \"url=https://github.com`nprotocol=https`nhost=github.com`n\" | git credential fill; $token = \\($cred | Select-String 'password=\\(.+\\)'\\).Matches[0].Groups[1].Value; $r = Invoke-RestMethod -Uri 'https://api.github.com/repos/adc3k-scott/ADC_Solutions' -Headers @{Authorization=\"token $token\"}; \"private: $\\($r.private\\), default_branch: $\\($r.default_branch\\), size: $\\($r.size\\), pushed: $\\($r.pushed_at\\), desc: $\\($r.description\\)\" })",
       "PowerShell(git branch -m master main)",
       "PowerShell(git remote add origin https://adc3k-scott@github.com/adc3k-scott/ADC_Solutions.git)",
-      "PowerShell(git push -u origin main)"
+      "PowerShell(git push -u origin main)",
+      "PowerShell($cmds = 'pdftotext','pdftoppm','python','py','mutool','gswin64c','qpdf'; foreach \\($c in $cmds\\) { $g = Get-Command $c -ErrorAction SilentlyContinue; if \\($g\\) { \"$c -> $\\($g.Source\\)\" } }; try { $w = New-Object -ComObject Word.Application; \"Word COM: available\"; $w.Quit\\(\\) } catch { \"Word COM: NOT available\" })",
+      "PowerShell(python --version; \"exit: $LASTEXITCODE\")",
+      "PowerShell(& C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\adc-pdf-extract.ps1 -Path \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\\\\products\\\\CDU\\\\ADC_Deschutes_CDU_BOM_v0_2_WITH_DIAGRAMS.docx.pdf\" | Out-File -Encoding utf8 C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\adc-bom.txt; \\(Get-Content C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\adc-bom.txt | Measure-Object -Line\\).Lines)",
+      "PowerShell($t = Get-Content -Raw C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\adc-bom.txt; $t = $t -replace \"\\(\\\\r?\\\\n\\)+ \\(\\\\r?\\\\n\\)+\", ' ' -replace \"\\(\\\\r?\\\\n\\){2,}\", \"`n\"; $t | Out-File -Encoding utf8 C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\adc-bom-clean.txt; \\(Get-Content C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\adc-bom-clean.txt | Measure-Object -Line\\).Lines)",
+      "PowerShell($i=0; Get-Content C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\adc-bom-clean.txt | ForEach-Object { $i++; \"{0,3} {1,8} chars\" -f $i, $_.Length })",
+      "PowerShell($lines = Get-Content C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\adc-bom-clean.txt; foreach \\($n in 26,30,31\\) { \"=== LINE $n \\(first 1200 chars\\) ===\"; $lines[$n-1].Substring\\(0, [Math]::Min\\(1200, $lines[$n-1].Length\\)\\) })",
+      "PowerShell($lines = Get-Content C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\adc-bom-clean.txt; $keep = 27,28,29,32,33,34,36,37,38,39,40,41,42,43,44,45; foreach \\($n in $keep\\) { \"=== LINE $n ===\"; $lines[$n-1] })",
+      "PowerShell(& C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\adc-pdf-extract.ps1 -Path \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\\\\products\\\\CDU\\\\OCP-Specification-Deschutes v1_0.pdf\" | Out-File -Encoding utf8 C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\ocp-deschutes.txt; $t = Get-Content -Raw C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\ocp-deschutes.txt; \"chars: $\\($t.Length\\)\"; $t.Substring\\(0, [Math]::Min\\(1500, $t.Length\\)\\))",
+      "PowerShell($t = Get-Content -Raw C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\ocp-deschutes.txt; $t = $t -replace \"\\(\\\\r?\\\\n\\)+ \\(\\\\r?\\\\n\\)+\", ' ' -replace \"\\(\\\\r?\\\\n\\){2,}\", \"`n\"; $t | Out-File -Encoding utf8 C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\ocp-deschutes-clean.txt; \"chars: $\\($t.Length\\)\")",
+      "Read(//c/Users/adhsc/AppData/Local/Temp/**)",
+      "PowerShell($t = Get-Content -Raw C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\ocp-deschutes-clean.txt; $t = \\($t -replace \"[`0]\", ''\\) -replace '[^\\\\x09\\\\x0A\\\\x0D\\\\x20-\\\\x7E -˿‐-™]', ''; $t | Out-File -Encoding utf8 C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\ocp-deschutes-clean.txt; \"done: $\\($t.Length\\) chars\")",
+      "PowerShell($lines = Get-Content C:\\\\Users\\\\adhsc\\\\AppData\\\\Local\\\\Temp\\\\ocp-deschutes-clean.txt; \\($lines[459..545] -join \"`n\"\\))",
+      "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" status --short)",
+      "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" log --oneline)",
+      "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" show --stat 4ae5642)",
+      "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" status -sb)",
+      "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" log origin/main --oneline)",
+      "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" add products/CDU/README.md)",
+      "PowerShell(git -C \"c:\\\\Users\\\\adhsc\\\\OneDrive\\\\Documents\\\\GitHub\\\\ADC_Solutions\" push)"
     ]
   }
 }
