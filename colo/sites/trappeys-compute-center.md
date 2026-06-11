@@ -57,10 +57,10 @@ ledger ID.
 |---|---|---|---|
 | Serving utility | None — behind-the-meter permanent island from day one; no anti-islanding | [L] | E-01, E-18 |
 | Dual-utility site? | No (island). LUS Pinhook = optional future feature only | [L] | E-02 |
-| Target IT load | **Stage 1: 91.1 MW** (44 cassettes × 2,070 kW); **Full Build: 182.2 MW** (88 cassettes) | [L] | P-03, P-05 |
+| Target IT load | Legacy targets: Stage 1 91.1 MW / Full Build 182.2 MW (legacy container arithmetic, superseded). **ADC-native sizing [L] 2026-06-11: Stage 1 = 19 N★ blocks = 95.0 MW IT; Full Build = 37 blocks = 184.7 MW** (ADC-TRAP-SIZE-001 Rev 0.2, decision 0005) | [L] | P-03, P-05; SIZE-001 §3 |
 | Generation unit | Cat CG260-16 NG genset, 13.8 kV [W]; 44 units = 11 blocks × 4, N+1 at block | [L] | E-03, E-04, E-06 |
 | Block pattern | Replicated Marlie-pattern block: 4 gensets paralleled at 13.8 kV → ~15 MVA step-down → 480 VAC block bus → 4 cassette feeds + BESS + solar inverters; no campus MV ring | [L] | E-07, E-08 |
-| Node count (MGN-BOD-002) | n/a — cassette/block architecture, not MGN nodes (see platform-divergence flag) | [W] | §E |
+| Node count (MGN-BOD-002) | **19 nodes Stage 1 / 37 Full Build [L]** (1 node per N★ block, ADC-TRAP-SIZE-001 Rev 0.2); legacy set used its own container/block architecture instead (see platform-divergence flag) | [L] | SIZE-001 §3; §E |
 | BESS | 39.6 MWh working (11 × 3.6 MWh), LiFePO4, AC-coupled at block 480 VAC via Hitachi AMPS PCS | [W] | E-10..E-13 |
 | Solar | 2.05 MW First Solar Series 7, B1/B2 rooftops, AC-coupled via inverter | [L] | E-14..E-17 |
 | GPU platform | NVIDIA Vera Rubin NVL72; 28,512 GPUs Stage 1 / 57,024 Full Build (allocation = gating variable, Open) | [W] | C-10, P-07, P-08, §A |
@@ -114,7 +114,7 @@ ledger ID.
 | ~~COLO-01~~ | **CLOSED 2026-06-11** — different sites, confirmed (decision 0003) | — |
 | ~~TRAP-OI-01~~ | **RESOLVED 2026-06-11 by decision 0003** — re-engineer ADC-native; ST-TRAP set = legacy reference, stays in gpu-learning-lab | — |
 | ~~TRAP-OI-02~~ | **FOLDED into TRAP-OI-03** — new package uses Telemetry, not AMCL/Jetson/OPC-UA | — |
-| TRAP-OI-03 | **Create the ADC-native Trappey's engineering package** (ADC CDU, Modular TCS, HAC, n× MGN-BOD-002 nodes, ADC-CLU-BOM-001 pattern, Telemetry/TEL-PROFILE). Removal/replacement checklist: [third-party scan](../../ops/research/2026-06-11-trappeys-third-party-product-scan.md). Carry-over: site facts, regulatory posture, load targets per scan §C. **Phase 1 skeleton ISSUED 2026-06-11** ([trappeys-engineering/](trappeys-engineering/): ADC-TRAP-SIZE-001 Rev 0.1 — 19 N★ blocks Stage 1 recommended, candidate fill = 4× reference cluster) — awaiting Scott review; package-local items TRAP-OI-04..07 live in the [package README](trappeys-engineering/README.md) | all site engineering; supersedes legacy ST-TRAP citations |
+| TRAP-OI-03 | **Create the ADC-native Trappey's engineering package** (ADC CDU, Modular TCS, HAC, n× MGN-BOD-002 nodes, ADC-CLU-BOM-001 pattern, Telemetry/TEL-PROFILE). Removal/replacement checklist: [third-party scan](../../ops/research/2026-06-11-trappeys-third-party-product-scan.md). Carry-over: site facts, regulatory posture, load targets per scan §C. **Phase 1 sizing APPROVED 2026-06-11** ([trappeys-engineering/](trappeys-engineering/): ADC-TRAP-SIZE-001 Rev 0.2 — **19 N★ blocks Stage 1 [L]**, 37 Full Build, fill = 4× reference cluster, decision 0005); package-local items (TRAP-OI-05/-06 open) live in the [package README](trappeys-engineering/README.md); TBD discipline docs start on Scott's go after ADC-NSTAR-001 | all site engineering; supersedes legacy ST-TRAP citations |
 
 (C1 critical-path engineering gates — NVIDIA allocation, Cat CSA, tower
 sizing, SHPO/LDEQ/ITEP filings, gas lock — are tracked in

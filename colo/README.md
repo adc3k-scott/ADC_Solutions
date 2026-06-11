@@ -36,16 +36,20 @@ Site records **reference, never restate,** the platform standards:
 
 ## Site register
 
-Sites scale in **N★ blocks** (5 MW IT heat load + 10 MW MGN-BOD-002
-node — the safe building block, decision
-[0004](../ops/decisions/0004-n-star-block-topology.md)).
+Sites scale in **N★ blocks** (5 MW IT = 4× reference cluster + 10 MW
+MGN-BOD-002 node — the safe building block; decisions
+[0004](../ops/decisions/0004-n-star-block-topology.md) +
+[0005](../ops/decisions/0005-no-cassettes-current-product-lineup.md);
+governing definition
+[ADC-NSTAR-001](../products/NStar/ADC-NSTAR-001_Rev0_1.md), Rev 0.1
+pending approval — SYS-OI-08).
 
 | Site | Record | Status |
 |---|---|---|
-| Trappey's Compute Center | [sites/trappeys-compute-center.md](sites/trappeys-compute-center.md) | **Filled 2026-06-11 from ST-TRAP-BOD-001 Rev 0.6** (legacy reference, external) — 22-acre cannery, Vermilion River; 91.1 MW Stage 1 BTM island. **ADC-native re-engineering decided ([0003](../ops/decisions/0003-trappeys-adc-native-reengineering.md)) — TRAP-OI-03 phase-1 skeleton ISSUED 2026-06-11** ([sites/trappeys-engineering/](sites/trappeys-engineering/): 19 N★ blocks Stage 1 recommended) — awaiting Scott |
+| Trappey's Compute Center | [sites/trappeys-compute-center.md](sites/trappeys-compute-center.md) | **Filled 2026-06-11 from ST-TRAP-BOD-001 Rev 0.6** (legacy reference, external) — 22-acre cannery, Vermilion River; 91.1 MW Stage 1 BTM island. **ADC-native re-engineering decided ([0003](../ops/decisions/0003-trappeys-adc-native-reengineering.md)); TRAP-OI-03 phase-1 sizing APPROVED 2026-06-11** ([sites/trappeys-engineering/](sites/trappeys-engineering/): **19 N★ blocks Stage 1 [L]**, 37 Full Build, fill = 4× reference cluster per decision [0005](../ops/decisions/0005-no-cassettes-current-product-lineup.md)) |
 | Cameron Street (Entergy, dual-utility) | [sites/cameron-street.md](sites/cameron-street.md) | **Filled 2026-06-11 from MGN-PROP-004 Rev 0.3** (Entergy BTM proposal; 2623 Cameron St, Entergy ops site + adjacent substation; Phase-1 pilot + single 10 MW node). PROP-004 does **not** subsume MGN-PROP-005 — **SYS-OI-02 stays open**; retail-territory check = CAM-OI-03 |
 | Willow Glen Compute Campus | [sites/willow-glen.md](sites/willow-glen.md) | **Created 2026-06-11** — retired riverfront power station (WGT campus, Zydeco/Yorktown); deal playbook = ground lease/option, gated on independent Entergy/MISO load inquiry (COLO-02). Comp: Hut 8 River Bend 25 mi north |
-| Marlie Hub (MARLIE 1) | [sites/marlie-hub.md](sites/marlie-hub.md) | **Created 2026-06-11** — seed-round POC site: first 3 Pure-DC cassettes (Ornn thread). Origin of the legacy "Marlie-pattern block" name. Scope doc needed (COLO-03) |
+| Marlie Hub (MARLIE 1) | [sites/marlie-hub.md](sites/marlie-hub.md) | **Created 2026-06-11; re-scoped per decision [0005](../ops/decisions/0005-no-cassettes-current-product-lineup.md)** — seed-round POC site: first reference cluster(s), the N★ IT fill unit. Origin of the legacy "Marlie-pattern block" name. Scope doc needed (COLO-03) |
 | Evangeline Distribution Hub | [sites/evangeline-distribution-hub.md](sites/evangeline-distribution-hub.md) | **Created 2026-06-11** — 1016 SW Evangeline Thruway: $6M leasehold-only offer (land = Union Pacific), 173 kSF warehouse / 12.26 ac; likely BL1 distribution hub; ground-lease diligence = COLO-04 |
 
 **COLO-01 CLOSED 2026-06-11:** Trappey's and Cameron Street are

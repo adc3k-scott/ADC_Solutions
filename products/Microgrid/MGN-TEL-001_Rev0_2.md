@@ -36,7 +36,7 @@ So the scope is the unifying layer: a common model (Redfish), a common time base
 
 **In scope:** node-level telemetry architecture and the campus rollup pattern; the protocol/normalization bridges; the Redfish service model; telemetry cadence classes; the cross-domain correlation requirement; compliance/merchant-ops telemetry; the open-source stack; OT/IT segmentation.
 
-**Out of scope (carried elsewhere):** deterministic real-time control and protection logic (stays in the genset controllers, protection relays, BESS PCS, and CDU PLC — this document sits above those and never replaces them); detailed point lists / register maps (site CTRL packages); the compute block's internal cassette controls (cassette CTRL docs).
+**Out of scope (carried elsewhere):** deterministic real-time control and protection logic (stays in the genset controllers, protection relays, BESS PCS, and CDU PLC — this document sits above those and never replaces them); detailed point lists / register maps (site CTRL packages); the compute cluster's internal IT/rack controls (owner/IT scope per ADC-CLU-BOM-001). *(Wording updated 2026-06-11 per decision 0005 — no cassettes.)*
 
 This BOD aligns the prior CTRL-001 (plant-master / dispatch platform) and CTRL-002 (dual-source engine controller abstraction) open items from MGN-BOD-002 into a single observability architecture; those items are subsumed here and tracked in §16. *(Rev 0.2: MGN-BOD-002 Rev 0.2 §11 now points here rather than carrying parallel copies.)*
 

@@ -30,6 +30,9 @@ ADC's product set and site topology is the **N★ ("N-star") block**:
   packagings: the 16-rack / 2 MW cluster (products/Cluster/) or the
   2.3 MW Pure-DC cassette (website white paper) — exact fill rule is
   an open engineering question, **not** decided here.
+  *(Resolved 2026-06-11 by decision
+  [0005](0005-no-cassettes-current-product-lineup.md): cassette
+  dropped; fill = 4× reference cluster = 4,992 kW.)*
 
 ## Consequences
 
@@ -44,3 +47,6 @@ ADC's product set and site topology is the **N★ ("N-star") block**:
 - Open question carried to that document: 1 node powers 1 block's IT
   plus cooling/house — confirm the pairing ratio against PUE ≤ 1.05
   (cassette) vs reference-bay (TCS/HAC) cooling overheads.
+  *(2026-06-11, decision 0005: cassette path dropped — the pairing
+  ratio confirms against reference-bay overheads only, in
+  ADC-NSTAR-001.)*

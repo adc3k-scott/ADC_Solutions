@@ -13,16 +13,18 @@ is sized in **N★ blocks** (5 MW IT + 10 MW MGN-BOD-002 node).
 > `ADC-TRAP-`. Final prefix follows the COMM-001 ruling; renaming is
 > mechanical.
 
-> **Phase gate:** only ADC-TRAP-SIZE-001 is issued. Nothing below the
-> doc-tree line is engineered until Scott approves the skeleton —
-> issue-then-approve.
+> **Phase gate:** skeleton **approved 2026-06-11** (Scott rulings via
+> decision [0005](../../../ops/decisions/0005-no-cassettes-current-product-lineup.md):
+> 19 blocks Stage 1 [L], fill = 4× reference cluster [L], no
+> cassettes). The TBD docs below start on Scott's go, after
+> ADC-NSTAR-001 settles the block definition they all reference.
 
 ## Doc tree
 
 | Doc | Title | Status |
 |---|---|---|
-| ADC-TRAP-SIZE-001 | [N★ sizing study + hall concept](ADC-TRAP-SIZE-001_Rev0_1.md) | **Rev 0.1 ISSUED 2026-06-11 — awaiting Scott** |
-| ADC-TRAP-ELEC-001 | Node→block electrical (MGN-BOD-002 POI → ADC-CLU-BOM-001 RPP boundary) | TBD — gated on skeleton approval |
+| ADC-TRAP-SIZE-001 | [N★ sizing study + hall concept](ADC-TRAP-SIZE-001_Rev0_2.md) | **Rev 0.2 APPROVED 2026-06-11** (rulings applied per decision 0005) |
+| ADC-TRAP-ELEC-001 | Node→block electrical (MGN-BOD-002 POI → ADC-CLU-BOM-001 RPP boundary) | TBD — on Scott's go |
 | ADC-TRAP-THERM-001 | Heat rejection per block (Heat_Rejection_5MW_IT basis, W32/W40 + trim) + water balance | TBD |
 | ADC-TRAP-TEL-001 | Site telemetry profile (MGN-TEL-001 §4.3 + TEL-PROFILE; replaces legacy AMCL/OPC-UA) | TBD |
 | ADC-TRAP-ENV-001 | Air/water permitting strategy (minor-source envelope vs Title V; LPDES) | TBD |
@@ -49,7 +51,7 @@ per-cassette arithmetic behind them does not. Full map:
 | Delta 660 kW in-row 480→800 VDC racks | ADC-CLU-BOM-001 (415/240 Wye busway, "4 makes 3") |
 | Cat CG260-16 @ 13.8 kV, 11×4 blocks | n× MGN-BOD-002 nodes (5× Cat G3520H @ 4.16 kV, 10 MW firm 4-of-5) |
 | AMCL five-tier + OPC-UA; Jetson cassette BMS | Telemetry (ADC-OS-001 / MGN-TEL-001 / TEL-PROFILE) |
-| Munters DSS Pro + exhaust-regen CHP slip-stream | dies with the cassette — hall humidity + CHP heat use re-derived (SIZE-001 §6) |
+| Munters DSS Pro + exhaust-regen CHP slip-stream | container-coupled — dies with the legacy platform; hall humidity + CHP heat use re-derived (SIZE-001 §5) |
 | Block-coupled Hitachi AMPS BESS | node-internal grid-forming BESS (6 MW / 3 MWh per MGN-BOD-002) |
 | Staubli hot-swaps, GRC/Submer immersion | dropped; ADC-ICD-001 governs CDU↔TCS |
 
@@ -60,10 +62,10 @@ BESS cells) stays — re-validated per category in the TBD docs.
 
 | ID | Item | Gates |
 |---|---|---|
-| TRAP-OI-04 | Scott ruling: **18 vs 19 blocks** Stage 1 (90 vs 95 MW IT against the 91.1 MW legacy target) — SIZE-001 §3 recommends 19 | SIZE-001 approval |
+| ~~TRAP-OI-04~~ | **CLOSED 2026-06-11 (decision 0005):** Stage 1 = **19 blocks [L]** (95.0 MW IT); Full Build = 37 | — |
 | TRAP-OI-05 | Permit envelope: 19 nodes sits at the edge of the MGN-BOD-002 §7 twenty-node minor-source claim; Full Build (37 nodes) cannot fit one envelope — strategy doc needed | ADC-TRAP-ENV-001 |
 | TRAP-OI-06 | B3/B4 floor dimensions + structural data — hall fit in SIZE-001 §5 is unverified until plans/assessment exist (legacy B-07: no structural assessment commissioned) | ADC-TRAP-CIVIL-001 |
-| TRAP-OI-07 | N★ fill rule: SIZE-001 finds 4× reference cluster = 4,992 kW ≈ exact 5 MW fill — candidate answer for the governing N★ doc (decision 0004 left it open); Scott to confirm there before it locks here | governing N★ doc Rev 0.1 |
+| ~~TRAP-OI-07~~ | **CLOSED 2026-06-11 (decision 0005):** N★ fill rule = **4× reference cluster [L]** (4,992 kW); locked in ADC-NSTAR-001 | — |
 
 (TRAP-OI-03 itself stays open in the
 [site record](../trappeys-compute-center.md) until this package

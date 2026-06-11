@@ -47,7 +47,7 @@ Relationship + intelligence layer. Deep-research reports unless noted.
 
 | File | What it is |
 |---|---|
-| `white_papers/ADC_Pure_DC_AI_Factory_White_Paper-4.pdf` | The cassette product paper (April 2026): 40-ft HC ISO, 10× NVL72, **2.3 MW IT / 720 GPUs / 800 V DC end-to-end / PUE ≤ 1.05**, Eaton ORV3 stack, dual-loop liquid, offshore variant (NEMA 4X, DNV 2.7-1), 30–60 days pad-to-GPU, scale to 200 MW. Sent to Ornn 2026-04-10. **The cassette is an ADC product** — decision 0003 removed only the third-party ST-TRAP platform |
+| `white_papers/ADC_Pure_DC_AI_Factory_White_Paper-4.pdf` | The cassette product paper (April 2026): 40-ft HC ISO, 10× NVL72, **2.3 MW IT / 720 GPUs / 800 V DC end-to-end / PUE ≤ 1.05**, Eaton ORV3 stack, dual-loop liquid, offshore variant (NEMA 4X, DNV 2.7-1), 30–60 days pad-to-GPU, scale to 200 MW. Sent to Ornn 2026-04-10. ~~The cassette is an ADC product — decision 0003 removed only the third-party ST-TRAP platform~~ **SUPERSEDED 2026-06-11 by decision 0005: cassette dropped from the product set; the white paper no longer describes the product (marketing refresh flagged)** |
 | `white_papers/Compute_Follows_Power_White_Paper.docx` | "Compute Follows Power — Why Louisiana" v1.0 (June 2026): the Louisiana thesis (Henry Hub, Haynesville, Act 730, BTM + liquid cooling; Hyperion / Amazon NW-LA / Hut 8 River Bend comps). Publication-ready for ADC3K.com |
 
 ## company/
