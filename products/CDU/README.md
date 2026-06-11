@@ -21,8 +21,9 @@ Infrastructure Design Principles v0.5.0, and OCP Diablo 400 Rack & Power
 v0.5.2 (sidecar power context only). *Currency note (2026-06-10,
 [spec check](../../ops/research/2026-06-10-ocp-spec-currency.md)):
 Diablo 400 v0.5.2 is superseded by v0.7.0 (2026-03-01) — update at next
-BOM revision (SYS-OI-04); the Redfish/AI Reference could not be found
-publicly (SYS-OI-01).*
+BOM revision (SYS-OI-04); the Redfish/AI Reference v1.2 is an internal
+ADC document, not an OCP publication — pending addition to the repo
+(SYS-OI-01).*
 
 ## Design basis (Deschutes section 3.1)
 
