@@ -1,0 +1,2 @@
+item,description,qty,unit,spec,first_source,alternates,tag,notes
+E4-01,Rack power whip,128,ea,"IEC 60309 5-pin (3P+N+E) 32 A 230/240 Vac Wye plug to rack PDU inlet (inlet type TBD - ELE-OI-04), SOOW or equivalent cordage, length per layout (allow 15 ft), labeled both ends per feed/rack",PDU Cables,"local cable shops (Lafayette - same channel as TCS hose fab)",O,"OPTIONAL BUNDLE - owner boundary. Do not order until ELE-OI-04 confirms the rack PDU inlet connector and cord length. One whip per outlet: 16 racks x 4 feeds x 2 outlets."
