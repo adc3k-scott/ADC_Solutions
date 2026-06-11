@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ADC Executable Twin — §10 Cross-Domain Correlation</title>
+<style>
+  body { background:#0d1117; color:#c9d1d9; font:14px/1.45 'Segoe UI',system-ui,sans-serif; margin:0; padding:24px; }
+  h1 { font-size:20px; margin:0 0 2px; color:#e6edf3; }
+  .sub { color:#8b949e; margin-bottom:18px; }
+  .meta { display:flex; gap:24px; flex-wrap:wrap; margin-bottom:20px; }
+  .meta div { background:#161b22; border:1px solid #30363d; border-radius:8px; padding:8px 14px; }
+  .meta b { color:#e6edf3; font-size:17px; display:block; }
+  .chart { background:#161b22; border:1px solid #30363d; border-radius:8px; margin-bottom:14px; padding:10px 14px 4px; }
+  .chart h2 { font-size:13px; margin:0 0 4px; color:#e6edf3; font-weight:600; }
+  .chart .dom { float:right; font-size:11px; color:#8b949e; font-weight:400; }
+  .legend { font-size:11px; color:#8b949e; margin:2px 0 6px; }
+  .legend span { margin-right:14px; }
+  .swatch { display:inline-block; width:18px; height:3px; vertical-align:middle; margin-right:5px; border-radius:2px; }
+  svg { display:block; width:100%; height:130px; }
+  .phases { font-size:11px; color:#8b949e; margin:6px 0 22px; }
+  .phases b { padding:1px 8px; border-radius:4px; margin-right:6px; }
+</style>
+</head>
+<body>
+<h1>ADC Executable Twin — the coherent AI load step, on one clock</h1>
+<div class="sub">MGN-TEL-001 §10 correlation timeline · simulated from ADC-SYS-001 registry constants · POC Phase 1 (no metal)</div>
+<div class="meta" id="meta"></div>
+<div class="phases">
+  <b style="background:#1f3a5f">CAUSE −30→0 s</b> GPU utilization climbs, then the coherent step
+  <b style="background:#5f3a1f">BRIDGE 0→5 s</b> BESS injects +P, holds the bus
+  <b style="background:#2f4f2f">RESPONSE 2→45 s</b> gensets ramp fuel, BESS backs down
+  <b style="background:#4f2f4f">FOLLOWER 5→120 s</b> heat reaches the CDU/TCS loop
+</div>
+<div id="charts"></div>
+<div class="phases">Layer-1 safety authority is never on this path — this plane observes and supervises; relays, governors, PCS limits, and the CDU PLC keep control. (MGN-TEL-001 §3.2/§13)</div>
+<script src="timeline.js"></script>
+<script>
+const T = window.TIMELINE, rows = T.rows, m = T.meta;
+const tMin = rows[0].t, tMax = rows[rows.length-1].t;
+const PHASES = [[-30,0,'#1f3a5f55'],[0,5,'#5f3a1f66'],[2,45,'#2f4f2f44'],[5,120,'#4f2f4f33']];
+
+document.getElementById('meta').innerHTML =
+  `<div><b>${m.stepMW} MW</b>design coherent step</div>
+   <div><b>${m.pcsMW} MW</b>BESS PCS (4-quadrant)</div>
+   <div><b>~${m.rampS} s</b>gas block-load ramp</div>
+   <div><b>${m.bessMWh} MWh</b>BESS usable energy</div>
+   <div><b>~${m.rideTcsS} s</b>TCS thermal ride-through @ 2 MW</div>`;
+
+// Each series gets its own vertical scale; left axis labels series 0, right axis series 1.
+function chart(title, dom, series) {
+  const W = 1200, H = 130, padL = 52, padR = 52, padT = 6, padB = 16;
+  const x = t => padL + (t - tMin) / (tMax - tMin) * (W - padL - padR);
+  for (const s of series) {
+    let lo = Infinity, hi = -Infinity;
+    for (const r of rows) { const v = r[s.key]; if (v < lo) lo = v; if (v > hi) hi = v; }
+    const span = (hi - lo) || 1; s.lo = lo - span*0.10; s.hi = hi + span*0.10;
+    s.y = v => padT + (s.hi - v) / (s.hi - s.lo) * (H - padT - padB);
+  }
+  let g = '';
+  for (const [a,b,c] of PHASES) g += `<rect x="${x(a)}" y="${padT}" width="${x(b)-x(a)}" height="${H-padT-padB}" fill="${c}"/>`;
+  g += `<line x1="${x(0)}" y1="${padT}" x2="${x(0)}" y2="${H-padB}" stroke="#f0883e" stroke-dasharray="3,3"/>`;
+  for (const tick of [-60,-30,0,30,60,90,120,150,180])
+    g += `<text x="${x(tick)}" y="${H-3}" fill="#8b949e" font-size="10" text-anchor="middle">${tick}s</text>`;
+  series.forEach((s, i) => {
+    const ax = i === 0 ? padL - 4 : W - padR + 4, anchor = i === 0 ? 'end' : 'start';
+    for (const f of [0.12, 0.5, 0.88]) {
+      const v = s.lo + (s.hi - s.lo) * f;
+      g += `<text x="${ax}" y="${s.y(v)+3}" fill="${s.color}" font-size="10" text-anchor="${anchor}">${s.fmt(v)}</text>`;
+    }
+    const pts = rows.map(r => `${x(r.t).toFixed(1)},${s.y(r[s.key]).toFixed(1)}`).join(' ');
+    g += `<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="1.8"/>`;
+  });
+  const leg = series.map((s,i) => `<span><i class="swatch" style="background:${s.color}"></i>${s.label} (${i===0?'left':'right'} axis)</span>`).join('');
+  return `<div class="chart"><h2>${title}<span class="dom">${dom}</span></h2>
+          <div class="legend">${leg}</div><svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${g}</svg></div>`;
+}
+const f0 = v => v.toFixed(0), f1 = v => v.toFixed(1), f2 = v => v.toFixed(2);
+
+document.getElementById('charts').innerHTML =
+  chart('THE CAUSE — compute', 'D2 · /Systems/…/Processors · PowerControl', [
+    {key:'util', label:'GPU utilization %', color:'#58a6ff', fmt:f0},
+    {key:'load', label:'node IT load MW', color:'#e6edf3', fmt:f1}
+  ]) +
+  chart('THE BRIDGE — BESS', 'D1 · BESS Circuit ±P · Batteries SoC', [
+    {key:'bess', label:'BESS discharge MW (4-quadrant)', color:'#f0883e', fmt:f1},
+    {key:'soc', label:'state of charge %', color:'#8b949e', fmt:f2}
+  ]) +
+  chart('THE RESPONSE — generation', 'D1 · Genset PolyPhasePowerWatts · bus frequency', [
+    {key:'gen', label:'genset total MW', color:'#3fb950', fmt:f1},
+    {key:'freq', label:'bus frequency Hz', color:'#d29922', fmt:f2}
+  ]) +
+  chart('THE FOLLOWER — cooling (one Reference Bay)', 'D3 · CDU SecondaryCoolantConnectors ΔT · pump ΔP', [
+    {key:'dT', label:'bay ITE ΔT K', color:'#bc8cff', fmt:f1},
+    {key:'pump', label:'pump ΔP psi — AI pre-positioned at t−20 s from D2 utilization', color:'#39c5cf', fmt:f1}
+  ]);
+</script>
+</body>
+</html>
