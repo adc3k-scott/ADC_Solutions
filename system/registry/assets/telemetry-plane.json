@@ -1,7 +1,7 @@
 {
   "id": "telemetry-plane",
-  "name": "Unified telemetry & observability plane (MGN-TEL-001) — the AI-native OS substrate",
-  "spec_sheet": "products/Microgrid/README.md",
+  "name": "Telemetry — the AI-native OS (MGN-TEL-001 / ADC-OS-001)",
+  "spec_sheet": "products/Telemetry/README.md",
   "source_documents": ["MGN-TEL-001_Unified_Telemetry_Rev0_1.md (1).docx (Rev 0.1, 2026-06-08)", "OCP Project Deschutes Redfish/AI & Four-Tier Reference v1.2 (PARENT DOC — NOT YET IN REPO, SYS-OI-01)"],
   "telemetry_domain": "the plane itself — Layers 2–5 over all five domains",
   "interfaces": ["telemetry-northbound", "node-compute-electrical", "hac-structural"],

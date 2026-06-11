@@ -21,10 +21,10 @@ components:
 - **10 MW Natural Gas Genset Microgrid** — a fungible 10 MW natural gas genset
   microgrid designed to scale, fully controlled through our unified Redfish
   telemetry architecture.
-- **AI-Native Operating System** — the platform layer that operates the four
-  hardware products as one machine: one Redfish namespace, one clock, a
-  defined autonomy ladder, and hard Layer-1 safety bounds
-  (see `products/OS/`).
+- **Telemetry** — our AI-native operating system: the platform layer that
+  operates the four hardware products as one machine — one Redfish
+  namespace, one clock, a defined autonomy ladder, and hard Layer-1 safety
+  bounds (see `products/Telemetry/`).
 
 ADC Solutions is positioning itself as a large-scale distributor of these
 integrated products, leveraging Lafayette's deep supplier base in oilfield

@@ -60,6 +60,6 @@
     {"id": "SYS-OI-01", "product": "system", "title": "OCP Deschutes Redfish/AI & Four-Tier Reference v1.2 — named parent of MGN-TEL-001 but NOT in the repo (dangling source-of-truth link)", "gates": ["registry completeness"]},
     {"id": "SYS-OI-02", "product": "system", "title": "MGN-PROP-005 (Cameron Street dual-utility site) — referenced by MGN-TEL-001 §4.3 but NOT in the repo", "gates": ["site telemetry requirements"]},
     {"id": "SYS-OI-03", "product": "system", "title": "NVIDIA 24-in x 5-wide HAC variant claimed in MISSION.md but not yet engineered (Redmond is the Google 28-in x 4-wide form factor)", "gates": ["HAC product claims", "website"]},
-    {"id": "OS-01", "product": "system", "title": "Name the AI-native operating system (resolves COMM-001 for the platform layer)", "gates": ["ADC-OS-001 release", "website"], "related": ["COMM-001"]}
+    {"id": "OS-01", "product": "system", "title": "Name the AI-native operating system (resolves COMM-001 for the platform layer)", "gates": ["ADC-OS-001 release", "website"], "related": ["COMM-001"], "status": "RESOLVED 2026-06-10 — product named 'Telemetry' (ops/decisions/0002); COMM-001 hardware-prefix half still open"}
   ]
 }

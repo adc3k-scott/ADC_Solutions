@@ -1,4 +1,8 @@
-# ADC-OS-001 — The AI-Native Operating System (working name, see OS-01)
+# Telemetry — The AI-Native Operating System (ADC-OS-001)
+
+**Product name: Telemetry** — decided 2026-06-10
+([decision 0002](../../ops/decisions/0002-telemetry-product-name.md)),
+resolving OS-01 and the platform half of COMM-001.
 
 Spec sheet for ADC Solutions' fifth product: the platform layer that
 operates the other four as **one machine**. The
@@ -83,8 +87,8 @@ from day one, because the synthetic-minor permit economics depend on it.
 
 ## Open items
 
-- **OS-01** — name the product (resolves COMM-001's platform half;
-  gates this sheet's title and the website).
+- ~~**OS-01** — name the product~~ — **resolved 2026-06-10: Telemetry**
+  (decision 0002). COMM-001's hardware-doc-prefix half remains open.
 - **OS-02** — per-function A2 authorization matrix: which setpoints the
   OS may request, with what Layer-1 bounds, signed off per function.
 - **OS-03** — commercial packaging: sold license vs operated service vs
