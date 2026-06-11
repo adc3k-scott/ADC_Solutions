@@ -1,0 +1,17 @@
+{
+  "id": "tcs",
+  "name": "ADC Modular TCS — CDU-to-rack header & branch lines",
+  "spec_sheet": "products/TCS/README.md",
+  "source_documents": ["ADC_Solutions_Modular_TCS_BOM_Version_1_WITH_DIAGRAMS.docx.pdf (ADC-MOD-TCS-001 Version 1, 2026-05-19)"],
+  "telemetry_domain": "D3 (Tier 2 under the CDU; Oem/TCSInterface/* via the CDU bridge)",
+  "interfaces": ["cdu-tcs-hydraulic", "tcs-rack-branch", "wmf-plane", "hac-structural", "node-compute-electrical", "telemetry-northbound"],
+  "parameters": [
+    {"key": "reference_bay", "value": "46 ft row, 16 racks / 4 bays, one end-fed 2 MW / 500 GPM CDU", "tag": "L", "critical": true, "source": "ADC-MOD-TCS-001 §2"},
+    {"key": "header", "value": "6 in Sch 10S 304L, 5.05 ft/s at 500 GPM (≤6 ft/s), Victaulic grooved", "tag": "W", "source": "ADC-MOD-TCS-001 §3 (PIPE-01/PIPE-02 open)"},
+    {"key": "branch_lines", "value": "2 in / DN50 EPDM-lined SS-braided hose, avg 126 in drop, per-assembly hydro + helium certs + barcodes", "tag": "W", "source": "ADC-MOD-TCS-001 §4 (HOSE-01 open)"},
+    {"key": "factory_cleanliness", "value": "ASTM A380/A967 passivation, hydro 1.3–1.5x WP, helium ≤1e-5 atm·cc/s on hoses, copper-sulfate verified, N2 purged, tamper-evident caps, OCP §17 barcodes; site flush ≤24 h vs 6–8 weeks stick-built", "tag": "L", "critical": true, "source": "ADC-MOD-TCS-001 §1/§6"},
+    {"key": "transient_gate", "value": "Joukowsky ≈326 psi at instantaneous DN50 closure > 150 psig WP — slow-close actuators (≥30 s 6-in butterflies, ≥5 s 2-in balls), accumulators, staged-sequencing MOPs, mandatory pre-commissioning surge analysis", "tag": "L", "critical": true, "source": "ADC-MOD-TCS-001 HYDR-01"},
+    {"key": "leak_detection", "value": "SS304 drip tray + 3-zone leak rope (TraceTek/RLE) into the CDU PLC", "tag": "L", "source": "ADC-MOD-TCS-001 §5 (DT)"},
+    {"key": "supports", "value": "hangers 8 ft o.c. (>2x B31.9 margin), V-pattern seismic bracing — LA-PE stamp required (SUP-01)", "tag": "O", "source": "ADC-MOD-TCS-001 §5 (PS)"}
+  ]
+}

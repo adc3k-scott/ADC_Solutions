@@ -1,0 +1,14 @@
+{
+  "id": "tcs-rack-branch",
+  "name": "TCS branch ↔ IT rack quick-disconnect interface",
+  "between": ["tcs", "it-rack"],
+  "parameters": [
+    {"key": "branch_max_kw", "value": 170, "unit": "kW", "tag": "L", "critical": true, "source": "ADC-MOD-TCS-001 §2", "notes": "Released maximum per DN50 branch at 6 fps (1.8 m/s). The 7 fps / 2 m/s figures appearing in the BoD are comparison points only — never released limits."},
+    {"key": "branch_velocity_max_fps", "value": 6, "unit": "ft/s", "tag": "L", "critical": true, "source": "ADC-MOD-TCS-001 §2"},
+    {"key": "avg_rack_flow_gpm", "value": 31.25, "unit": "GPM", "tag": "L", "source": "ADC-MOD-TCS-001 §2 (500 GPM / 16 racks)"},
+    {"key": "avg_rack_kw_at_dt10", "value": 78, "unit": "kW", "tag": "W", "source": "ADC-MOD-TCS-001 §2 (at ITE ΔT = 10 °C with PG25)"},
+    {"key": "qd_type", "value": "2″ dry-break, spill-free hot-swap; Stäubli RBE2 first source (Parker FF, CEJN X65 alternates)", "tag": "W", "source": "ADC-MOD-TCS-001 §5 (QD-01 open)"},
+    {"key": "qd_cv_min", "value": 100, "unit": "Cv", "tag": "L", "source": "ADC-MOD-TCS-001 §5"},
+    {"key": "branches_per_row", "value": 32, "unit": "count", "tag": "L", "source": "ADC-MOD-TCS-001 §3 (16 supply + 16 return)"}
+  ]
+}

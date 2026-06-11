@@ -1,0 +1,15 @@
+{
+  "id": "telemetry-northbound",
+  "name": "Unified telemetry north-bound interface — one namespace, one clock",
+  "between": ["microgrid-node", "cdu", "tcs", "hac", "it-rack", "telemetry-plane"],
+  "parameters": [
+    {"key": "data_model", "value": "Redfish — DSP0266 v1.24.0, DMTF 2026.1 schema bundle (pin the tag, TEL-001)", "tag": "L", "critical": true, "source": "MGN-TEL-001 §2.1"},
+    {"key": "domains", "value": "D1 power island (bridged — new work) / D2 compute (native) / D3 cooling = CDU + TCS Tier-2 (bridged per Deschutes ref) / D4 facility / D5 external", "tag": "L", "source": "MGN-TEL-001 §3.1"},
+    {"key": "authority_boundary", "value": "Layer-1 controllers (EMCP/PowerCommand, relays, BESS PCS, CDU PLC, BMCs) keep deterministic control and safety authority; bridges translate only; layers 3–5 supervisory; telemetry loss never blocks protection", "tag": "L", "critical": true, "source": "MGN-TEL-001 §3.2 / §13; Deschutes CDU rule extended platform-wide"},
+    {"key": "cadence_classes", "value": "P <20 ms local-only event capture / A 100 ms–1 s control / B 1–5 s supervisory (primary MetricReports, peak-dip interval capture per Sensor v1.12.0) / C 30–60 s contextual / D 1 min–1 h compliance to immutable historian", "tag": "L", "source": "MGN-TEL-001 §9"},
+    {"key": "time_base", "value": "single PTP/NTP-disciplined clock — mandatory; method open (TEL-TIME)", "tag": "L", "source": "MGN-TEL-001 §2.3 / §9"},
+    {"key": "n_plus_1_encoding", "value": "Redundancy v1.7.0 MinNumNeededForFaultTolerance — gensets (4-of-5) and CDU pumps alike", "tag": "L", "source": "MGN-TEL-001 §2.2 / §4.3"},
+    {"key": "conformance_gate", "value": "every bridge endpoint passes Redfish Service/Protocol/Interop validators against 2026.1 + the site Interoperability Profile (TEL-PROFILE) before the AI layer trusts it", "tag": "W", "source": "MGN-TEL-001 §2.4"},
+    {"key": "compliance_telemetry", "value": "run-hours, NOx/CO/CO2/HCHO, DEF, fuel, energy per genset incl. standby fleet — hard requirement, immutable historian, defends the synthetic-minor permit", "tag": "L", "critical": true, "source": "MGN-TEL-001 §11; MGN-BOD-002 §7"}
+  ]
+}

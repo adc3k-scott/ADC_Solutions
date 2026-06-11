@@ -1,0 +1,17 @@
+{
+  "id": "node-compute-electrical",
+  "name": "Microgrid node ↔ compute electrical interface — the double bridge",
+  "between": ["microgrid-node", "it-rack", "cdu", "tcs"],
+  "description": "The defining transient of the platform: a coherent AI training step hits the bus faster than lean-burn engines can take fuel. The BESS carries the electrical transient while the TCS fluid mass carries the thermal transient — two bridges, one event, one clock.",
+  "parameters": [
+    {"key": "design_coherent_step_mw", "value": 5.0, "unit": "MW", "tag": "L", "critical": true, "source": "MGN-BOD-002 §5.3", "notes": "50% of node; conservative — includes thermally-slow cooling load that does not actually step on the fast edge. The §10 correlation exists to verify this number against reality."},
+    {"key": "bess_pcs_mw", "value": 6.0, "unit": "MW", "tag": "L", "critical": true, "source": "MGN-BOD-002 §5.3", "notes": "5 MW step x 1.20 margin; 4-quadrant — load rejection reverses the problem"},
+    {"key": "bess_energy_mwh_usable", "value": 3.0, "unit": "MWh", "tag": "L", "source": "MGN-BOD-002 §5.3", "notes": "energy set by secondary duties; bridge itself ~0.06 MWh across ~45 s ramp"},
+    {"key": "electrical_bridge_window_s", "value": "1–5", "unit": "s", "tag": "L", "source": "MGN-BOD-002 §4.3"},
+    {"key": "genset_ramp_s", "value": 45, "unit": "s", "tag": "W", "source": "MGN-BOD-002 §5.3 (conservative gas block-load ramp; verify in POC Phase 4)"},
+    {"key": "thermal_ride_through_tcs_s", "value": 24, "unit": "s", "tag": "W", "source": "ADC-MOD-TCS-001 App C", "notes": "at 2 MW from TCS fluid alone (815 L PG25, 15 K margin); ~40–50 s total with CDU buffer + cold plates. The thermal analog of the BESS bridge."},
+    {"key": "rack_spot_power_kw", "value": 90, "unit": "kW", "tag": "L", "source": "Deschutes Table 18.8.1 (1-second timescale, 3 of 4 feeds operational)"},
+    {"key": "feed_architecture", "value": "4 feeds, 3+1 redundancy (4 makes 3); IEC 60309 5-pin 30/32 A 230/240 Vac Wye", "tag": "L", "source": "Deschutes Table 18.8.1"},
+    {"key": "load_step_governs", "value": "5 MW step > N-1 generation loss (2.5 MW) — the load step is the governing case", "tag": "L", "source": "MGN-BOD-002 §5.3"}
+  ]
+}

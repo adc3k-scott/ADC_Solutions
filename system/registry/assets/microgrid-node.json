@@ -1,0 +1,21 @@
+{
+  "id": "microgrid-node",
+  "name": "ADC 10 MW AC-MV natural-gas microgrid node",
+  "spec_sheet": "products/Microgrid/README.md",
+  "source_documents": ["MGN-BOD-002_10MW_Rev0_1.md.docx (Rev 0.1, 2026-06-08)"],
+  "telemetry_domain": "D1 (gensets, BESS, switchgear, SCR — Modbus/J1939/DNP3-61850/SunSpec → Redfish bridge)",
+  "interfaces": ["node-compute-electrical", "telemetry-northbound"],
+  "parameters": [
+    {"key": "firm_output_mw", "value": 10, "unit": "MW", "tag": "L", "critical": true, "source": "MGN-BOD-002 §1/§9"},
+    {"key": "prime_mover", "value": "5x Cat G3520H (2.5 MW, 4.16 kV, lean-burn, ~44–45% el.), 4 running + 1 N+1", "tag": "L", "critical": true, "source": "MGN-BOD-002 §4.1"},
+    {"key": "second_source", "value": "Cummins HSK78G per-position drop-in; ~1.6–1.8 MW @ 60 Hz → ≈6+1=7 units per node; 55 °C ambient rating", "tag": "L", "source": "MGN-BOD-002 §4.2", "notes": "count per node set by actual engine allocation — telemetry model is count-agnostic"},
+    {"key": "bess", "value": "AC-coupled, 6 MW 4-quadrant grid-forming PCS / 3 MWh usable, LFP, UL 9540A", "tag": "L", "critical": true, "source": "MGN-BOD-002 §5.3"},
+    {"key": "grid_forming", "value": "BESS PCS forms bus + black-starts; lead genset isochronous backup; others droop-share", "tag": "L", "source": "MGN-BOD-002 §5.2"},
+    {"key": "bus_voltage_kv", "value": 4.16, "unit": "kV", "tag": "L", "source": "MGN-BOD-002 §5.1 (metal-clad, 5 kV class)"},
+    {"key": "step_up", "value": "4.16 → 13.8 / 34.5 kV (collection voltage TBD, ELEC-004); ~12.5–15 MVA class", "tag": "W", "source": "MGN-BOD-002 §5.5"},
+    {"key": "aftertreatment", "value": "per-engine SCR + oxidation catalyst locked; HSK78G native-NOx ≈0.5 g/hp-hr held in reserve", "tag": "L", "source": "MGN-BOD-002 §6/§7"},
+    {"key": "permit_envelope", "value": "20 nodes = 200 MW under one synthetic-minor air permit; site-specific — nonattainment (Baton Rouge ozone) can break it; PTE must count standby-fleet run-hours (20 N+1 units on ~80 running)", "tag": "L", "critical": true, "source": "MGN-BOD-002 §7 (ENV-001 gates every site)"},
+    {"key": "sync_condenser", "value": "provisional — only if fault study (ELEC-002) requires; meaningful on a 4-machine node", "tag": "O", "source": "MGN-BOD-002 §5.4"},
+    {"key": "variant", "value": "4-unit non-redundant 10 MW variant exists — state which variant on every commercial commitment", "tag": "L", "source": "MGN-BOD-002 §9"}
+  ]
+}

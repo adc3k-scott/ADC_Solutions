@@ -1,0 +1,12 @@
+{
+  "id": "wmf-plane",
+  "name": "The 100.5″ plane — WMF / TCS header / HAC Level 1 interface",
+  "between": ["hac", "tcs", "it-rack"],
+  "description": "The single most load-bearing dimension in the platform: OCP Redmond Level 1 wall-manifold elevation = ADC TCS header elevation = HAC structure Level 1. Critical, unalterable.",
+  "parameters": [
+    {"key": "elevation_aff_in", "value": 100.5, "unit": "in", "tag": "L", "critical": true, "source": "OCP Deschutes v1.0 §18.4; ADC-MOD-TCS-001 §2"},
+    {"key": "elevation_aff_mm", "value": 2553, "unit": "mm", "tag": "L", "critical": true, "source": "ADC-MOD-TCS-001 §2"},
+    {"key": "design_load_lbs_per_ft", "value": 31.7, "unit": "lbs/ft", "tag": "L", "critical": true, "source": "OCP Deschutes v1.0 Table 18.4.1 Level 1"},
+    {"key": "mounting", "value": "unistrut on HAC lateral X-beams", "tag": "L", "source": "OCP Deschutes v1.0 §18.5"}
+  ]
+}

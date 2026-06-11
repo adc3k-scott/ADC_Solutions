@@ -1,0 +1,15 @@
+{
+  "id": "it-rack",
+  "name": "IT rack (reference envelope — customer/OEM supplied, e.g. NVL72)",
+  "spec_sheet": null,
+  "source_documents": ["OCP Deschutes v1.0 §18.1 / Table 18.8.1", "MGN-TEL-001 §5"],
+  "telemetry_domain": "D2 (native Redfish via BMC / rack manager; OTel/Prometheus workload metrics parallel, correlated not merged)",
+  "interfaces": ["tcs-rack-branch", "wmf-plane", "hac-structural", "node-compute-electrical", "telemetry-northbound"],
+  "parameters": [
+    {"key": "envelope", "value": "28 in W x 50 in D max x 80.7–90.55 in H, packaged 100 in", "tag": "L", "critical": true, "source": "Deschutes §18.1"},
+    {"key": "power_per_spot_kw", "value": 90, "unit": "kW", "tag": "L", "source": "Deschutes Table 18.8.1"},
+    {"key": "cooling_allocation", "value": "31.25 GPM avg (≈78 kW at ΔT 10 °C); 170 kW DN50 branch cap", "tag": "L", "source": "ADC-MOD-TCS-001 §2"},
+    {"key": "key_signals", "value": "GPU junction temp (leading indicator, 30–60 s), GPU power (the heat + electrical load), utilization (anticipates the ramp), power-cap/throttle events, UALink fabric health, cold-plate supply/return temps", "tag": "W", "source": "MGN-TEL-001 §5"},
+    {"key": "bmc_firmware", "value": "OEM confirmation per platform — do not assume AMI MegaRAC (TEL-BMC)", "tag": "O", "source": "MGN-TEL-001 §5/§16"}
+  ]
+}

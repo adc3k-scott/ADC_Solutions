@@ -1,0 +1,18 @@
+{
+  "id": "cdu-tcs-hydraulic",
+  "name": "CDU secondary loop ↔ TCS header hydraulic interface",
+  "between": ["cdu", "tcs"],
+  "description": "One end-fed 2 MW CDU serves one 46 ft TCS row. The CDU provides flow and pressure; the TCS spends a small fraction of it and returns the heat.",
+  "parameters": [
+    {"key": "design_flow_gpm", "value": 500, "unit": "GPM", "tag": "L", "critical": true, "source": "Deschutes §3.1; ADC-MOD-TCS-001 §2"},
+    {"key": "thermal_capacity_kw", "value": 2000, "unit": "kW", "tag": "L", "critical": true, "source": "Deschutes §3.1"},
+    {"key": "dp_available_psi", "value": "80–90", "unit": "psi", "tag": "L", "source": "Deschutes §3.1 (at CDU secondary outlet)"},
+    {"key": "tcs_dp_budget_psi", "value": 9.4, "unit": "psi", "tag": "W", "source": "ADC-MOD-TCS-001 §3 (incl. ~5 psi flow-control authority)"},
+    {"key": "coolant", "value": "PG25 (DowFrost LC25 first source)", "tag": "L", "source": "ADC-MOD-TCS-001 §2; Deschutes §3.1 (CDU also DI water capable)"},
+    {"key": "temperature_range_c", "value": "18–55", "unit": "°C", "tag": "L", "source": "Deschutes §3.1; ADC-MOD-TCS-001 §2"},
+    {"key": "cdu_relief_psig", "value": 130, "unit": "psig", "tag": "L", "source": "Deschutes §3.1", "notes": "CDU operating 0–130 psig, relief at 130"},
+    {"key": "tcs_design_wp_psig", "value": 150, "unit": "psig", "tag": "L", "source": "ADC-MOD-TCS-001 §2", "notes": "TCS alarm 130 / design WP 150 / burst ≥450; TCS backup PSV preliminary 145 (RELIEF-01). TCS is designed above the CDU relief setting — consistent, but RELIEF-01 must produce the coordinated relief schedule."},
+    {"key": "materials_rule", "value": "no nickel-plated brass anywhere on the secondary loop; EPDM peroxide-cured only; NBR/silicone prohibited", "tag": "L", "critical": true, "source": "Deschutes §3.1; ADC-MOD-TCS-001 §2"},
+    {"key": "flushing", "value": "CDU-as-flushing-rig approval pending (CDU-01); TCS target site flush ≤ 24 h", "tag": "O", "source": "ADC-MOD-TCS-001 §8"}
+  ]
+}

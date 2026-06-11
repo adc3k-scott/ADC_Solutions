@@ -1,0 +1,18 @@
+{
+  "id": "cdu",
+  "name": "ADC 2 MW CDU (Project Deschutes aligned)",
+  "spec_sheet": "products/CDU/README.md",
+  "source_documents": ["OCP-Specification-Deschutes v1_0.pdf", "ADC_Deschutes_CDU_BOM_v0_2_WITH_DIAGRAMS.docx.pdf (ADC-CDU-DES-BOM-001)"],
+  "telemetry_domain": "D3 (Tier 2, Modbus→Redfish bridge; PLC = safety authority)",
+  "interfaces": ["cdu-tcs-hydraulic", "node-compute-electrical", "telemetry-northbound"],
+  "parameters": [
+    {"key": "pump_train", "value": "2x SPECK TOEMA065200 sealless, N+1, 500 GPM @ 112 psi, 37 kW each, ABB ACH580 VFD per pump", "tag": "L", "critical": true, "source": "ADC BOM locked architecture"},
+    {"key": "hx_bank", "value": "3x Alfa Laval CB210-276AH two-pass plate HX in parallel", "tag": "L", "critical": true, "source": "ADC BOM locked architecture"},
+    {"key": "primary_valve", "value": "1x Belimo B6500 + actuator, facility side, holds 3 °C approach", "tag": "L", "critical": true, "source": "ADC BOM locked architecture"},
+    {"key": "approach_temp_c", "value": 3, "unit": "°C", "tag": "L", "source": "Deschutes §3.1"},
+    {"key": "dimensions_in", "value": "65.25 W x 91.44 H x 42.29 D (packaged height max 100)", "tag": "L", "source": "Deschutes §3.1"},
+    {"key": "weight_lb", "value": "6900 wet max / 5310 dry max", "tag": "L", "source": "Deschutes §3.1"},
+    {"key": "power", "value": "380–416 Vac 3-ph 50/60 Hz, dual-feed PDU, ~74 kW", "tag": "L", "source": "Deschutes §3.1"},
+    {"key": "safety_authority", "value": "rack-loop / leak-response logic stays in the CDU PLC (CompactLogix 5380) — never an external gateway or AI layer", "tag": "L", "critical": true, "source": "ADC BOM locked architecture; MGN-TEL-001 §3.2"}
+  ]
+}

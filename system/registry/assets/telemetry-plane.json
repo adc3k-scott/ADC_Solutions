@@ -1,0 +1,16 @@
+{
+  "id": "telemetry-plane",
+  "name": "Unified telemetry & observability plane (MGN-TEL-001) — the AI-native OS substrate",
+  "spec_sheet": "products/Microgrid/README.md",
+  "source_documents": ["MGN-TEL-001_Unified_Telemetry_Rev0_1.md (1).docx (Rev 0.1, 2026-06-08)", "OCP Project Deschutes Redfish/AI & Four-Tier Reference v1.2 (PARENT DOC — NOT YET IN REPO, SYS-OI-01)"],
+  "telemetry_domain": "the plane itself — Layers 2–5 over all five domains",
+  "interfaces": ["telemetry-northbound", "node-compute-electrical", "hac-structural"],
+  "parameters": [
+    {"key": "layers", "value": "L0 physical / L1 device controllers + protection (safety authority) / L2 bridges (the only OT-IT crossing) / L3 Redfish service model / L4 data plane (time-series + MQTT-Sparkplug B) / L5 analytics-ops-compliance (AI engine rule→PID→ML, Grafana, historian, digital twin)", "tag": "L", "source": "MGN-TEL-001 §3.2"},
+    {"key": "correlation_use_case", "value": "GPU util climbs (t-30s, D2) → coherent ~5 MW step (t0, cause) → BESS +P (t+0–1s, bridge) → gensets ramp (t+1–45s, response) → CDU/TCS ΔT (t+5–120s, follower) — on one clock", "tag": "L", "critical": true, "source": "MGN-TEL-001 §10"},
+    {"key": "poc_phasing", "value": "1 simulate (mockup, no metal) → 2 bridge cooling → 3 bridge power → 4 correlate on one clock → 5 Tier-1 + external → 6 ML + compliance historian + sample PTE extract", "tag": "W", "source": "MGN-TEL-001 §14"},
+    {"key": "stack", "value": "DMTF python-redfish + validators + Mockup Server, OpenBMC ref, pymodbus, opendnp3/libiec61850, pySunSpec2, FastAPI bridges, Node-RED, Mosquitto/Sparkplug B, InfluxDB/TimescaleDB, Grafana, scikit-learn/TF/PyTorch, OTel/Prometheus, Open-Meteo", "tag": "W", "source": "MGN-TEL-001 §12"},
+    {"key": "security", "value": "Purdue-style segmentation; HTTPS + RBAC north-bound; SPDM optional; fail-safe = local control continues, north-bound goes stale — never the reverse", "tag": "L", "critical": true, "source": "MGN-TEL-001 §13"},
+    {"key": "emissions_schema_gap", "value": "Redfish has no native emissions schema — Oem properties + immutable historian (EMIS-OEM)", "tag": "O", "source": "MGN-TEL-001 §11"}
+  ]
+}
