@@ -9,16 +9,15 @@ single water-only flush instead of stick-built jobsite fabrication.
 
 ## Source of truth
 
-The PDF in this folder is the authoritative engineering document. This
-page is a Markdown view of it — if they disagree, the PDF wins.
-
 | Document | File | Status |
 |---|---|---|
-| ADC Modular TCS BoD/RFQ Package, Doc. ADC-MOD-TCS-001 Version 1 (2026-05-19, supersedes Rev 0.3 of 2026-05-15) | [ADC_Solutions_Modular_TCS_BOM_Version_1_WITH_DIAGRAMS.docx.pdf](ADC_Solutions_Modular_TCS_BOM_Version_1_WITH_DIAGRAMS.docx.pdf) | Clean procurement issue — RFQ-ready Bill of Design, **not** a released manufacturing BOM |
+| ADC Modular TCS BoD/RFQ Package, Doc. ADC-MOD-TCS-001 **Version 1.1** (2026-06-11) | [ADC-MOD-TCS-001_Version1_1.md](ADC-MOD-TCS-001_Version1_1.md) | **Governing Markdown issue, pending Scott approval** — errata applied (SYS-OI-05 "2026 patches" removed; citations verified; ICD/Telemetry forward-refs). RFQ-ready Bill of Design, **not** a released manufacturing BOM. |
+| — Version 1 PDF (2026-05-19, supersedes Rev 0.3 of 2026-05-15) | [ADC_Solutions_Modular_TCS_BOM_Version_1_WITH_DIAGRAMS.docx.pdf](ADC_Solutions_Modular_TCS_BOM_Version_1_WITH_DIAGRAMS.docx.pdf) | History + figure source (Appendix D diagrams). Until Version 1.1 is approved, this PDF remains authoritative. |
 
 Reference specs: OCP Project Deschutes v1.0 (Feb 2026), OCP Open Data
 Center Spec v0.5.0 (Feb 2026), OCP Diablo 400 v0.7.0 (Mar 2026), and OCP
-Modular TCS Working Paper Rev 1.0 (Aug 2025, with 2026 patches).
+Modular TCS Working Paper Rev 1.0 (Aug 2025 — latest published; the
+announced OCP TCS update WP is on standing watch, SYS-OI-06).
 Companion product: the [ADC 2 MW CDU](../CDU/README.md) this TCS serves —
 the CDU↔TCS boundary is controlled by
 [ADC-ICD-001](../CDU/ADC-ICD-001_CDU-TCS_Rev0_1.md) (Rev 0.1, approved
