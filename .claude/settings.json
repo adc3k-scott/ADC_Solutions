@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Add-Type -AssemblyName System.IO.Compression.FileSystem; $zip = [System.IO.Compression.ZipFile]::OpenRead\\(\"$PWD\\\\ADC Solutions Mission Context.docx\"\\); $entry = $zip.GetEntry\\('word/document.xml'\\); $reader = New-Object System.IO.StreamReader\\($entry.Open\\(\\)\\); $xml = $reader.ReadToEnd\\(\\); $reader.Close\\(\\); $zip.Dispose\\(\\); $xml = $xml -replace '</w:p>', \"`n\"; $text = $xml -replace '<[^>]+>', ''; $text = [System.Net.WebUtility]::HtmlDecode\\($text\\); $text)"
+    ]
+  }
+}

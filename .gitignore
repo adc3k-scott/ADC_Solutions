@@ -1,0 +1,11 @@
+# Office temp files
+~$*
+*.tmp
+
+# OneDrive
+.~lock.*
+desktop.ini
+
+# OS
+Thumbs.db
+.DS_Store
