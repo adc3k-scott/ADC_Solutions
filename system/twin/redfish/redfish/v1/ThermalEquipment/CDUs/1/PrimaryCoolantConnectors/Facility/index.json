@@ -1,0 +1,26 @@
+{
+    "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/PrimaryCoolantConnectors/Facility",
+    "@odata.type":  "#CoolantConnector.v1_2_0.CoolantConnector",
+    "Id":  "Facility",
+    "Name":  "Facility PCW Loop",
+    "CoolantConnectorType":  "Pair",
+    "SupplyTemperatureCelsius":  {
+                                     "Reading":  27
+                                 },
+    "ReturnTemperatureCelsius":  {
+                                     "Reading":  33.5
+                                 },
+    "FlowLitersPerMinute":  {
+                                "Reading":  1892.7
+                            },
+    "Oem":  {
+                "ADC":  {
+                            "ControlValve":  "Belimo B6500",
+                            "ValvePositionControlPercent":  {
+                                                                "SetPoint":  48,
+                                                                "ControlMode":  "Automatic"
+                                                            },
+                            "ValvePositionPercent":  48
+                        }
+            }
+}

@@ -1,0 +1,18 @@
+{
+    "@odata.id":  "/redfish/v1/Chassis/Rack-14",
+    "@odata.type":  "#Chassis.v1_26_0.Chassis",
+    "Id":  "Rack-14",
+    "Name":  "IT Rack Rack-14 (28in x 50in x 90.55in envelope)",
+    "ChassisType":  "Rack",
+    "Status":  {
+                   "State":  "Enabled",
+                   "Health":  "OK"
+               },
+    "Oem":  {
+                "ADC":  {
+                            "PowerFeed":  "4 feeds, 3+1 (4 makes 3), 90 kW/rack-spot",
+                            "CoolantBranch":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-14",
+                            "Registry":  "system/registry/assets/it-rack.json"
+                        }
+            }
+}

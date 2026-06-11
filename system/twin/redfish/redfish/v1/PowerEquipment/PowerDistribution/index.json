@@ -1,0 +1,11 @@
+{
+    "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution",
+    "@odata.type":  "#PowerDistributionCollection.PowerDistributionCollection",
+    "Name":  "Power Distribution Collection",
+    "Members@odata.count":  1,
+    "Members":  [
+                    {
+                        "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution/Bus-4kV"
+                    }
+                ]
+}

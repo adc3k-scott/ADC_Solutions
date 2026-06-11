@@ -1,0 +1,93 @@
+{
+  "SchemaDefinition": "RedfishInteroperabilityProfile.v1_10_0",
+  "ProfileName": "ADCPlatformSite",
+  "ProfileVersion": "0.1.0",
+  "Purpose": "DRAFT (TEL-PROFILE) — mandatory Redfish resources and properties per ADC asset class. A bridge endpoint must satisfy this profile (via Redfish-Interop-Validator) before the Telemetry OS trusts it. Derived from MGN-TEL-001 §2.4/§4-§6 and exercised by the twin mockup in system/twin/redfish/.",
+  "ContactInfo": "scott@adc3k.com",
+  "RequiredProfiles": {},
+  "Protocol": { "MinVersion": "1.24.0" },
+  "Resources": {
+    "Chassis": {
+      "Purpose": "Genset, BESS, switchgear, and rack chassis",
+      "PropertyRequirements": {
+        "Status": { "ReadRequirement": "Mandatory" },
+        "ChassisType": { "ReadRequirement": "Mandatory" },
+        "Oem": { "ReadRequirement": "Recommended", "Purpose": "ADC Engine / Aftertreatment / GridForming blocks pending TEL-002 Oem dictionary" }
+      },
+      "ConditionalRequirements": [
+        { "Purpose": "Genset positions: run-state, run-hours (compliance-critical), and electrical output sensors are mandatory regardless of engine OEM (CTRL-002 abstraction)" },
+        { "Purpose": "BESS: signed PCS real power with PeakIntervalReading/LowestIntervalReading, SoC, and grid-forming mode are mandatory — the bridge metric of MGN-TEL-001 §4.2" }
+      ]
+    },
+    "Sensor": {
+      "PropertyRequirements": {
+        "Reading": { "ReadRequirement": "Mandatory" },
+        "ReadingType": { "ReadRequirement": "Mandatory" },
+        "PeakIntervalReading": { "ReadRequirement": "IfImplemented", "Purpose": "Mandatory on BESS ±P, bus frequency, genset kW, GPU power (transient capture, Sensor v1.12.0)" },
+        "LowestIntervalReading": { "ReadRequirement": "IfImplemented" }
+      }
+    },
+    "PowerDistribution": {
+      "Purpose": "4.16 kV paralleling bus",
+      "PropertyRequirements": {
+        "Circuits": { "ReadRequirement": "Mandatory" },
+        "Redundancy": { "ReadRequirement": "Mandatory", "Purpose": "Redundancy v1.7.0 MinNumNeededForFaultTolerance must carry the real N+1 number (4-of-5)" }
+      }
+    },
+    "Circuit": {
+      "PropertyRequirements": {
+        "NominalVoltage": { "ReadRequirement": "Mandatory" },
+        "BreakerState": { "ReadRequirement": "Mandatory" }
+      }
+    },
+    "CoolingUnit": {
+      "Purpose": "CDU (Deschutes)",
+      "PropertyRequirements": {
+        "Status": { "ReadRequirement": "Mandatory" },
+        "Pumps": { "ReadRequirement": "Mandatory" },
+        "PrimaryCoolantConnectors": { "ReadRequirement": "Mandatory" },
+        "SecondaryCoolantConnectors": { "ReadRequirement": "Mandatory", "Purpose": "One per TCS rack branch; supply/return T, flow, ΔP" },
+        "LeakDetection": { "ReadRequirement": "Mandatory", "Purpose": "3-zone rope into the CDU PLC; LeakDetector v1.6.0 V/I recommended" },
+        "CoolingUnitRedundancy": { "ReadRequirement": "Mandatory", "Purpose": "N+1 pumps" }
+      }
+    },
+    "Pump": {
+      "PropertyRequirements": {
+        "Status": { "ReadRequirement": "Mandatory" },
+        "PumpSpeedPercent": { "ReadRequirement": "Mandatory" },
+        "SpeedControlPercent": { "ReadRequirement": "Mandatory", "Purpose": "Supervisory setpoint surface — PLC enforces limits" }
+      }
+    },
+    "CoolantConnector": {
+      "PropertyRequirements": {
+        "SupplyTemperatureCelsius": { "ReadRequirement": "Mandatory" },
+        "ReturnTemperatureCelsius": { "ReadRequirement": "Mandatory" },
+        "FlowLitersPerMinute": { "ReadRequirement": "Mandatory" }
+      }
+    },
+    "ComputerSystem": {
+      "Purpose": "Compute nodes (native Redfish via BMC)",
+      "PropertyRequirements": {
+        "Status": { "ReadRequirement": "Mandatory" }
+      },
+      "ConditionalRequirements": [
+        { "Purpose": "GPU power, utilization, junction temp, and power-limit/throttle state are mandatory reads — they are the CAUSE signals of the §10 correlation" }
+      ]
+    },
+    "TelemetryService": {
+      "PropertyRequirements": {
+        "MetricReportDefinitions": { "ReadRequirement": "Mandatory", "Purpose": "One periodic report per cadence class B/C/D (MGN-TEL-001 §9)" }
+      }
+    },
+    "EventService": {
+      "PropertyRequirements": {
+        "Subscriptions": { "ReadRequirement": "Mandatory", "Purpose": "Must deliver: leak, redundancy-loss, pair-reversal + dew-point (Environmental v1.5.0), chassis power-limit (Power v1.3.0), ManagerEvent, ResourceEvent" }
+      }
+    }
+  },
+  "OpenItems": [
+    "TEL-002: genset Oem/Engine + Oem/Aftertreatment property dictionary — converts the Oem 'Recommended' entries above to Mandatory with named properties",
+    "TEL-PROFILE: validate this draft against Redfish-Interop-Validator syntax once a Python-capable host is available (machine constraint: no Python on the authoring workstation)",
+    "EMIS-OEM: emissions property names pending; compliance historian mirrors Class D regardless"
+  ]
+}

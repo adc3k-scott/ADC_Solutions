@@ -1,5 +1,31 @@
 # Executable Twin — POC Phase 1 (simulate, no metal)
 
+## The twin speaks Redfish
+
+```powershell
+.\system\twin\tools\build-redfish-tree.ps1   # regenerate the /redfish/v1 tree from the registry
+.\system\twin\tools\serve-redfish.ps1        # serve it: http://localhost:8910/redfish/v1
+```
+
+`build-redfish-tree.ps1` generates a DMTF-mockup-style resource tree
+(97 resources) from ADC-SYS-001 registry constants: 5 genset chassis
+with Oem Engine/Aftertreatment blocks and Sensor v1.12.0 peak/dip
+capture, the grid-forming BESS with signed ±P, the 4.16 kV bus with
+**Redundancy v1.7.0 `MinNumNeededForFaultTolerance = 4 of 5`**, the CDU
+as CoolingUnit v1.5.0 with N+1 pumps and 16 TCS branch
+CoolantConnectors, 3-zone leak detection, managers (EMCP / PLC / plant
+master / BMC), and MetricReportDefinitions for cadence classes B/C/D.
+Values are the scenario baseline (t<0); the read-only server returns
+405 on writes — setpoints belong to Layer-1 controllers, even in
+simulation.
+
+This is the API target for dashboards and AI code before metal exists,
+and the working companion to the draft site Interoperability Profile in
+[profile/adc-site-interop-profile-draft.json](profile/adc-site-interop-profile-draft.json)
+(TEL-PROFILE groundwork): the profile says what every asset class MUST
+expose; the mockup shows it. POC Phases 2–3 swap mockup folders for
+live bridge endpoints — same URLs, same contract.
+
 A zero-dependency implementation of MGN-TEL-001 §14 Phase 1: the
 cross-domain load-step correlation (§10) running as simulation, with
 every design constant read from the

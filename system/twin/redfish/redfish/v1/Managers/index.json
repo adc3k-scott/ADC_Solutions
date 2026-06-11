@@ -1,0 +1,32 @@
+{
+    "@odata.id":  "/redfish/v1/Managers",
+    "@odata.type":  "#ManagerCollection.ManagerCollection",
+    "Name":  "Manager Collection",
+    "Members@odata.count":  8,
+    "Members":  [
+                    {
+                        "@odata.id":  "/redfish/v1/Managers/EMCP-1"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Managers/EMCP-2"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Managers/EMCP-3"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Managers/EMCP-4"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Managers/EMCP-5"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Managers/PLC-CDU-1"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Managers/PlantMaster-1"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Managers/BMC-Rack-01"
+                    }
+                ]
+}

@@ -1,0 +1,80 @@
+{
+    "@odata.id":  "/redfish/v1/Chassis",
+    "@odata.type":  "#ChassisCollection.ChassisCollection",
+    "Name":  "Chassis Collection",
+    "Members@odata.count":  24,
+    "Members":  [
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Genset-1"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Genset-2"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Genset-3"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Genset-4"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Genset-5"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/BESS-1"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Switchgear-4kV"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/CDU-1"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Rack-01"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Rack-02"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Rack-03"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Rack-04"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Rack-05"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Rack-06"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Rack-07"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Rack-08"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Rack-09"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Rack-10"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Rack-11"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Rack-12"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Rack-13"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Rack-14"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Rack-15"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Rack-16"
+                    }
+                ]
+}

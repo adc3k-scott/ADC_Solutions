@@ -1,0 +1,11 @@
+{
+    "@odata.id":  "/redfish/v1/Chassis/Genset-5/Sensors/Power",
+    "@odata.type":  "#Sensor.v1_12_0.Sensor",
+    "Id":  "Power",
+    "Name":  "Genset 5 Real Power",
+    "ReadingType":  "Power",
+    "ReadingUnits":  "W",
+    "Reading":  0,
+    "PeakIntervalReading":  0,
+    "LowestIntervalReading":  0
+}

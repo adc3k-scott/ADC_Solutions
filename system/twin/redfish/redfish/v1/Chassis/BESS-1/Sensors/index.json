@@ -1,0 +1,14 @@
+{
+    "@odata.id":  "/redfish/v1/Chassis/BESS-1/Sensors",
+    "@odata.type":  "#SensorCollection.SensorCollection",
+    "Name":  "BESS Sensors",
+    "Members@odata.count":  2,
+    "Members":  [
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/BESS-1/Sensors/RealPower"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/BESS-1/Sensors/StateOfCharge"
+                    }
+                ]
+}

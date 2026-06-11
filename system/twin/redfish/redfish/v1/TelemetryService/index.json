@@ -1,0 +1,13 @@
+{
+    "@odata.id":  "/redfish/v1/TelemetryService",
+    "@odata.type":  "#TelemetryService.v1_4_0.TelemetryService",
+    "Id":  "TelemetryService",
+    "Name":  "Telemetry Service",
+    "Status":  {
+                   "State":  "Enabled",
+                   "Health":  "OK"
+               },
+    "MetricReportDefinitions":  {
+                                    "@odata.id":  "/redfish/v1/TelemetryService/MetricReportDefinitions"
+                                }
+}

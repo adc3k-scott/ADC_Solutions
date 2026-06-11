@@ -1,0 +1,9 @@
+{
+    "@odata.id":  "/redfish/v1/Chassis/BESS-1/Sensors/StateOfCharge",
+    "@odata.type":  "#Sensor.v1_12_0.Sensor",
+    "Id":  "StateOfCharge",
+    "Name":  "BESS State of Charge",
+    "ReadingType":  "Percent",
+    "ReadingUnits":  "%",
+    "Reading":  85
+}

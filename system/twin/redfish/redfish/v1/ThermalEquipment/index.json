@@ -1,0 +1,9 @@
+{
+    "@odata.id":  "/redfish/v1/ThermalEquipment",
+    "@odata.type":  "#ThermalEquipment.v1_1_0.ThermalEquipment",
+    "Id":  "ThermalEquipment",
+    "Name":  "Thermal Equipment",
+    "CDUs":  {
+                 "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs"
+             }
+}

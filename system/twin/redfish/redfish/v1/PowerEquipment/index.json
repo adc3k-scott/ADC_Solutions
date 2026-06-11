@@ -1,0 +1,9 @@
+{
+    "@odata.id":  "/redfish/v1/PowerEquipment",
+    "@odata.type":  "#PowerEquipment.v1_2_0.PowerEquipment",
+    "Id":  "PowerEquipment",
+    "Name":  "Power Equipment",
+    "PowerDistribution":  {
+                              "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution"
+                          }
+}

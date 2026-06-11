@@ -1,0 +1,10 @@
+{
+    "@odata.id":  "/redfish/v1/Chassis/Genset-1/Sensors/Frequency",
+    "@odata.type":  "#Sensor.v1_12_0.Sensor",
+    "Id":  "Frequency",
+    "Name":  "Genset 1 Frequency",
+    "ReadingType":  "Frequency",
+    "ReadingUnits":  "Hz",
+    "Reading":  60,
+    "LowestIntervalReading":  59.98
+}

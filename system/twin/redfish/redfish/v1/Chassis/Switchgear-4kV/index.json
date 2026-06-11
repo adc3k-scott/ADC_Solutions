@@ -1,0 +1,18 @@
+{
+    "@odata.id":  "/redfish/v1/Chassis/Switchgear-4kV",
+    "@odata.type":  "#Chassis.v1_26_0.Chassis",
+    "Id":  "Switchgear-4kV",
+    "Name":  "4.16 kV Metal-Clad Paralleling Switchgear (5 kV class)",
+    "ChassisType":  "RackGroup",
+    "Status":  {
+                   "State":  "Enabled",
+                   "Health":  "OK"
+               },
+    "Links":  {
+                  "PowerDistribution":  [
+                                            {
+                                                "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution/Bus-4kV"
+                                            }
+                                        ]
+              }
+}

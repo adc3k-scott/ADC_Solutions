@@ -1,0 +1,56 @@
+{
+    "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors",
+    "@odata.type":  "#CoolantConnectorCollection.CoolantConnectorCollection",
+    "Name":  "Secondary (TCS Rack Loop) Coolant Connectors",
+    "Members@odata.count":  16,
+    "Members":  [
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-01"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-02"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-03"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-04"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-05"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-06"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-07"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-08"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-09"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-10"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-11"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-12"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-13"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-14"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-15"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-16"
+                    }
+                ]
+}

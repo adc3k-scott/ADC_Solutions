@@ -1,0 +1,29 @@
+{
+    "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution/Bus-4kV/Circuits",
+    "@odata.type":  "#CircuitCollection.CircuitCollection",
+    "Name":  "Bus Circuits",
+    "Members@odata.count":  7,
+    "Members":  [
+                    {
+                        "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution/Bus-4kV/Circuits/Genset-1-Feed"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution/Bus-4kV/Circuits/Genset-2-Feed"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution/Bus-4kV/Circuits/Genset-3-Feed"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution/Bus-4kV/Circuits/Genset-4-Feed"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution/Bus-4kV/Circuits/Genset-5-Feed"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution/Bus-4kV/Circuits/BESS-1-Feed"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution/Bus-4kV/Circuits/StepUp-1"
+                    }
+                ]
+}

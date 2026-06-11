@@ -1,0 +1,17 @@
+{
+    "@odata.id":  "/redfish/v1/TelemetryService/MetricReportDefinitions",
+    "@odata.type":  "#MetricReportDefinitionCollection.MetricReportDefinitionCollection",
+    "Name":  "Metric Report Definitions (cadence classes per MGN-TEL-001 sec 9)",
+    "Members@odata.count":  3,
+    "Members":  [
+                    {
+                        "@odata.id":  "/redfish/v1/TelemetryService/MetricReportDefinitions/ClassB-Supervisory"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/TelemetryService/MetricReportDefinitions/ClassC-Contextual"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/TelemetryService/MetricReportDefinitions/ClassD-Compliance"
+                    }
+                ]
+}

@@ -1,0 +1,15 @@
+{
+    "@odata.id":  "/redfish/v1/TelemetryService/MetricReportDefinitions/ClassD-Compliance",
+    "@odata.type":  "#MetricReportDefinition.v1_4_0.MetricReportDefinition",
+    "Id":  "ClassD-Compliance",
+    "Name":  "ClassD-Compliance",
+    "MetricReportDefinitionType":  "Periodic",
+    "Schedule":  {
+                     "RecurrenceInterval":  "PT300S"
+                 },
+    "Oem":  {
+                "ADC":  {
+                            "Contents":  "Run-hours, NOx/CO/CO2/HCHO, DEF, energy/demand -- mirrored to immutable historian (defends synthetic-minor permit)"
+                        }
+            }
+}

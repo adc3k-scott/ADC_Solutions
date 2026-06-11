@@ -1,0 +1,16 @@
+{
+    "@odata.id":  "/redfish/v1/Managers/BMC-Rack-01",
+    "@odata.type":  "#Manager.v1_21_0.Manager",
+    "Id":  "BMC-Rack-01",
+    "Name":  "Rack BMC (native Redfish; firmware family TBD per TEL-BMC)",
+    "ManagerType":  "ManagementController",
+    "Status":  {
+                   "State":  "Enabled",
+                   "Health":  "OK"
+               },
+    "Oem":  {
+                "ADC":  {
+                            "AuthorityBoundary":  "Layer-1 retains deterministic control; this plane is supervisory only (MGN-TEL-001 sec 3.2/13)"
+                        }
+            }
+}

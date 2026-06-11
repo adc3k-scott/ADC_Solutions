@@ -1,0 +1,28 @@
+{
+    "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/Pumps/1",
+    "@odata.type":  "#Pump.v1_2_0.Pump",
+    "Id":  "1",
+    "Name":  "SPECK TOEMA065200 Pump 1",
+    "PumpType":  "Liquid",
+    "Manufacturer":  "SPECK",
+    "Model":  "TOEMA065200",
+    "Status":  {
+                   "State":  "Enabled",
+                   "Health":  "OK"
+               },
+    "PumpSpeedPercent":  {
+                             "Reading":  62
+                         },
+    "SpeedControlPercent":  {
+                                "SetPoint":  62,
+                                "ControlMode":  "Automatic",
+                                "Reading":  62
+                            },
+    "Oem":  {
+                "ADC":  {
+                            "RatedFlowGPM":  500,
+                            "VFD":  "ABB ACH580-31-065A-4",
+                            "RatedHead_psi":  112
+                        }
+            }
+}

@@ -1,0 +1,15 @@
+{
+    "@odata.id":  "/redfish/v1/TelemetryService/MetricReportDefinitions/ClassC-Contextual",
+    "@odata.type":  "#MetricReportDefinition.v1_4_0.MetricReportDefinition",
+    "Id":  "ClassC-Contextual",
+    "Name":  "ClassC-Contextual",
+    "MetricReportDefinitionType":  "Periodic",
+    "Schedule":  {
+                     "RecurrenceInterval":  "PT60S"
+                 },
+    "Oem":  {
+                "ADC":  {
+                            "Contents":  "Weather/wet-bulb/dew-point, facility, emissions trend, fuel"
+                        }
+            }
+}

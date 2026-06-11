@@ -1,0 +1,43 @@
+{
+    "@odata.id":  "/redfish/v1/Chassis/Genset-2",
+    "@odata.type":  "#Chassis.v1_26_0.Chassis",
+    "Id":  "Genset-2",
+    "Name":  "Cat G3520H Genset 2",
+    "ChassisType":  "Sidecar",
+    "Manufacturer":  "Caterpillar",
+    "Model":  "G3520H",
+    "Status":  {
+                   "State":  "Enabled",
+                   "Health":  "OK"
+               },
+    "PowerState":  "On",
+    "Sensors":  {
+                    "@odata.id":  "/redfish/v1/Chassis/Genset-2/Sensors"
+                },
+    "Links":  {
+                  "ManagedBy":  [
+                                    {
+                                        "@odata.id":  "/redfish/v1/Managers/EMCP-2"
+                                    }
+                                ]
+              },
+    "Oem":  {
+                "ADC":  {
+                            "Engine":  {
+                                           "RatedContinuous_ekW":  2500,
+                                           "TerminalVoltage_kV":  4.16,
+                                           "RunState":  "Running",
+                                           "RunHours":  1260,
+                                           "StartCount":  66,
+                                           "SpeedRPM":  1800
+                                       },
+                            "Aftertreatment":  {
+                                                   "Type":  "SCR + oxidation catalyst",
+                                                   "DEFLevelPercent":  78,
+                                                   "NOxOut_mgNm3":  38,
+                                                   "CatalystBedTempCelsius":  385
+                                               },
+                            "Registry":  "system/registry/assets/microgrid-node.json"
+                        }
+            }
+}

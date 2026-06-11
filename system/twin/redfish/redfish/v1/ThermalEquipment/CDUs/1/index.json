@@ -1,0 +1,63 @@
+{
+    "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1",
+    "@odata.type":  "#CoolingUnit.v1_5_0.CoolingUnit",
+    "Id":  "1",
+    "Name":  "ADC 2 MW CDU (Project Deschutes)",
+    "EquipmentType":  "CDU",
+    "Manufacturer":  "ADC Solutions",
+    "Model":  "ADC-CDU-DES-2MW",
+    "RatedFlowLitersPerMinute":  1892.7,
+    "Status":  {
+                   "State":  "Enabled",
+                   "Health":  "OK"
+               },
+    "Pumps":  {
+                  "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/Pumps"
+              },
+    "PrimaryCoolantConnectors":  {
+                                     "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/PrimaryCoolantConnectors"
+                                 },
+    "SecondaryCoolantConnectors":  {
+                                       "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors"
+                                   },
+    "LeakDetection":  {
+                          "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/LeakDetection"
+                      },
+    "CoolingUnitRedundancy":  [
+                                  {
+                                      "RedundancyType":  "NPlusM",
+                                      "MinNumNeededForFaultTolerance":  1,
+                                      "RedundancyGroup":  [
+                                                              {
+                                                                  "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/Pumps/1"
+                                                              },
+                                                              {
+                                                                  "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/Pumps/2"
+                                                              }
+                                                          ],
+                                      "MaxSupportedInGroup":  2,
+                                      "@odata.type":  "#Redundancy.v1_7_0.RedundantGroup"
+                                  }
+                              ],
+    "Oem":  {
+                "ADC":  {
+                            "ApproachTemperatureCelsius":  3,
+                            "CoolantType":  "PG25",
+                            "TCSInterface":  {
+                                                 "HeaderSupplyTemperatureCelsius":  30,
+                                                 "HeaderReturnTemperatureCelsius":  35,
+                                                 "HeaderFlowLitersPerMinute":  1892.7,
+                                                 "RemoteEndOfLineDeltaPressurekPa":  41.4,
+                                                 "BranchCount":  32,
+                                                 "Note":  "170 kW DN50 branch cap at 6 fps -- registry tcs-rack-branch",
+                                                 "WaterQuality":  {
+                                                                      "pH":  8.1,
+                                                                      "ConductivityuScm":  1450,
+                                                                      "FilterDeltaPressurekPa":  12
+                                                                  }
+                                             },
+                            "SafetyAuthority":  "CDU PLC (CompactLogix 5380) -- never the telemetry plane",
+                            "Registry":  "system/registry/assets/cdu.json"
+                        }
+            }
+}

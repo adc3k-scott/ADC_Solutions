@@ -1,0 +1,16 @@
+{
+    "@odata.id":  "/redfish/v1/Managers/PlantMaster-1",
+    "@odata.type":  "#Manager.v1_21_0.Manager",
+    "Id":  "PlantMaster-1",
+    "Name":  "Plant master / dispatch controller (CTRL-001 -\u003e TEL-DISPATCH)",
+    "ManagerType":  "ManagementController",
+    "Status":  {
+                   "State":  "Enabled",
+                   "Health":  "OK"
+               },
+    "Oem":  {
+                "ADC":  {
+                            "AuthorityBoundary":  "Layer-1 retains deterministic control; this plane is supervisory only (MGN-TEL-001 sec 3.2/13)"
+                        }
+            }
+}

@@ -1,0 +1,14 @@
+{
+    "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution/Bus-4kV/Circuits/Genset-5-Feed",
+    "@odata.type":  "#Circuit.v1_9_0.Circuit",
+    "Id":  "Genset-5-Feed",
+    "Name":  "Genset-5-Feed breaker + sync",
+    "CircuitType":  "Feeder",
+    "NominalVoltage":  "AC4160V",
+    "PhaseWiringType":  "ThreePhase4Wire",
+    "BreakerState":  "Off",
+    "Status":  {
+                   "State":  "Enabled",
+                   "Health":  "OK"
+               }
+}

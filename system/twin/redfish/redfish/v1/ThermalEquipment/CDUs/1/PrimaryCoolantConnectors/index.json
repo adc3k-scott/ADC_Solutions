@@ -1,0 +1,11 @@
+{
+    "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/PrimaryCoolantConnectors",
+    "@odata.type":  "#CoolantConnectorCollection.CoolantConnectorCollection",
+    "Name":  "Primary (Facility) Coolant Connectors",
+    "Members@odata.count":  1,
+    "Members":  [
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/PrimaryCoolantConnectors/Facility"
+                    }
+                ]
+}

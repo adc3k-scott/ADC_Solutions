@@ -1,0 +1,14 @@
+{
+    "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/Pumps",
+    "@odata.type":  "#PumpCollection.PumpCollection",
+    "Name":  "CDU Pumps (N+1)",
+    "Members@odata.count":  2,
+    "Members":  [
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/Pumps/1"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/Pumps/2"
+                    }
+                ]
+}

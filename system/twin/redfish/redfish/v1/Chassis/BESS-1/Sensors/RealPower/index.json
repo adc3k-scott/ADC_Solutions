@@ -1,0 +1,16 @@
+{
+    "@odata.id":  "/redfish/v1/Chassis/BESS-1/Sensors/RealPower",
+    "@odata.type":  "#Sensor.v1_12_0.Sensor",
+    "Id":  "RealPower",
+    "Name":  "BESS PCS Real Power (signed: + discharge / - charge)",
+    "ReadingType":  "Power",
+    "ReadingUnits":  "W",
+    "Reading":  0,
+    "PeakIntervalReading":  5000000,
+    "LowestIntervalReading":  -180000,
+    "Oem":  {
+                "ADC":  {
+                            "Note":  "Peak interval reflects the most recent coherent-step bridge event (5 MW design case)"
+                        }
+            }
+}

@@ -1,0 +1,14 @@
+{
+    "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution/Bus-4kV/Circuits/StepUp-1",
+    "@odata.type":  "#Circuit.v1_9_0.Circuit",
+    "Id":  "StepUp-1",
+    "Name":  "Node step-up feeder 4.16 to 13.8/34.5 kV (ELEC-004 open)",
+    "CircuitType":  "Feeder",
+    "NominalVoltage":  "AC4160V",
+    "PhaseWiringType":  "ThreePhase4Wire",
+    "BreakerState":  "On",
+    "Status":  {
+                   "State":  "Enabled",
+                   "Health":  "OK"
+               }
+}

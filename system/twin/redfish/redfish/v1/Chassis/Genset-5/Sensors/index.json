@@ -1,0 +1,14 @@
+{
+    "@odata.id":  "/redfish/v1/Chassis/Genset-5/Sensors",
+    "@odata.type":  "#SensorCollection.SensorCollection",
+    "Name":  "Genset 5 Sensors",
+    "Members@odata.count":  2,
+    "Members":  [
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Genset-5/Sensors/Power"
+                    },
+                    {
+                        "@odata.id":  "/redfish/v1/Chassis/Genset-5/Sensors/Frequency"
+                    }
+                ]
+}

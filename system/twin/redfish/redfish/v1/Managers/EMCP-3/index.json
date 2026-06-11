@@ -1,0 +1,16 @@
+{
+    "@odata.id":  "/redfish/v1/Managers/EMCP-3",
+    "@odata.type":  "#Manager.v1_21_0.Manager",
+    "Id":  "EMCP-3",
+    "Name":  "Cat EMCP 4.x genset controller (Layer 1 -- safety authority)",
+    "ManagerType":  "ManagementController",
+    "Status":  {
+                   "State":  "Enabled",
+                   "Health":  "OK"
+               },
+    "Oem":  {
+                "ADC":  {
+                            "AuthorityBoundary":  "Layer-1 retains deterministic control; this plane is supervisory only (MGN-TEL-001 sec 3.2/13)"
+                        }
+            }
+}

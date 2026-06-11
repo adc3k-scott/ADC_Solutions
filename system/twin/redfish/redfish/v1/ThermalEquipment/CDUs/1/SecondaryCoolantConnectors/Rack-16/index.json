@@ -1,0 +1,26 @@
+{
+    "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/SecondaryCoolantConnectors/Rack-16",
+    "@odata.type":  "#CoolantConnector.v1_2_0.CoolantConnector",
+    "Id":  "Rack-16",
+    "Name":  "TCS Branch Rack-16 (DN50 supply + return)",
+    "CoolantConnectorType":  "Pair",
+    "SupplyTemperatureCelsius":  {
+                                     "Reading":  30
+                                 },
+    "ReturnTemperatureCelsius":  {
+                                     "Reading":  35
+                                 },
+    "FlowLitersPerMinute":  {
+                                "Reading":  118.3
+                            },
+    "DeltaPressurekPa":  {
+                             "Reading":  64.8
+                         },
+    "Oem":  {
+                "ADC":  {
+                            "BalancingValvePositionPercent":  71,
+                            "BranchCap_kW_at_6fps":  170,
+                            "QD":  "Staubli RBE2 2in dry-break"
+                        }
+            }
+}

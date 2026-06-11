@@ -1,0 +1,11 @@
+{
+    "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs",
+    "@odata.type":  "#CoolingUnitCollection.CoolingUnitCollection",
+    "Name":  "CDU Collection",
+    "Members@odata.count":  1,
+    "Members":  [
+                    {
+                        "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1"
+                    }
+                ]
+}

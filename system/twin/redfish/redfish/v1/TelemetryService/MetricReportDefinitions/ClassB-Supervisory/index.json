@@ -1,0 +1,15 @@
+{
+    "@odata.id":  "/redfish/v1/TelemetryService/MetricReportDefinitions/ClassB-Supervisory",
+    "@odata.type":  "#MetricReportDefinition.v1_4_0.MetricReportDefinition",
+    "Id":  "ClassB-Supervisory",
+    "Name":  "ClassB-Supervisory",
+    "MetricReportDefinitionType":  "Periodic",
+    "Schedule":  {
+                     "RecurrenceInterval":  "PT1S"
+                 },
+    "Oem":  {
+                "ADC":  {
+                            "Contents":  "GPU power/temp/util, BESS +-P and SoC, genset kW/V/Hz, CDU state, TCS branches; peak/dip interval capture enabled"
+                        }
+            }
+}

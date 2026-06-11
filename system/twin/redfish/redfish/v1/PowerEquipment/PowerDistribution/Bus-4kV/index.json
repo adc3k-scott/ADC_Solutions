@@ -1,0 +1,49 @@
+{
+    "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution/Bus-4kV",
+    "@odata.type":  "#PowerDistribution.v1_6_0.PowerDistribution",
+    "Id":  "Bus-4kV",
+    "Name":  "4.16 kV Paralleling Bus",
+    "EquipmentType":  "Switchgear",
+    "Status":  {
+                   "State":  "Enabled",
+                   "Health":  "OK"
+               },
+    "Circuits":  {
+                     "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution/Bus-4kV/Circuits"
+                 },
+    "Redundancy":  [
+                       {
+                           "RedundancyType":  "NPlusM",
+                           "MaxSupportedInGroup":  5,
+                           "Oem":  {
+                                       "ADC":  {
+                                                   "Note":  "10 MW firm = 4 running of 5; encoded per Redundancy v1.7.0 (MGN-TEL-001 sec 4.3)"
+                                               }
+                                   },
+                           "@odata.type":  "#Redundancy.v1_7_0.RedundantGroup",
+                           "RedundancyGroup":  [
+                                                   {
+                                                       "@odata.id":  "/redfish/v1/Chassis/Genset-1"
+                                                   },
+                                                   {
+                                                       "@odata.id":  "/redfish/v1/Chassis/Genset-2"
+                                                   },
+                                                   {
+                                                       "@odata.id":  "/redfish/v1/Chassis/Genset-3"
+                                                   },
+                                                   {
+                                                       "@odata.id":  "/redfish/v1/Chassis/Genset-4"
+                                                   },
+                                                   {
+                                                       "@odata.id":  "/redfish/v1/Chassis/Genset-5"
+                                                   }
+                                               ],
+                           "MinNumNeededForFaultTolerance":  4,
+                           "Status":  {
+                                          "State":  "Enabled",
+                                          "Health":  "OK"
+                                      },
+                           "@odata.id":  "/redfish/v1/PowerEquipment/PowerDistribution/Bus-4kV#/Redundancy/0"
+                       }
+                   ]
+}

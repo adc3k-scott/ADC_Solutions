@@ -1,0 +1,30 @@
+{
+    "@odata.id":  "/redfish/v1/Systems/Node-01",
+    "@odata.type":  "#ComputerSystem.v1_25_0.ComputerSystem",
+    "Id":  "Node-01",
+    "Name":  "Representative compute node (Rack-01)",
+    "SystemType":  "Physical",
+    "Status":  {
+                   "State":  "Enabled",
+                   "Health":  "OK"
+               },
+    "Links":  {
+                  "Chassis":  [
+                                  {
+                                      "@odata.id":  "/redfish/v1/Chassis/Rack-01"
+                                  }
+                              ]
+              },
+    "Oem":  {
+                "ADC":  {
+                            "GPUUtilizationPercent":  25,
+                            "NodePower_kW":  62.5,
+                            "PowerLimit":  {
+                                               "Active":  false,
+                                               "Note":  "Power-registry v1.3.0 chassis power-limit events subscribe via EventService"
+                                           },
+                            "Fabric":  "UALink (Port v1.18.0 / Processor v1.22.0)",
+                            "BMCNote":  "BMC firmware family = OEM confirmation item (TEL-BMC); do not assume MegaRAC"
+                        }
+            }
+}

@@ -1,0 +1,62 @@
+{
+    "@odata.id":  "/redfish/v1/ThermalEquipment/CDUs/1/LeakDetection",
+    "@odata.type":  "#LeakDetection.v1_1_0.LeakDetection",
+    "Id":  "LeakDetection",
+    "Name":  "CDU + TCS Leak Detection",
+    "LeakDetectorGroups":  [
+                               {
+                                   "GroupName":  "Zone-1",
+                                   "HumidityPercent":  null,
+                                   "Detectors":  [
+                                                     {
+                                                         "DeviceName":  "Leak rope zone 1 (TraceTek/RLE)",
+                                                         "DetectorState":  "OK",
+                                                         "DataSourceUri":  ""
+                                                     }
+                                                 ],
+                                   "Oem":  {
+                                               "ADC":  {
+                                                           "Voltage":  4.97,
+                                                           "CurrentAmps":  0.012,
+                                                           "Note":  "LeakDetector v1.6.0 V/I telemetry"
+                                                       }
+                                           }
+                               },
+                               {
+                                   "GroupName":  "Zone-2",
+                                   "HumidityPercent":  null,
+                                   "Detectors":  [
+                                                     {
+                                                         "DeviceName":  "Leak rope zone 2 (TraceTek/RLE)",
+                                                         "DetectorState":  "OK",
+                                                         "DataSourceUri":  ""
+                                                     }
+                                                 ],
+                                   "Oem":  {
+                                               "ADC":  {
+                                                           "Voltage":  4.97,
+                                                           "CurrentAmps":  0.012,
+                                                           "Note":  "LeakDetector v1.6.0 V/I telemetry"
+                                                       }
+                                           }
+                               },
+                               {
+                                   "GroupName":  "Zone-3",
+                                   "HumidityPercent":  null,
+                                   "Detectors":  [
+                                                     {
+                                                         "DeviceName":  "Leak rope zone 3 (TraceTek/RLE)",
+                                                         "DetectorState":  "OK",
+                                                         "DataSourceUri":  ""
+                                                     }
+                                                 ],
+                                   "Oem":  {
+                                               "ADC":  {
+                                                           "Voltage":  4.97,
+                                                           "CurrentAmps":  0.012,
+                                                           "Note":  "LeakDetector v1.6.0 V/I telemetry"
+                                                       }
+                                           }
+                               }
+                           ]
+}

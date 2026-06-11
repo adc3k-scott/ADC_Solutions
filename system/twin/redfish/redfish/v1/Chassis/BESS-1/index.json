@@ -1,0 +1,36 @@
+{
+    "@odata.id":  "/redfish/v1/Chassis/BESS-1",
+    "@odata.type":  "#Chassis.v1_26_0.Chassis",
+    "Id":  "BESS-1",
+    "Name":  "BESS 6 MW PCS / 3 MWh LFP (grid-forming)",
+    "ChassisType":  "Sidecar",
+    "Status":  {
+                   "State":  "Enabled",
+                   "Health":  "OK"
+               },
+    "Sensors":  {
+                    "@odata.id":  "/redfish/v1/Chassis/BESS-1/Sensors"
+                },
+    "Oem":  {
+                "ADC":  {
+                            "GridForming":  {
+                                                "Mode":  "GridForming",
+                                                "VoltageReference_kV":  4.16,
+                                                "FrequencyReference_Hz":  60,
+                                                "DroopState":  "Forming"
+                                            },
+                            "Battery":  {
+                                            "StateOfChargePercent":  85,
+                                            "StateOfHealthPercent":  99.2,
+                                            "Chemistry":  "LFP",
+                                            "UsableEnergy_MWh":  3,
+                                            "FireBasis":  "UL 9540A"
+                                        },
+                            "PCS":  {
+                                        "Rating_MW":  6,
+                                        "Quadrants":  4
+                                    },
+                            "Registry":  "system/registry/interfaces/node-compute-electrical.json"
+                        }
+            }
+}
