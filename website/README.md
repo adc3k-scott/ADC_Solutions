@@ -28,6 +28,16 @@ the deploy repo's `main` was reset to match (`a305cec`), with the
 overhaul parked on branch `overhaul-2026-06-12-parked` in
 gpu-learning-lab (commit `d0f05ae`) — reference only, not for deploy.
 
+**Same day, after rollback:** in-place wording fixes to the live 5-tab
+site deployed at Scott's instruction (commit `4dc401a` in gpu-learning-lab):
+homepage title → ADC Solutions Inc, dead cassette modal removed, Marlie Hub
+naming, Pure DC/800 VDC claims neutralized (Bloom-vs-Cat page kept as a
+comparison report), Louisiana power cards → NG genset microgrid + BESS,
+`/investors` footer link removed. Verified live, zero stale hits on all
+five tabs. Note: after a Vercel rollback, new prod deploys need an explicit
+`vercel promote`. Old standalone pages (`/investors`, `/marlie`,
+`/cassette-spec`) are still reachable by direct URL — awaiting Scott's call.
+
 Lessons recorded:
 - The runbook (`website instructions.txt`) is stale on homepage routing.
   Its other NEVER rules still stand until reviewed with Scott.
