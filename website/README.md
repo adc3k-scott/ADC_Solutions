@@ -17,7 +17,8 @@ rules — homepage routing, naming, what never to commit). Treat its
 
 ## Site state (2026-06-12 overhaul — commit `d0f05ae` in gpu-learning-lab)
 
-Full conformance pass executed 2026-06-12 (deploy pending Scott's go):
+Full conformance pass executed and **deployed to production 2026-06-12**
+(Scott's go; post-deploy checks passed — homepage, redirects, all routes):
 
 - **Homepage = `adc3k-indexpage.html`** per the runbook. The shadowing
   `index.html` (old MARLIE 1 page) was **removed** — the runbook discrepancy
@@ -39,3 +40,7 @@ Full conformance pass executed 2026-06-12 (deploy pending Scott's go):
   engineering): `trappeys-technology`, `trappeys-power`,
   `trappeys-blueprints`, `trappeys-91mw-floorplan` — re-cut to the
   reference-cluster architecture per decision 0005.
+- **Known issue (pre-existing, not deploy-related):** `/api/chat` (ROXY
+  agent) returns 500 — its primary backend is a dead RunPod vLLM pod;
+  fix requires a new inference endpoint (`ADC_INFERENCE_URL`) or an
+  `ANTHROPIC_API_KEY` fallback in the Vercel project env.
