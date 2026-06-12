@@ -6,11 +6,11 @@
 | Field | Value |
 |---|---|
 | Document | ADC-MHUB-001 |
-| Title | Marlie Hub Compute Scope — POC / validation deployment definition |
-| Revision | **0.1** — Issued for review, **pending Scott Tomsu approval** |
+| Title | Marlie Hub Compute Scope — Mission Control Node 0, POC / validation deployment definition |
+| Revision | **0.2** — Issued for review, **pending Scott Tomsu approval** |
 | Date | 2026-06-11 |
 | Prepared by | Mission Control |
-| Site | **Marlie Hub** — 1201 SE Evangeline Thruway, Lafayette, LA (site record: [marlie-hub.md](../marlie-hub.md)) |
+| Site | **Marlie Hub — Mission Control Node 0** — 1201 SE Evangeline Thruway, Lafayette, LA (site record: [marlie-hub.md](../marlie-hub.md)) |
 | Closes | COLO-03 (on approval) |
 | Parameter tags | [L] Locked · [W] Working · [O] Open |
 
@@ -19,6 +19,7 @@
 | Rev | Date | Summary |
 |---|---|---|
 | 0.1 | 2026-06-11 | First issue per Scott's 2026-06-11 ruling: site = Marlie Hub exclusively, home office that supports compute, current product lineup only. Defines deployment unit, phasing, electrical/mechanical scope, building-fit survey, validation test plan, and seed budget structure. |
+| 0.2 | 2026-06-11 | Per Scott's ruling: **seed/POC = 8 racks, scalable in place to 16** (row infrastructure built for the full reference cluster; 8 rack positions populated at seed); **Marlie Hub designated Mission Control Node 0** — the zeroth node of the fleet, hosting the Mission Control / Telemetry supervisory head-end. §2/§3/§4.1/§7/§8 updated; new design rule SCALE-1 and open item MHUB-OI-05. |
 
 ---
 
@@ -43,45 +44,67 @@ therefore uses thermal/electrical load emulation (§7), not IT.
 | Field | Value | Tag | Source |
 |---|---|---|---|
 | Site | Marlie Hub, 1201 SE Evangeline Thruway, Lafayette, LA | [L] | Scott 2026-06-11 |
+| Designation | **Mission Control Node 0** — the zeroth node of the ADC fleet: not a production N★ node, but the supervisory home where Mission Control (team + AI ops layer) and the Telemetry head-end physically live. Every future node reports here | [L] | Scott 2026-06-11 |
 | Role | Home office that supports compute; ADC team office on site | [L] | Scott 2026-06-11 |
 | Site control | Established (team physically on site); instrument/form to document | [W] | Scott 2026-06-11 |
-| N★ relation | Sub-block / partial-block deployment per ADC-NSTAR-001 §5: 1–3 clusters on utility AC, **no microgrid node** — the Marlie Hub pattern | [L] | ADC-NSTAR-001 Rev 0.2 §5 |
+| N★ relation | Sub-block / partial-block deployment per ADC-NSTAR-001 §5: clusters on utility AC, **no microgrid node** — the Marlie Hub pattern | [L] | ADC-NSTAR-001 Rev 0.2 §5 |
 | Distinct from | Evangeline Distribution Hub, 1016 **SW** Evangeline Thruway (different site, different play) | [L] | site records |
+
+**Mission Control Node 0 carries (in addition to the compute row):**
+the Telemetry plane supervisory head-end — historians, the unified
+store, TEL-PROFILE conformance tooling, and the ops/AI layer per
+MGN-TEL-001 (supervisory only; Layer-1 safety authority stays in the
+field controllers, always). Fleet sites (Trappey's, Cameron Street,
+Willow Glen…) report into Node 0. [W — head-end sizing/hosting detail
+rides TEL-STORE]
 
 ## §3 Deployment Unit and Phasing
 
-The deployment unit is **one 16-rack reference cluster**
+**Seed/POC = 8 racks, scalable in place to 16.** [L — Scott 2026-06-11]
+
+The engineering basis remains the **16-rack reference cluster**
 (ADC-CLU-BOM-001 Rev 0.1, approved): 46-ft row, 4 HAC bays, one
-end-fed 2 MW ADC CDU, 1,248 kW IT design load at the 78 kW/rack
-Deschutes reference basis. [L]
+end-fed 2 MW ADC CDU, 1,248 kW IT at the 78 kW/rack Deschutes basis.
+The seed deployment populates **8 rack positions (2 HAC bays,
+624 kW IT design)**, with the row built so the remaining 8 positions
+are a populate-only expansion:
+
+**Design rule SCALE-1 [L]:** all row-level infrastructure is installed
+at seed for the full 16-rack cluster — TCS headers (full 46-ft run),
+the 2 MW CDU, all 8 busducts and 4 RPPs, heat-rejection capacity
+sized per MHUB-OI-02 for the 16-rack condition (or staged with a
+defined add-on step). Scaling 8 → 16 adds HAC bays 3–4, rack TCS
+branch kits, tap boxes/whips, and load — **no rework of headers,
+CDU, electrical backbone, or heat-rejection primary**.
 
 | Phase | Content | Capital | Gate |
 |---|---|---|---|
 | 0 | Site confirmation: utility service inquiry (MHUB-OI-01), building-fit survey (MAR-OI-01), heat-rejection selection (MHUB-OI-02) | Survey/eng only | This doc approved |
-| 1 | Build cluster #1: HAC + TCS + CDU + E1–E5 electrical + heat rejection + telemetry | Seed | Phase 0 complete; RFQ returns priced |
-| 2 | Validation campaign per §7 — load-emulated, 30+ day unified-telemetry run; publishable validation data | Seed | Phase 1 commissioned |
-| 3 | IT fill (GPU racks) and/or cluster #2–3 | **Series A** — customer signed | Phase 2 exit criteria met |
+| 1 | Build the row per SCALE-1; populate **8 rack positions** (2 bays): HAC + TCS + CDU + E1–E5 + heat rejection + telemetry head-end (Node 0) | Seed | Phase 0 complete; RFQ returns priced |
+| 2 | Validation campaign per §7 at the 8-rack condition — load-emulated, 30+ day unified-telemetry run; publishable validation data | Seed | Phase 1 commissioned |
+| 3 | Scale to 16 (populate bays 3–4) and/or IT fill (GPU racks) | **Series A** — customer signed | Phase 2 exit criteria met |
 
-Cluster count n = 1 for the seed phase [W]; n ≤ 3 lifetime at this
-site (partial-block ceiling, ADC-NSTAR-001 §5). Production
-commitments are whole N★ blocks at other sites — Marlie Hub validates,
-it does not host production blocks. [L]
+Marlie Hub validates the product pattern and hosts Mission Control
+Node 0 — it does not host production N★ blocks; production
+commitments are whole blocks at other sites. [L]
 
 ## §4 Electrical Scope (utility AC, no node)
 
 ### §4.1 Service requirement
 
-| Consumer | Phase 2 (validation, full-load test) | Notes |
-|---|---|---|
-| Cluster IT-equivalent load (emulated) | up to 1,248 kW | load banks, staged — §7 |
-| CDU | 74 kW | ADC-CDU-DES-BOM-001 |
-| Heat rejection + pumps | ~150–400 kW | architecture-dependent (MHUB-OI-02; decision 0006 band) |
-| House/office + validation instrumentation | ~50 kW | existing office load + test gear |
-| **Service planning envelope** | **~1.6–1.8 MVA** | full-load test condition; staged ramp from far lower |
+| Consumer | Phase 1–2 (8 racks, full-load test) | Phase 3 (16 racks) | Notes |
+|---|---|---|---|
+| IT-equivalent load (emulated at seed) | up to 624 kW | up to 1,248 kW | heater skids/load banks, staged — §7 |
+| CDU | 74 kW | 74 kW | ADC-CDU-DES-BOM-001 (one CDU either way, SCALE-1) |
+| Heat rejection + pumps | ~80–250 kW | ~150–400 kW | architecture-dependent (MHUB-OI-02; decision 0006 band) |
+| House/office + Node 0 head-end + instrumentation | ~50 kW | ~50 kW | office + telemetry head-end + test gear |
+| **Service planning envelope** | **~0.9–1.1 MVA** | **~1.6–1.8 MVA** | utility inquiry (MHUB-OI-01) quotes both conditions |
 
-Validation can begin at fractional load (single-bay load bank,
-~300 kW class) while the utility service upgrade progresses — the
-test plan is staged accordingly (§7). [W]
+The MHUB-OI-01 utility inquiry requests the **Phase 1 service with a
+defined upgrade path to the Phase 3 condition** (transformer sized for
+16-rack day one [W], or utility-side staged — LUS's call). Validation
+can begin at fractional load (single-bay, ~300 kW class) while service
+work progresses — the test plan is staged accordingly (§7). [W]
 
 ### §4.2 Utility seam
 
@@ -151,10 +174,12 @@ capture, against the reference-cluster envelope:
 
 ## §7 Validation Test Plan (Phase 2)
 
-No GPUs at seed — the cluster is validated with **thermal load
-emulation on the TCS loop** (resistive heater skids plumbed to the
-rack quick-disconnects, emulating 78 kW racks) plus electrical load
-banks on the busway outlets. Staged:
+No GPUs at seed — the row is validated at the **8-rack condition**
+with **thermal load emulation on the TCS loop** (resistive heater
+skids plumbed to the rack quick-disconnects, emulating 78 kW racks)
+plus electrical load banks on the busway outlets. The 8→16 scale-up
+(Phase 3) repeats 7.2–7.4 at the 16-rack condition as its
+commissioning gate. Staged:
 
 | Step | Test | Pass basis | Standing gate exercised |
 |---|---|---|---|
@@ -184,7 +209,7 @@ Quantities live in the bundle CSVs; supplier sheets generate via
 | B2 Mechanical | M0 roll-up: CDU package, TCS B1–B9, HAC 4-bay kit + M3 steel | CDU BOM / TCS BoD / M3 quotes (Stuart/Continental) |
 | B3 Heat rejection | MHUB-OI-02 selection + installation | vendor quotes after Phase 0 selection |
 | B4 Site & service | Utility service upgrade + transformer, slab/building modifications per survey, trenching | LUS engagement + GC estimate (in-house LA GC license) |
-| B5 Validation equipment | Thermal heater skids (~16× 78 kW class or staged subset), electrical load banks, instrumentation | rental-vs-buy trade at Phase 1 |
+| B5 Validation equipment | Thermal heater skids (8× 78 kW class for the seed condition; staged subset acceptable), electrical load banks, instrumentation | rental-vs-buy trade at Phase 1 |
 | B6 Engineering & compliance | LA-PE structural (SOW D1–D3), surge analysis (HYDR-01 SOW), commissioning | SOWs already issued — firm selection pending |
 | B7 Contingency | — | % set at Phase 1 budget approval |
 
@@ -195,11 +220,12 @@ lineup only. [L — Scott 2026-06-11]
 
 | ID | Item | Gates |
 |---|---|---|
-| MHUB-OI-01 | Utility territory + service inquiry at 1201 SE Evangeline Thruway (LUS presumed; capacity for ~1.6–1.8 MVA; upgrade cost/schedule) | Phase 1 start; §4.1 envelope |
-| MAR-OI-01 | Building-fit survey per §6 (pre-existing item, scoped here) | Phase 1 start |
-| MHUB-OI-02 | Heat-rejection selection per decision 0006 (evaporative vs dry+trim at single-cluster scale) | B3 procurement; §4.1 envelope |
-| MHUB-OI-03 | Validation rig specification: heater-skid design (78 kW rack emulation at the QD interface), load-bank plan, rental-vs-buy | Phase 2 test plan execution |
+| MHUB-OI-01 | Utility territory + service inquiry at 1201 SE Evangeline Thruway (LUS presumed; ~0.9–1.1 MVA Phase 1 with defined path to ~1.6–1.8 MVA at 16 racks; upgrade cost/schedule) | Phase 1 start; §4.1 envelope |
+| MAR-OI-01 | Building-fit survey per §6 (pre-existing item, scoped here) — survey against the **full 16-rack row** per SCALE-1, not the 8-rack seed condition | Phase 1 start |
+| MHUB-OI-02 | Heat-rejection selection per decision 0006 (evaporative vs dry+trim); state the 16-rack capacity plan — full-size day one vs defined add-on step | B3 procurement; §4.1 envelope |
+| MHUB-OI-03 | Validation rig specification: heater-skid design (78 kW rack emulation at the QD interface, 8× for seed), load-bank plan, rental-vs-buy | Phase 2 test plan execution |
 | MHUB-OI-04 | Redundancy posture for Phase 3 production IT at Marlie Hub (re-opens ELE-OI-02 upstream rule at this site) | any production IT commitment here |
+| MHUB-OI-05 | 8→16 scale-up detail: which 2 bays populate at seed (CDU-end vs far-end — affects TCS branch balancing), tap-box/whip staging vs full install, and the Phase 3 commissioning re-test scope (§7 note) | Phase 1 layout release |
 
 Standing platform gates that land at Marlie Hub first: HYDR-01 (surge,
 before TCS valve POs), SUP-01/HAC-OI-01/CDU-G8 (LA-PE structural),
@@ -208,6 +234,7 @@ LAYOUT-01 (end-fed confirmation → E1 footage).
 
 ---
 
-*ADC-MHUB-001 Rev 0.1 — issued for review, pending Scott Tomsu
-approval. On approval, COLO-03 closes and Phase 0 (utility inquiry +
-building survey + heat-rejection selection) begins.*
+*ADC-MHUB-001 Rev 0.2 — issued for review, pending Scott Tomsu
+approval (8-rack seed scalable to 16; Mission Control Node 0 per
+Scott's 2026-06-11 ruling). On approval, COLO-03 closes and Phase 0
+(utility inquiry + building survey + heat-rejection selection) begins.*

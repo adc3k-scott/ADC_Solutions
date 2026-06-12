@@ -16,10 +16,11 @@ Modular TCS, HAC, reference cluster, Telemetry).
 | Field | Value | Tag | Source |
 |---|---|---|---|
 | Site name | **Marlie Hub** | [L] | Scott 2026-06-11 |
+| Designation | **Mission Control Node 0** — zeroth node of the ADC fleet; hosts Mission Control (team + AI ops layer) and the Telemetry supervisory head-end; every future node reports here | [L] | Scott 2026-06-11 |
 | Role | **Home office that supports compute** — the ADC Solutions team office is physically located here | [L] | Scott 2026-06-11 |
 | Address | **1201 SE Evangeline Thruway, Lafayette, LA** | [L] | Scott 2026-06-11 |
 | Site control | Established — ADC team office on site | [W] | Scott 2026-06-11 (instrument/lease form not documented) |
-| Governing doc | [ADC-MHUB-001 Rev 0.1](marlie-hub-engineering/ADC-MHUB-001_Rev0_1.md) — compute scope, **issued 2026-06-11 pending Scott approval** (closes COLO-03 on approval) | [W] | marlie-hub-engineering/ |
+| Governing doc | [ADC-MHUB-001 Rev 0.2](marlie-hub-engineering/ADC-MHUB-001_Rev0_2.md) — compute scope, **issued 2026-06-11 pending Scott approval** (closes COLO-03 on approval) | [W] | marlie-hub-engineering/ |
 | Stage | Operating home office; compute scope issued — Phase 0 (utility inquiry, building survey, heat-rejection selection) starts on approval | [W] | ADC-MHUB-001 §3 |
 
 Not to be confused with the **Evangeline Distribution Hub** at 1016 **SW**
@@ -29,13 +30,14 @@ Evangeline Thruway ([evangeline-distribution-hub.md](evangeline-distribution-hub
 ## Compute role (current-lineup terms)
 
 - Marlie Hub supports compute at sub-block scale on utility AC service
-  — the ADC-NSTAR-001 §5 partial-block/POC pattern (1–3 reference
-  clusters, no microgrid node). Production commitments are whole N★
-  blocks at other sites. [W] — ADC-NSTAR-001 Rev 0.2 §5.
-- The deployment unit is the **16-rack reference cluster**
-  (ADC-CLU-BOM-001, 1,248 kW), the N★ IT fill unit per decisions
-  0004/0005. Cluster count here is open ([O], 1–4 bounded by the
-  partial-block rule).
+  — the ADC-NSTAR-001 §5 partial-block/POC pattern (no microgrid
+  node). Production commitments are whole N★ blocks at other sites.
+  [W] — ADC-NSTAR-001 Rev 0.2 §5.
+- **Seed/POC = 8 racks (2 HAC bays, 624 kW IT), scalable in place to
+  the full 16-rack reference cluster** (ADC-CLU-BOM-001, 1,248 kW) —
+  all row infrastructure (TCS headers, 2 MW CDU, busway, RPPs) built
+  for 16 at seed; scaling is populate-only (design rule SCALE-1).
+  [L] — Scott 2026-06-11; ADC-MHUB-001 §3.
 - Seed funding intent (infrastructure before GPUs) is carried in the
   partner layer; all equipment line-items derive from the current
   product lineup only — no legacy plans. [W] — COLO-03 re-derives the
@@ -45,8 +47,9 @@ Evangeline Thruway ([evangeline-distribution-hub.md](evangeline-distribution-hub
 
 | Field | Value | Tag | Source |
 |---|---|---|---|
-| Target IT load | n× reference cluster @ 1,248 kW (n [O]); actual initial load likely far lower (validation, not production density) | [O] | ADC-CLU-BOM-001 |
-| Serving utility | [O] — 1201 SE Evangeline Thruway, Lafayette (LUS or SLEMCO by territory; confirm) | [O] | — |
+| Target IT load | Seed: 8 racks = 624 kW design (validation load staged from ~300 kW class); scale: 16 racks = 1,248 kW | [L] | Scott 2026-06-11; ADC-MHUB-001 §3/§4.1 |
+| Service envelope | ~0.9–1.1 MVA Phase 1 → ~1.6–1.8 MVA at 16 racks | [W] | ADC-MHUB-001 §4.1 |
+| Serving utility | [O] — 1201 SE Evangeline Thruway, Lafayette (LUS presumed; confirm — MHUB-OI-01) | [O] | — |
 | N★ relation | Sub-block scale: validates the reference cluster, not the 5 MW + 10 MW pairing | [W] | ADC-NSTAR-001 §5 |
 
 Everything else (gas, water, structure, permitting): [O] — premature.
