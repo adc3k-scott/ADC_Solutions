@@ -1,5 +1,10 @@
 # Cameron Street (Entergy, dual-utility) — Site Record
 
+**Artifacts:** MGN-PROP-004 lives in
+[colo/Entergy Cameron Street/](../Entergy%20Cameron%20Street/) —
+governing Markdown extracted 2026-06-12 per decision 0012 (docx +
+preview retained as history). This record is canonical.
+
 **Filled from MGN-PROP-004 Rev 0.3** (Entergy Louisiana Technical
 Proposal, Working Draft, 2026-06-08), imported 2026-06-11 from the
 tracked docx in

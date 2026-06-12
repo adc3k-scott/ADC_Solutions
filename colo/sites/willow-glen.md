@@ -1,8 +1,13 @@
 # Willow Glen Compute Campus — Site Record
 
-**Created 2026-06-11** from `colo/Willow Glen/Willow_Glen_Path_to_Site_
-Control.md.docx` ("Path to Site Control", confidential working plan,
-June 2026) and the seven site aerials in the same folder. The plan is a
+**Artifacts:** the Path-to-Site-Control plan + seven aerials live in
+[colo/Willow Glen/](../Willow%20Glen/) — governing Markdown
+[Willow_Glen_Path_to_Site_Control.md](../Willow%20Glen/Willow_Glen_Path_to_Site_Control.md)
+extracted 2026-06-12 per decision 0012 (docx retained as history).
+This record is canonical.
+
+**Created 2026-06-11** from the "Path to Site Control" confidential
+working plan (June 2026) and the seven site aerials in the same folder. The plan is a
 deal playbook, not an engineering document — most engineering fields
 are [O] by design. Source column cites the plan's phases.
 

@@ -6,16 +6,19 @@ not ADC product specs — nothing here implies a product is in the
 ADC lineup (see decisions [0005](../../ops/decisions/0005-no-cassettes-current-product-lineup.md),
 [0010/0011](../../ops/decisions/)).
 
-Where a spec also lives next to the ADC product it informs, the
-**product folder copy is canonical** and is the one product docs cite.
+Specs that an ADC product cites directly live in **one canonical copy
+next to that product** (decision
+[0012](../../ops/decisions/0012-repo-file-structure-conformance.md) —
+duplicates here were deleted 2026-06-12):
+
+- Deschutes v1.0 (ORV3 in-rack CDU) → [products/CDU/](../../products/CDU/)
+- Diablo 400 v0.7.0 (±400 VDC, **WATCH not lineup**, decision 0011) → [products/Diablo/](../../products/Diablo/)
+- Open Data Center Spec v0.5.0 → [colo/](../../colo/)
 
 ## Specifications
 
 | File | Notes |
 |---|---|
-| OCP-Specification-Deschutes v1_0.pdf | ORV3 in-rack CDU spec. Canonical copy: [products/CDU/](../../products/CDU/) |
-| OCP-Specification-Diablo 400 v0.7.0 FINAL.pdf | ±400 VDC rack power, pre-production. **WATCH status, not lineup** (decision 0011). Canonical copy: [products/Diablo/](../../products/Diablo/) |
-| Open Data center Spec Version 0.5.0.pdf | Open Data Center spec. Canonical copy: [colo/](../../colo/) |
 | HVDC_LVDC_PSU_18kW Spec_1.0.0.pdf | 18 kW HVDC→LVDC PSU spec. Background for HVDC power-chain watch (decisions 0007/0011) |
 | ORV3 HVDC-LVDC 100kW Power Shelf Spec_1.0.0.pdf | ORV3 100 kW HVDC-LVDC power shelf. Same watch track as the 18 kW PSU |
 | Rope Leak Sensor Base Specification_R1.0.0_FINAL.pdf | Leak-detection rope sensor base spec — relevant to TCS/CDU leak detection |

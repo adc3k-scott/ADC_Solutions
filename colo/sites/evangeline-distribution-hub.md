@@ -1,5 +1,10 @@
 # Evangeline Distribution Hub (1016 SW Evangeline Thruway) — Site Record
 
+**Artifacts:** site binaries (lease brochure, parcel report, build
+comparison, photos/video) live in
+[colo/Evangeline Distribution Hub/](../Evangeline%20Distribution%20Hub/).
+This record is canonical (decision 0012).
+
 **Created 2026-06-11** from the three documents in
 `colo/Evangeline Distribution Hub/`: Elifin lease brochure, Beacon
 parcel report (2026-05-30), and the greenfield build-cost comparison

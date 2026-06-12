@@ -1,5 +1,10 @@
 # Marlie Hub — Site Record
 
+**Artifacts:** site binaries (building photo) live in
+[colo/Marlie Hub/](../Marlie%20Hub/); engineering documents in
+[marlie-hub-engineering/](marlie-hub-engineering/).
+This record is canonical (decision 0012).
+
 **Created 2026-06-11; re-founded 2026-06-11 per Scott's naming/scope
 ruling.** The site name is **Marlie Hub** — exclusively; no other
 designators, and no older topology framings are used for this site.

@@ -1,5 +1,10 @@
 # Trappey's Compute Center — Site Record
 
+**Artifacts:** site binaries (investor/gallery HTML) live in
+[colo/Trappey's Compute Center/](../Trappey's%20Compute%20Center/);
+engineering documents in [trappeys-engineering/](trappeys-engineering/).
+This record is canonical (decision 0012).
+
 **Filled from ST-TRAP-BOD-001 Rev 0.6** (Basis of Design, 2026-04-23),
 imported 2026-06-11. Per decision
 [0003](../../ops/decisions/0003-trappeys-adc-native-reengineering.md)
