@@ -2,7 +2,7 @@
 
 - **Date:** 2026-06-12
 - **Decided by:** Scott Tomsu, President
-- **Status:** Issued — pending Scott approval (issue-then-approve)
+- **Status:** APPROVED by Scott 2026-06-12, as issued — execution same day (photo/video move to Drive remains manual)
 
 ## Problem
 

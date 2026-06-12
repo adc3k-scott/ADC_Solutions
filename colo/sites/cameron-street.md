@@ -114,7 +114,7 @@ when Hyperion-class generation energizes (§9.5).
 now packaged as the Entergy instance of the open-source Utility Grid
 Partnership Program —
 [ADC-UTIL-001-A](../utility-partnership/ADC-UTIL-001-A_Entergy_CameronStreet_Rev0_1.md)
-(Rev 0.1 issued, pending approval; decision 0008). The annex
+(Rev 0.1 approved 2026-06-12; decision 0008). The annex
 complements MGN-PROP-004 — it does not replace it; CAM-OI-02 stays
 open. Working session = UTIL-OI-04.
 

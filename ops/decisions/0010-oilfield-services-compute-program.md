@@ -2,7 +2,7 @@
 
 - **Date:** 2026-06-12
 - **Decided by:** Scott Tomsu, President
-- **Status:** Issued — pending Scott approval (issue-then-approve)
+- **Status:** APPROVED by Scott 2026-06-12, as issued
 
 ## Decision
 

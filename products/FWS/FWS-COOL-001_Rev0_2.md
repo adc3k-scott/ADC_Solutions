@@ -4,7 +4,7 @@
 | | |
 |---|---|
 | **Document** | FWS-COOL-001 |
-| **Revision** | Rev 0.2 (Draft for Review) |
+| **Revision** | Rev 0.2 — **APPROVED by Scott Tomsu 2026-06-12** |
 | **Date** | 2026-06-11 |
 | **Prepared for** | Scott Tomsu |
 | **Reference design** | Johnson Controls 1 GW AI Factory Blueprint, Water-Cooled RDG 402 (scaled and adapted) |

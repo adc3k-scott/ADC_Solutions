@@ -10,8 +10,8 @@ Open Compute Project, effective 2026-02-26).
 | Document | File | Status |
 |---|---|---|
 | OCP Project Deschutes: Data Center Facilities v1.0.0 (Google, 2026-02-26) | [OCP-Specification-Deschutes v1_0.pdf](OCP-Specification-Deschutes%20v1_0.pdf) | Public OCP specification — design basis |
-| ADC Project Deschutes CDU Procurement BOM/BoD, Doc. ADC-CDU-DES-BOM-001 **Rev 0.3** (2026-06-11) | [ADC-CDU-DES-BOM-001_Rev0_3.md](ADC-CDU-DES-BOM-001_Rev0_3.md) | **Governing Markdown issue, pending Scott approval** — errata E1–E5 applied (CDU-G10, SYS-OI-04/07, internal-reference citation, Telemetry forward-refs). RFQ-level procurement BOM — **not** a released manufacturing BOM. |
-| — Rev 0.1/0.2 PDF (2026-05-19) | [ADC_Deschutes_CDU_BOM_v0_2_WITH_DIAGRAMS.docx.pdf](ADC_Deschutes_CDU_BOM_v0_2_WITH_DIAGRAMS.docx.pdf) | History + figure source (the four explanatory diagrams). Until Rev 0.3 is approved, this PDF remains authoritative. |
+| ADC Project Deschutes CDU Procurement BOM/BoD, Doc. ADC-CDU-DES-BOM-001 **Rev 0.3** (2026-06-11) | [ADC-CDU-DES-BOM-001_Rev0_3.md](ADC-CDU-DES-BOM-001_Rev0_3.md) | **Governing Markdown, APPROVED by Scott 2026-06-12** — errata E1–E5 applied (CDU-G10, SYS-OI-04/07, internal-reference citation, Telemetry forward-refs). RFQ-level procurement BOM — **not** a released manufacturing BOM. |
+| — Rev 0.1/0.2 PDF (2026-05-19) | [ADC_Deschutes_CDU_BOM_v0_2_WITH_DIAGRAMS.docx.pdf](ADC_Deschutes_CDU_BOM_v0_2_WITH_DIAGRAMS.docx.pdf) | History + figure source (the four explanatory diagrams); superseded by the approved Rev 0.3 Markdown. |
 | ADC CDU ↔ TCS Interface Control Document, Doc. ADC-ICD-001 Rev 0.1 (2026-06-11) | [ADC-ICD-001_CDU-TCS_Rev0_1.md](ADC-ICD-001_CDU-TCS_Rev0_1.md) | Controls the CDU↔TCS boundary (demarcation, pressure cascade, materials, transients, telemetry). **Approved 2026-06-11** — CDU-G7 closed. |
 
 The ADC BOM also draws on: ADC Modular TCS BoD/RFQ v1 (2026-05-19),

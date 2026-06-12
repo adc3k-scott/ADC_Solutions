@@ -23,8 +23,8 @@ approves the issue.
 
 | Document | File | Status |
 |---|---|---|
-| ESS-BOD-001 — Energy Storage System Basis of Design, **Rev 0.3** (2026-06-11) | [ESS-BOD-001_Rev0_3.md](ESS-BOD-001_Rev0_3.md) | **Governing** (Markdown) — issued for review, pending Scott approval; coupling AC per decision 0007. Rev 0.2 docx retained as history |
-| ESS-RFQ-001 — Package 1 Containerized LFP BESS RFQ, **Rev 0.2** (2026-06-11) | [ESS-RFQ-001_Rev0_2.md](ESS-RFQ-001_Rev0_2.md) | AC re-cut; releasable after Attachment A filled + Scott approval. Rev 0.1 docx retained as history |
+| ESS-BOD-001 — Energy Storage System Basis of Design, **Rev 0.3** (2026-06-11) | [ESS-BOD-001_Rev0_3.md](ESS-BOD-001_Rev0_3.md) | **Governing** (Markdown) — **APPROVED by Scott 2026-06-12** (SYS-OI-13 closed); coupling AC per decision 0007. Rev 0.2 docx retained as history |
+| ESS-RFQ-001 — Package 1 Containerized LFP BESS RFQ, **Rev 0.2** (2026-06-11) | [ESS-RFQ-001_Rev0_2.md](ESS-RFQ-001_Rev0_2.md) | **APPROVED by Scott 2026-06-12**; AC re-cut; releasable once Attachment A filled (the only remaining gate). Rev 0.1 docx retained as history |
 | ESS-RFQ-001 Attachment A — Site Data Sheet (fill-in template) | [ESS-RFQ-001_AttachmentA_SiteDataSheet.md](ESS-RFQ-001_AttachmentA_SiteDataSheet.md) | Template — fill from the site record (first instance: Trappey's) before NDA release |
 | OCP White Paper — Requirements for ESS Used in Data Centers, Rev 1.0 (Jan 2026) | [OCP_WP_Requirements_for_ESS_in_Data_Centers_Rev1_0.pdf](OCP_WP_Requirements_for_ESS_in_Data_Centers_Rev1_0.pdf) | Governing industry reference (CC BY-SA 4.0) |
 

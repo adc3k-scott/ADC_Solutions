@@ -42,14 +42,14 @@ MGN-BOD-002 node — the safe building block; decisions
 [0005](../ops/decisions/0005-no-cassettes-current-product-lineup.md);
 governing definition
 [ADC-NSTAR-001](../products/NStar/ADC-NSTAR-001_Rev0_2.md), Rev 0.2
-pending approval — SYS-OI-08).
+**approved 2026-06-12** — SYS-OI-08 closed).
 
 | Site | Record | Status |
 |---|---|---|
 | Trappey's Compute Center | [sites/trappeys-compute-center.md](sites/trappeys-compute-center.md) | **Filled 2026-06-11 from ST-TRAP-BOD-001 Rev 0.6** (legacy reference, external) — 22-acre cannery, Vermilion River; 91.1 MW Stage 1 BTM island. **ADC-native re-engineering decided ([0003](../ops/decisions/0003-trappeys-adc-native-reengineering.md)); TRAP-OI-03 phase-1 sizing APPROVED 2026-06-11** ([sites/trappeys-engineering/](sites/trappeys-engineering/): **19 N★ blocks Stage 1 [L]**, 37 Full Build, fill = 4× reference cluster per decision [0005](../ops/decisions/0005-no-cassettes-current-product-lineup.md)) |
 | Cameron Street (Entergy, dual-utility) | [sites/cameron-street.md](sites/cameron-street.md) | **Filled 2026-06-11 from MGN-PROP-004 Rev 0.3** (Entergy BTM proposal; 2623 Cameron St, Entergy ops site + adjacent substation; Phase-1 pilot + single 10 MW node). PROP-004 does **not** subsume MGN-PROP-005 — **SYS-OI-02 stays open**; retail-territory check = CAM-OI-03 |
 | Willow Glen Compute Campus | [sites/willow-glen.md](sites/willow-glen.md) | **Created 2026-06-11** — retired riverfront power station (WGT campus, Zydeco/Yorktown); deal playbook = ground lease/option, gated on independent Entergy/MISO load inquiry (COLO-02). Comp: Hut 8 River Bend 25 mi north |
-| Marlie Hub | [sites/marlie-hub.md](sites/marlie-hub.md) | **Mission Control Node 0** — home office that supports compute; ADC team physically here. 1201 SE Evangeline Thruway, Lafayette. Name = "Marlie Hub" exclusively. **Seed/POC = 8 racks scalable in place to 16** (SCALE-1). Compute scope **ADC-MHUB-001 Rev 0.2 ISSUED 2026-06-11** ([sites/marlie-hub-engineering/](sites/marlie-hub-engineering/)) — pending approval; closes COLO-03 |
+| Marlie Hub | [sites/marlie-hub.md](sites/marlie-hub.md) | **Mission Control Node 0** — home office that supports compute; ADC team physically here. 1201 SE Evangeline Thruway, Lafayette. Name = "Marlie Hub" exclusively. **Seed/POC = 8 racks scalable in place to 16** (SCALE-1). Compute scope **ADC-MHUB-001 Rev 0.2 APPROVED 2026-06-12** ([sites/marlie-hub-engineering/](sites/marlie-hub-engineering/)) — COLO-03 closed |
 | Evangeline Distribution Hub | [sites/evangeline-distribution-hub.md](sites/evangeline-distribution-hub.md) | **Created 2026-06-11** — 1016 SW Evangeline Thruway: $6M leasehold-only ask (land = Union Pacific), 173 kSF warehouse / 12.26 ac; **lease submitted for the two empty sections 2026-06-11 (CAP-OI-02)**; manufacturing = leading candidate, COLO-04 open; ground-lease diligence = EVA-OI-01 |
 
 ### Capital & acquisition (decision 0009)
@@ -59,7 +59,7 @@ three-property control (Marlie Hub ~$15k payoff, **Trappey's $1.5M
 offer submitting 2026-06-16**, Evangeline lease-now/option-later) for
 under ~$10M total, funded per the seed capital package
 [ADC-CAP-001](../company/capital/ADC-CAP-001_Rev0_1.md)
-(**Rev 0.1 issued 2026-06-11, pending approval** — Ornn Plan A +
+(**Rev 0.1 approved 2026-06-12** — Ornn Plan A +
 bank/SBA + strategic + seller-terms waterfall; solar element forced by
 the §48E begin-construction cutoff **2026-07-04**, CAP-OI-07).
 

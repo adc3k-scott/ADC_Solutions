@@ -6,9 +6,9 @@
 |---|---|
 | Document | ADC-NSTAR-001 |
 | Title | N★ Block — Governing Definition (block boundary, interfaces, scaling rules) |
-| Revision | **0.2** (Issued for approval) |
+| Revision | **0.2** — **APPROVED by Scott Tomsu 2026-06-12** |
 | Company | ADC Solutions |
-| Prepared by | Mission Control — **pending Scott Tomsu approval** (SYS-OI-08) |
+| Prepared by | Mission Control — approved as issued (closes SYS-OI-08) |
 | Date | 2026-06-11 |
 | Authority | Decisions [0004](../../ops/decisions/0004-n-star-block-topology.md) (topology) + [0005](../../ops/decisions/0005-no-cassettes-current-product-lineup.md) (fill rule, current lineup only) |
 | Parameter tags | [L] Locked · [W] Working · [O] Open |

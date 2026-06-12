@@ -5,7 +5,7 @@
 | Document | ADC-UTIL-001-A — per-utility annex to [ADC-UTIL-001](ADC-UTIL-001_Rev0_1.md) |
 | Counterparty | Entergy Louisiana (IOU) |
 | Anchor site | 2623 Cameron Street, Lafayette — Entergy regional operations parcel with **adjacent substation/switchyard** ([site record](../sites/cameron-street.md)) |
-| Revision | **Rev 0.1 — ISSUED 2026-06-11, pending Scott approval**; working draft for the Entergy session |
+| Revision | **Rev 0.1 — APPROVED by Scott 2026-06-12**; working draft for the Entergy session |
 | Relationship to MGN-PROP-004 | **Complement, not replacement.** PROP-004 Rev 0.3 remains the site technical proposal; this annex packages the partnership program around it. PROP-004's re-base onto MGN-BOD-002 Rev 0.2 stays open (CAM-OI-02). |
 
 Revision history

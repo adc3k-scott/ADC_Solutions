@@ -20,8 +20,8 @@ Modular TCS, HAC, reference cluster, Telemetry).
 | Role | **Home office that supports compute** — the ADC Solutions team office is physically located here | [L] | Scott 2026-06-11 |
 | Address | **1201 SE Evangeline Thruway, Lafayette, LA** | [L] | Scott 2026-06-11 |
 | Site control | Established — ADC team office on site; **only ~$15k remains owed** — payoff + title/instrument documentation tracked as CAP-OI-03 (decision [0009](../../ops/decisions/0009-three-property-acquisition-seed-capital.md)) | [W] | Scott 2026-06-11 |
-| Governing doc | [ADC-MHUB-001 Rev 0.2](marlie-hub-engineering/ADC-MHUB-001_Rev0_2.md) — compute scope, **issued 2026-06-11 pending Scott approval** (closes COLO-03 on approval) | [W] | marlie-hub-engineering/ |
-| Stage | Operating home office; compute scope issued — Phase 0 (utility inquiry, building survey, heat-rejection selection) starts on approval | [W] | ADC-MHUB-001 §3 |
+| Governing doc | [ADC-MHUB-001 Rev 0.2](marlie-hub-engineering/ADC-MHUB-001_Rev0_2.md) — compute scope, **APPROVED by Scott 2026-06-12** (COLO-03 closed) | [L] | marlie-hub-engineering/ |
+| Stage | Operating home office; compute scope approved — **Phase 0 open** (utility inquiry MHUB-OI-01, building survey MAR-OI-01, heat-rejection selection MHUB-OI-02) | [W] | ADC-MHUB-001 §3 |
 
 Not to be confused with the **Evangeline Distribution Hub** at 1016 **SW**
 Evangeline Thruway ([evangeline-distribution-hub.md](evangeline-distribution-hub.md))
@@ -58,7 +58,7 @@ Everything else (gas, water, structure, permitting): [O] — premature.
 
 | ID | Item | Gates |
 |---|---|---|
-| COLO-03 | **Marlie Hub compute scope document** — **ADC-MHUB-001 Rev 0.1 ISSUED 2026-06-11**, pending Scott approval (closes on approval) | seed deployment; product claims |
+| COLO-03 | **CLOSED 2026-06-12** — ADC-MHUB-001 Rev 0.2 approved by Scott | seed deployment; product claims |
 | MAR-OI-01 | Building-fit survey per ADC-MHUB-001 §6 checklist (46-ft row + CDU, clear height, slab/LA-PE input, power entry, heat-rejection siting, water, office coexistence) — may need addition/alternate structure on site | Phase 1 start |
 | MHUB-OI-01 | Utility territory + service inquiry (LUS presumed; ~1.6–1.8 MVA envelope) | Phase 1 start |
 | MHUB-OI-02 | Heat-rejection selection per decision 0006 at single-cluster scale | B3 procurement |

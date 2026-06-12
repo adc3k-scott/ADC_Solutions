@@ -4,7 +4,7 @@
 | | |
 |---|---|
 | **Document** | ESS-BOD-001 |
-| **Revision** | 0.3 — Issued for Review |
+| **Revision** | 0.3 — **APPROVED by Scott Tomsu 2026-06-12** (closes SYS-OI-13) |
 | **Date** | 2026-06-11 |
 | **Prepared by** | Scott Tomsu |
 | **Governing reference** | OCP White Paper — Requirements for Energy Storage Systems Used in Data Centers, Rev 1.0 (January 2026) — filed as [OCP_WP_Requirements_for_ESS_in_Data_Centers_Rev1_0.pdf](OCP_WP_Requirements_for_ESS_in_Data_Centers_Rev1_0.pdf) |

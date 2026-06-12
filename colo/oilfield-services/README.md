@@ -6,7 +6,7 @@ decision: [0010](../../ops/decisions/0010-oilfield-services-compute-program.md).
 
 | Document | Role | Status |
 |---|---|---|
-| [ADC-OFS-001_Rev0_1.md](ADC-OFS-001_Rev0_1.md) | Program spec — corridor thesis, tier ladder (edge → cluster → N★ block → multi-block), ADC fleet model (all nodes report to Mission Control Node 0), yard qualification checklist | **Rev 0.1 issued 2026-06-12 — pending Scott approval** |
+| [ADC-OFS-001_Rev0_1.md](ADC-OFS-001_Rev0_1.md) | Program spec — corridor thesis, tier ladder (edge → cluster → N★ block → multi-block), ADC fleet model (all nodes report to Mission Control Node 0), yard qualification checklist | **Rev 0.1 APPROVED by Scott 2026-06-12** |
 | ADC-OFS-001-A.. | Per-prospect annexes | Written as Scott names companies (OFS-OI-01) |
 
 **The model:** owner's edge workloads first; spare capacity brokered

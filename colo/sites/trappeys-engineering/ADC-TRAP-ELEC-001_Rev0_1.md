@@ -6,10 +6,10 @@
 |---|---|
 | Document | ADC-TRAP-ELEC-001 (prefix [W] pending COMM-001) |
 | Title | N★ Block Electrical Seam — MGN-BOD-002 4.16 kV Bus → ADC-CLU-BOM-001 RPP Line Lugs |
-| Revision | **0.1** (Issued for approval) |
+| Revision | **0.1** — **APPROVED by Scott Tomsu 2026-06-12** |
 | Company | ADC Solutions |
 | Discipline | ELEC |
-| Prepared by | Mission Control — **pending Scott Tomsu approval** |
+| Prepared by | Mission Control — approved as issued (closes SYS-OI-09) |
 | Date | 2026-06-11 |
 | Governing inputs | ADC-NSTAR-001 Rev 0.1 §3.1 (SYS-OI-09); MGN-BOD-002 Rev 0.2 §3/§5.1; ADC-CLU-BOM-001 Rev 0.1 §3 |
 | Parameter tags | [L] Locked · [W] Working · [O] Open |

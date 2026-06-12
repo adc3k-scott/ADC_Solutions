@@ -5,7 +5,7 @@ Company-level capital documents. Governing decision:
 
 | Document | Role | Status |
 |---|---|---|
-| [ADC-CAP-001_Rev0_1.md](ADC-CAP-001_Rev0_1.md) | Seed Capital & Property Package — three-property stack (Marlie Hub / Trappey's / Evangeline), both capital structures, the Ornn-first waterfall (Plans A–D), verified incentive matrix, deadline ladder | **Rev 0.1 issued 2026-06-11 — pending Scott approval** |
+| [ADC-CAP-001_Rev0_1.md](ADC-CAP-001_Rev0_1.md) | Seed Capital & Property Package — three-property stack (Marlie Hub / Trappey's / Evangeline), both capital structures, the Ornn-first waterfall (Plans A–D), verified incentive matrix, deadline ladder | **Rev 0.1 APPROVED by Scott 2026-06-12** |
 
 **Time-sensitive:** Trappey's $1.5M offer submits **2026-06-16**; the
 federal §48E solar begin-construction cutoff is **2026-07-04** (and the

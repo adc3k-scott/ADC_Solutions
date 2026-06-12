@@ -7,11 +7,11 @@
 |---|---|
 | Document | ADC-MHUB-001 |
 | Title | Marlie Hub Compute Scope — Mission Control Node 0, POC / validation deployment definition |
-| Revision | **0.2** — Issued for review, **pending Scott Tomsu approval** |
+| Revision | **0.2** — **APPROVED by Scott Tomsu 2026-06-12** |
 | Date | 2026-06-11 |
 | Prepared by | Mission Control |
 | Site | **Marlie Hub — Mission Control Node 0** — 1201 SE Evangeline Thruway, Lafayette, LA (site record: [marlie-hub.md](../marlie-hub.md)) |
-| Closes | COLO-03 (on approval) |
+| Closes | COLO-03 (closed 2026-06-12 on approval) |
 | Parameter tags | [L] Locked · [W] Working · [O] Open |
 
 ## Revision History

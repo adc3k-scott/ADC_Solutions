@@ -4,7 +4,7 @@
 |---|---|
 | Document | ADC-UTIL-001-C — per-utility annex to [ADC-UTIL-001](ADC-UTIL-001_Rev0_1.md) |
 | Counterparty | Lafayette Utilities System (LUS) — municipal utility of Lafayette Consolidated Government (electric, water, wastewater; LFT Fiber broadband) |
-| Revision | **Rev 0.1 — ISSUED 2026-06-11, pending Scott approval**; working draft for the LUS session |
+| Revision | **Rev 0.1 — APPROVED by Scott 2026-06-12**; working draft for the LUS session |
 | Existing relationship hook | **Marlie Hub — Mission Control Node 0** (1201 SE Evangeline Thruway) is presumed-LUS service; the MHUB-OI-01 service inquiry (~0.9–1.1 MVA → 1.6–1.8 MVA) is the natural opener |
 
 Revision history

@@ -30,7 +30,7 @@ re-cut.
 
 | Document | File | Status |
 |---|---|---|
-| FWS-COOL-001 — FWS (Cooling Side) BOD, Trane basis, **Rev 0.2** (2026-06-11) | [FWS-COOL-001_Rev0_2.md](FWS-COOL-001_Rev0_2.md) | Issued for review, pending Scott approval — the **zero-water site option** (decision 0006); CDU basis = 4× ADC CDU |
+| FWS-COOL-001 — FWS (Cooling Side) BOD, Trane basis, **Rev 0.2** (2026-06-11) | [FWS-COOL-001_Rev0_2.md](FWS-COOL-001_Rev0_2.md) | **APPROVED by Scott 2026-06-12** — the **zero-water site option** (decision 0006); CDU basis = 4× ADC CDU |
 | FWS-RFQ-M-001 — Water-Cooled Chillers RFQ, multi-vendor, **Rev 0.2** (2026-06-11) | [FWS-RFQ-M-001_Rev0_2.md](FWS-RFQ-M-001_Rev0_2.md) | Hold lifted by decision 0006 — issue at Scott's discretion when a site selects its architecture; re-check quantities against FWS-COOL-001 M-5 first |
 | ADC-FAC-HRS-BOM-001 — Facility-side CDU→HRS BOM/BoD, Deschutes basis, **v0.1** (2026-05-19) | [ADC-FAC-HRS-BOM-001_v0_1.md](ADC-FAC-HRS-BOM-001_v0_1.md) | Reference — per-CDU (2 MW) packaging of the evaporative-first option |
 

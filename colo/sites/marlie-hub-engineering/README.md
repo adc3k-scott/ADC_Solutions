@@ -9,7 +9,7 @@ these documents carry the deployment engineering. Naming rule:
 
 | Doc | Scope | Status |
 |---|---|---|
-| ADC-MHUB-001 | [Compute scope: 8-rack seed/POC scalable in place to 16 (SCALE-1) — phasing, electrical/mechanical scope, building survey, validation test plan, budget structure](ADC-MHUB-001_Rev0_2.md) | **Rev 0.2 ISSUED 2026-06-11** — pending Scott approval; closes COLO-03 on approval |
+| ADC-MHUB-001 | [Compute scope: 8-rack seed/POC scalable in place to 16 (SCALE-1) — phasing, electrical/mechanical scope, building survey, validation test plan, budget structure](ADC-MHUB-001_Rev0_2.md) | **Rev 0.2 APPROVED by Scott 2026-06-12** — COLO-03 closed |
 
 Pattern: engineering basis = the 16-rack reference cluster
 (ADC-CLU-BOM-001, approved); seed populates 8 rack positions with all

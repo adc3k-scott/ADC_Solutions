@@ -4,7 +4,7 @@
 |---|---|
 | Document | ADC-UTIL-001 |
 | Title | Utility Grid Partnership Program — open-source program specification |
-| Revision | **Rev 0.1 — ISSUED 2026-06-11, pending Scott approval** (decision [0008](../../ops/decisions/0008-utility-grid-partnership-program.md)) |
+| Revision | **Rev 0.1 — APPROVED by Scott 2026-06-12** (decision [0008](../../ops/decisions/0008-utility-grid-partnership-program.md)) |
 | Author | ADC Solutions Inc (Mission Control), direction Scott Tomsu |
 | Release posture | **Public.** This spec is published openly; the same offer is visible to every utility. Per-utility annexes (A/B/C) are working drafts for each counterparty's session. |
 | Companion docs | [MGN-BOD-002 Rev 0.2](../../products/Microgrid/MGN-BOD-002_Rev0_2.md) (the node) · [MGN-TEL-001 Rev 0.2](../../products/Microgrid/MGN-TEL-001_Rev0_2.md) (the telemetry plane) · [ADC-NSTAR-001](../../products/NStar/ADC-NSTAR-001_Rev0_2.md) (aggregation) · Annexes [-A Entergy](ADC-UTIL-001-A_Entergy_CameronStreet_Rev0_1.md), [-B SLEMCO](ADC-UTIL-001-B_SLEMCO_Rev0_1.md), [-C LUS](ADC-UTIL-001-C_LUS_Rev0_1.md) |

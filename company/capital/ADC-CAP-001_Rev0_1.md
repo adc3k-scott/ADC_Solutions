@@ -4,7 +4,7 @@
 | Field | Value |
 |---|---|
 | Document | ADC-CAP-001 |
-| Revision | **0.1 — issued 2026-06-11, pending Scott approval** (issue-then-approve) |
+| Revision | **0.1 — issued 2026-06-11, APPROVED by Scott 2026-06-12** |
 | Decision | [0009](../../ops/decisions/0009-three-property-acquisition-seed-capital.md) |
 | Owner | Scott Tomsu, President |
 | Audience | Capital partners (Plan A: Ornn), banks/CDCs, strategic investors — **presented by Scott only; nothing is sent from this repo** |

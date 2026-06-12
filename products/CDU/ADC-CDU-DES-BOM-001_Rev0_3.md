@@ -6,10 +6,10 @@
 |---|---|
 | Document | ADC-CDU-DES-BOM-001 |
 | Title | Project Deschutes Coolant Distribution Unit (CDU) Procurement Bill of Materials / Bill of Design Package |
-| Revision | **0.3** (Working Draft) |
+| Revision | **0.3** — **APPROVED by Scott Tomsu 2026-06-12** |
 | Company | ADC Solutions |
 | Prepared by | Scott Tomsu — Chief Engineer |
-| Rev 0.3 prepared by | Mission Control per ERRATA-for-BOM-v0_3.md — **pending Scott Tomsu approval** |
+| Rev 0.3 prepared by | Mission Control per ERRATA-for-BOM-v0_3.md — approved as issued |
 | Date | 2026-05-19 (Rev 0.3: 2026-06-11) |
 | Scope | Deschutes-aligned CDU procurement BOM, including internal CDU subsystems and CDU-side interface allowances |
 | Architecture control | No pump resize. No main Deschutes CDU architecture change. Pump size, HX topology, primary valve topology, and 2 MW / 500 GPM design basis are preserved. |
@@ -244,7 +244,7 @@ The four explanatory diagrams live in the Rev 0.1/0.2 PDF ([ADC_Deschutes_CDU_BO
 | TCS-01 | CDU-G7 | Map CDU-side TCS interface points to the ADC TCS package without changing TCS pipe sizing | Close with interface control document | **CLOSED 2026-06-11 — ADC-ICD-001 Rev 0.1 approved** |
 | SEIS-01 | CDU-G8 | Replace generic Deschutes seismic basis with site-specific Louisiana parameters and stamped support design | Structural PE; close with stamped analysis | SOW issued 2026-06-10 (ops/rfq/, D3) — awaiting firm selection |
 | QA-01 | CDU-G9 | Finalize FAT/validation sample quantities and test fluids | ADC + CDU supplier; close with approved validation plan | open |
-| — | CDU-G10 | Version identity (filename v0.2 vs title v0.1) | Close with revision-history table | **CLOSED at this Rev 0.3** (pending approval) |
+| — | CDU-G10 | Version identity (filename v0.2 vs title v0.1) | Close with revision-history table | **CLOSED at this Rev 0.3** (approved 2026-06-12) |
 
 ## §8 Source References
 

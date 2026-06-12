@@ -5,14 +5,15 @@
 | | |
 |---|---|
 | **Document** | ESS-RFQ-001 |
-| **Revision** | 0.2 — Issued for Bid |
+| **Revision** | 0.2 — **APPROVED by Scott Tomsu 2026-06-12** |
 | **Date** | 2026-06-11 |
 | **Issued by** | Scott Tomsu — scott@adc3k.com — (337) 780-1535 |
 | **Governing engineering document** | [ESS-BOD-001 Rev 0.3](ESS-BOD-001_Rev0_3.md) — Energy Storage System Basis of Design |
 
-> **Release status:** coupling conflict resolved at Rev 0.2 (decision 0007 —
-> AC-coupled per MGN-BOD-002). Releasable to bidders once **Attachment A is
-> filled** from the selected site record and Scott approves the issue.
+> **Release status:** approved by Scott 2026-06-12. Coupling conflict resolved
+> at Rev 0.2 (decision 0007 — AC-coupled per MGN-BOD-002). Releasable to
+> bidders once **Attachment A is filled** from the selected site record —
+> the only remaining release gate.
 
 ## Revision History
 

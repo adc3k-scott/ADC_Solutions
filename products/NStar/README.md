@@ -6,7 +6,7 @@ cluster, ADC-CLU-BOM-001) with **one 10 MW microgrid node**
 [0004](../../ops/decisions/0004-n-star-block-topology.md) +
 [0005](../../ops/decisions/0005-no-cassettes-current-product-lineup.md);
 governed by **[ADC-NSTAR-001 Rev 0.2](ADC-NSTAR-001_Rev0_2.md)**
-(issued 2026-06-11, pending Scott approval — SYS-OI-08).
+(**approved by Scott 2026-06-12** — SYS-OI-08 closed).
 
 This is not a hardware product like its siblings — it is the
 **aggregation standard** one level above

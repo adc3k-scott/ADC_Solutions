@@ -4,7 +4,7 @@
 | Field | Value |
 |---|---|
 | Document | ADC-OFS-001 |
-| Revision | **0.1 — issued 2026-06-12, pending Scott approval** (issue-then-approve) |
+| Revision | **0.1 — issued 2026-06-12, APPROVED by Scott 2026-06-12** |
 | Decision | [0010](../../ops/decisions/0010-oilfield-services-compute-program.md) |
 | Owner | Scott Tomsu, President |
 | Audience | Oilfield service company principals — **presented by Scott only; nothing is sent from this repo** |
