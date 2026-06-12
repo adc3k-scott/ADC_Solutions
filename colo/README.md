@@ -11,7 +11,7 @@ and our in-house Louisiana General Contractor License. Mission context:
 | # | Play | Profile |
 |---|---|---|
 | 1 | **Brownfield repurposing** | Older commercial/industrial locations that previously consumed large amounts of electricity, with on-prem natural gas, that can host 5–10 MW IT compute clusters (NVIDIA GPUs or Google TPUs). Ideal because they already have transmission, substations, switching infrastructure, industrial zoning, natural gas piping, and local support for continued industrial use. |
-| 2 | **AI Enterprise for oilfield services** | Introduce AI enterprise compute — and its resale value — to Louisiana oilfield service companies. |
+| 2 | **AI Enterprise for oilfield services** | Introduce AI enterprise compute — and its resale value — to Louisiana oilfield service companies. **Program spec [ADC-OFS-001](oilfield-services/ADC-OFS-001_Rev0_1.md) issued 2026-06-12** (decision [0010](../ops/decisions/0010-oilfield-services-compute-program.md)): US-90 corridor, tier ladder (edge → cluster → N★ block), ADC fleet model via Mission Control Node 0. |
 | 3 | **Greenfield development** | Projects with large amounts of on-prem natural gas and water. |
 
 ## How a site becomes real

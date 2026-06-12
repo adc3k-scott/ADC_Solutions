@@ -1,0 +1,19 @@
+{
+  "id": "ofs",
+  "name": "Oilfield Services Compute Program (US-90 corridor, tier ladder, ADC fleet model)",
+  "spec_sheet": "colo/oilfield-services/README.md",
+  "source_documents": [
+    "colo/oilfield-services/ADC-OFS-001_Rev0_1.md (Rev 0.1, 2026-06-12, program spec - issued pending Scott approval; decision 0010)",
+    "ops/decisions/0010-oilfield-services-compute-program.md",
+    "MISSION.md (Business Line 2, play #2 - AI Enterprise for oilfield services)"
+  ],
+  "telemetry_domain": "Fleet surface of Telemetry: every yard node reports to Mission Control Node 0 (Marlie Hub); per-site TEL-PROFILE; ADC operates and brokers spare capacity across the fleet",
+  "interfaces": [],
+  "parameters": [
+    {"key": "target_profile", "value": "Generic until prospects named: oilfield service companies on the US-90 corridor (Lafayette - New Iberia - Morgan City) with large yards, on-prem natural gas, HV service; yards satisfy the brownfield qualification checklist", "tag": "W", "critical": false, "source": "Scott 2026-06-12; decision 0010; ADC-OFS-001 SS1"},
+    {"key": "tier_ladder", "value": "Tier 0 edge (utility AC, ADC-NSTAR-001 SS5 sub-block) -> Tier 1 reference cluster (8->16 racks, SCALE-1) -> Tier 2 N-star block (5 MW IT + 10 MW MGN-BOD-002 on their gas) -> Tier n multi-block. Fungible up/down; every tier references its governing doc", "tag": "W", "critical": false, "source": "ADC-OFS-001 SS2; decision 0010"},
+    {"key": "fleet_model", "value": "ADC fleet model by ruling: all yard nodes report to Mission Control Node 0 (Marlie Hub); ADC operates via Telemetry and brokers/allocates spare GPU capacity across the fleet; owner gets tools + knowledge + revenue share; owner edge workloads take priority on their own iron. The aggregation answer to single-yard utilization risk.", "tag": "L", "critical": true, "source": "Scott 2026-06-12; decision 0010; ADC-OFS-001 SS3"},
+    {"key": "commercial_boundaries", "value": "No rental returns/prices asserted (modeled per prospect); no GPU supply commitment (NVIDIA thread separate); no revenue-share percentages until OFS-OI-04; Ornn overlay = candidate only (overlay not offtake)", "tag": "W", "critical": false, "source": "ADC-OFS-001 SS6"},
+    {"key": "investor_overlap", "value": "Same companies are ADC-CAP-001 SS5 Plan C strategic investors - customer education doubles as investor cultivation", "tag": "W", "critical": false, "source": "decision 0010; ADC-CAP-001 SS5"}
+  ]
+}
