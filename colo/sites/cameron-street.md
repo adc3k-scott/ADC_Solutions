@@ -110,6 +110,14 @@ resilience/black-start restoration value (§9.3), non-wires-alternative
 T&D deferral (§9.4), redeployable bridge asset — no stranded investment
 when Hyperion-class generation energizes (§9.5).
 
+**Utility Grid Partnership annex (2026-06-11):** the §9 value-adds are
+now packaged as the Entergy instance of the open-source Utility Grid
+Partnership Program —
+[ADC-UTIL-001-A](../utility-partnership/ADC-UTIL-001-A_Entergy_CameronStreet_Rev0_1.md)
+(Rev 0.1 issued, pending approval; decision 0008). The annex
+complements MGN-PROP-004 — it does not replace it; CAM-OI-02 stays
+open. Working session = UTIL-OI-04.
+
 ## Data requested from Entergy (proposal §5 — drives everything [O] above)
 
 Threshold: **#1 parcel status** (ownership/use/availability) and

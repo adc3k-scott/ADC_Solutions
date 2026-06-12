@@ -1,0 +1,22 @@
+{
+  "id": "util",
+  "name": "Utility Grid Partnership Program (open-source spec + per-utility annexes)",
+  "spec_sheet": "colo/utility-partnership/README.md",
+  "source_documents": [
+    "colo/utility-partnership/ADC-UTIL-001_Rev0_1.md (Rev 0.1, 2026-06-11, program spec — issued pending Scott approval; decision 0008)",
+    "colo/utility-partnership/ADC-UTIL-001-A_Entergy_CameronStreet_Rev0_1.md (Entergy annex; complements MGN-PROP-004, CAM-OI-02 unchanged)",
+    "colo/utility-partnership/ADC-UTIL-001-B_SLEMCO_Rev0_1.md (SLEMCO annex; member-load-additive, contract-neutral)",
+    "colo/utility-partnership/ADC-UTIL-001-C_LUS_Rev0_1.md (LUS annex; BRIC/muni fit, Marlie Hub opener)",
+    "ops/decisions/0008-utility-grid-partnership-program.md"
+  ],
+  "telemetry_domain": "Utility-facing surface of MGN-TEL-001: DNP3/IEC 61850 dispatch + POI protection telemetry per site TEL-PROFILE; drone inspection products delivered through the same plane; supervisory head-end at Mission Control Node 0 (Marlie Hub)",
+  "interfaces": [],
+  "parameters": [
+    {"key": "offer_stack", "value": "Four elements: 10 MW MGN-BOD-002 BTM block; dock-based drone inspection (host substation + area feeders/ROW); telemetry plane as grid services; federal funding alignment", "tag": "W", "critical": false, "source": "ADC-UTIL-001 §2; decision 0008"},
+    {"key": "release_posture", "value": "Open-source: program spec public, same offer visible to all utilities; annexes are counterparty working drafts in the public repo", "tag": "L", "critical": true, "source": "Scott 2026-06-11; decision 0008"},
+    {"key": "drone_ops_model", "value": "Vendor-neutral by design — spec fixes capability + interfaces only; owner/operator (ADC vs utility vs local operator) selected at each utility working session (UTIL-OI-03). No ops commitment exists yet.", "tag": "L", "critical": true, "source": "Scott 2026-06-11; decision 0008; ADC-UTIL-001 §2.2"},
+    {"key": "faa_posture", "value": "Part 107 + waivers today; Part 108 (BVLOS) NPRM 2025-08-07, comments closed 2025-10-06, NOT final as of 2026-06-11 — coverage-radius claims gated by UTIL-OI-02", "tag": "W", "critical": false, "source": "ADC-UTIL-001 §2.2 (FAA sources, accessed 2026-06-11)"},
+    {"key": "federal_matrix", "value": "Verified 2026-06-11: GRIP $10.5B (SPARK round closed 2026-05-20, awards pending); Speed to Power active; LA 40101(d) ~$40M via LDENR (round-2 RFPs incl. microgrids); USDA New ERA ~90% obligated / PACE active (co-ops); FEMA BRIC reinstated, FY24-25 $1B NOFO closes 2026-07-23. Time-sensitive — refresh per UTIL-OI-01 before any presentation; never assert eligibility/award as fact.", "tag": "W", "critical": false, "source": "ADC-UTIL-001 §2.4 (sources + accessed dates in doc)"},
+    {"key": "counterparties", "value": "First three: Entergy (Cameron Street, annex A), SLEMCO (annex B), LUS (annex C) — territories interlock around Lafayette (CAM-OI-03)", "tag": "W", "critical": false, "source": "Scott 2026-06-11; decision 0008"}
+  ]
+}

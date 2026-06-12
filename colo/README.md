@@ -56,6 +56,18 @@ pending approval — SYS-OI-08).
 **different sites**, confirmed by Scott (decision 0003). Records stay
 split.
 
+## Utility Grid Partnership Program (open-source)
+
+Decision [0008](../ops/decisions/0008-utility-grid-partnership-program.md):
+ADC's standing offer to Louisiana utilities — the 10 MW BTM block +
+dock-based drone inspection of surrounding substations/feeders/ROW +
+the telemetry plane as grid services + federal funding alignment.
+Spec is public; first three counterparties = Entergy (Cameron Street),
+SLEMCO, LUS. See [utility-partnership/](utility-partnership/) —
+**ADC-UTIL-001 Rev 0.1 + annexes A/B/C ISSUED 2026-06-11**, pending
+Scott approval. Time-sensitive: FEMA BRIC FY24–25 window closes
+2026-07-23 (UTIL-OI-01).
+
 ## Reference documents (folder root)
 
 | Document | Role |
