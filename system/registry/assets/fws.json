@@ -1,0 +1,18 @@
+{
+  "id": "fws",
+  "name": "ADC Facility Water System (chillers & heat rejection)",
+  "spec_sheet": "products/FWS/README.md",
+  "source_documents": [
+    "products/FWS/FWS-COOL-001_Rev0_1.md (Rev 0.1, 2026-06-11, draft for review — architecture subject to decision 0006)",
+    "products/FWS/ADC-FAC-HRS-BOM-001_v0_1.md (v0.1, 2026-05-19, Deschutes-basis evaporative-first reference)",
+    "products/FWS/FWS-RFQ-M-001_Rev0_2.md (Rev 0.2, 2026-06-11, HELD pending decision 0006)"
+  ],
+  "telemetry_domain": "D4 Thermal (chillers/fluid coolers/PHE → plant controller, BACnet-IP/Modbus → MGN-TEL-001)",
+  "interfaces": [],
+  "parameters": [
+    {"key": "design_point", "value": "5 MW IT node / 10 MW MGN-BOD-002 microgrid, Lafayette LA (ASHRAE 2A)", "tag": "L", "source": "FWS-COOL-001 §2-§3; ADC-NSTAR-001"},
+    {"key": "heat_rejection_architecture", "value": "OPEN — evaporative W32/W40 + 15-25% chiller trim (NSTAR Rev 0.2 PUE basis) vs zero-water dry-cooler + always-on chiller plant (FWS-COOL-001 D-2)", "tag": "O", "source": "ops/decisions/0006-heat-rejection-architecture.md (SYS-OI-12)"},
+    {"key": "cdu_basis_correction", "value": "FWS-COOL-001 §5.6 assumes 3x CDU-2500; locked N-star basis = 4x 2 MW Deschutes CDU (1 per reference cluster) — re-cut at next FWS-COOL revision regardless of 0006", "tag": "W", "source": "ADC-NSTAR-001; decisions 0004/0005"},
+    {"key": "rfq_status", "value": "FWS-RFQ-M-001 Rev 0.2 HELD from vendors — chiller line items sized for the dry-cooler architecture", "tag": "L", "source": "products/FWS/README.md; decision 0006 pending"}
+  ]
+}

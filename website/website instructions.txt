@@ -1,0 +1,27 @@
+PROJECT: ADC3K Website (adc3k.com)
+
+REPO
+git clone https://github.com/adc3k-scott/gpu-learning-lab.git
+Site folder: gpu-learning-lab/adc3k-deploy
+
+DEPLOY (run from adc3k-deploy/)
+NODE_OPTIONS="--max-old-space-size=4096" npx vercel --prod --yes
+
+VERCEL PROJECT (already linked via .vercel/project.json — no need to relink)
+projectId: prj_SLcD8hykTgAaEPeIQhzWI80DHkhV
+orgId:     team_WDYirniOzvnFXstLFIH0rk5J
+projectName: adc3k-deploy
+Account login: mission-control1 (adhscott@yahoo.com)
+
+DNS
+Cloudflare login: gofast@stfumotorcycles.com
+
+CRITICAL RULES
+- Homepage = adc3k-indexpage.html, NOT index.html. Catch-all rewrite in vercel.json must point to it or site 404s.
+- vercel.json uses "rewrites", not "routes".
+- File naming = location-first (trappeys-blueprints.html, not blueprints-trappeys.html).
+- Routes map: see adc3k-deploy/vercel.json
+- NEVER add financial/investor data outside /alumni-investors gate
+- NEVER add personal files/PDFs to adc3k-deploy/
+- NEVER git add shared/ (contains live keys)
+- One request = one change — don't add/refactor/improve uninvited
