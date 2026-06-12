@@ -56,3 +56,9 @@ Leveraging our in-house Louisiana General Contractor License, we are focused on:
 By capitalizing on our deep expertise in robotics, aviation, drone technology,
 and electronics, we plan to lead the adoption of these innovations as they
 become available.
+
+---
+
+*Source artifact: `ADC Solutions Mission Context.docx` (repo root) is the
+original as-received mission context document. This Markdown governs
+(file index per decision 0012, binary rule condition a).*
