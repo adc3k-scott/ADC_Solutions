@@ -4,11 +4,18 @@
 | | |
 |---|---|
 | **Document** | FWS-COOL-001 |
-| **Revision** | Rev 0.1 (Draft for Review) |
+| **Revision** | Rev 0.2 (Draft for Review) |
 | **Date** | 2026-06-11 |
 | **Prepared for** | Scott Tomsu |
 | **Reference design** | Johnson Controls 1 GW AI Factory Blueprint, Water-Cooled RDG 402 (scaled and adapted) |
-| **Companion documents** | MGN-BOD-002 (10 MW Node BOD), MGN-TEL-001 (Unified Telemetry), CDU-2500-BOD-001 |
+| **Companion documents** | MGN-BOD-002 (10 MW Node BOD), MGN-TEL-001 (Unified Telemetry), ADC-CDU-DES-BOM-001 (ADC CDU), ADC-ICD-001 (CDU–TCS interface) |
+
+## Revision History
+
+| Rev | Date | Description |
+|---|---|---|
+| 0.1 | 2026-06-11 | Initial draft as dropped (external AI session). Referenced a 2.5 MW CDU model not in the ADC lineup. |
+| 0.2 | 2026-06-11 | CDU basis re-cut to the locked ADC lineup per Scott's ruling (decision 0006): **4× ADC CDU (OCP Deschutes basis, 2 MW / 500 GPM each, ADC-CDU-DES-BOM-001), one per 16-rack reference cluster** (ADC-NSTAR-001); non-lineup CDU model references removed; §5.6/§5.8/§7 updated; new open item M-5 (block load reconciliation). Architecture status per decision 0006: this zero-water dry-cooler BOD is **retained as a site-selectable option** alongside the evaporative + chiller-trim basis — neither supersedes the other. |
 
 ---
 
@@ -16,7 +23,7 @@
 
 This document establishes the basis of design for the cooling-side Facility Water System (FWS) serving a 5 MW IT compute node powered by a 10 MW natural-gas microgrid. The architecture adapts the bifurcated-loop, zero-water-consumption thermal chain from the JCI RDG 402 gigawatt blueprint to single-node scale, substituting Trane chilled-water equipment, and hardening the design for Louisiana hot-humid (ASHRAE Climate Zone 2A) conditions.
 
-Scope: facility water loops from CDU/CRAH connections to atmospheric heat rejection, including chillers, heat exchangers, dry coolers, pumps, economizer arrangement, and redundancy. TCS-side internals (rack manifolds, cold plates) and the CDU product itself are covered in CDU-2500-BOD-001 and are referenced only at the interface.
+Scope: facility water loops from CDU/CRAH connections to atmospheric heat rejection, including chillers, heat exchangers, dry coolers, pumps, economizer arrangement, and redundancy. TCS-side internals (rack manifolds, cold plates) and the CDU product itself are covered in ADC-CDU-DES-BOM-001 and ADC-ICD-001 and are referenced only at the interface.
 
 ---
 
@@ -142,7 +149,7 @@ N+2 rather than N+1 on dry coolers: they are the only outdoor, fouling-exposed, 
 
 ### §5.6 CDUs (interface only)
 
-3 × ADC CDU-2500 (2 duty + 1 redundant), 4 K approach, HT FWS 26°C primary → TCS 30°C supply, PG25, 40 psid to TCS loop. Future-state 45°C TCS supported by raising HT setpoint — the chillers' efficiency improves as the setpoint rises, which is the future-proofing lever RDG 402 highlights.
+4 × ADC CDU (OCP Deschutes basis, 2 MW / 500 GPM facility side each, ADC-CDU-DES-BOM-001), one per 16-rack reference cluster per ADC-NSTAR-001 — no spare CDU frame at block level; redundancy is internal to the CDU per its BOM. 3°C HX approach target per the Deschutes basis; HT FWS 26°C primary → TCS supply per ADC-ICD-001; TCS fluid PG25. Future-state 45°C TCS supported by raising HT setpoint — the chillers' efficiency improves as the setpoint rises, which is the future-proofing lever RDG 402 highlights.
 
 ### §5.7 CRAH / FCW
 
@@ -152,7 +159,7 @@ N+2 rather than N+1 on dry coolers: they are the only outdoor, fouling-exposed, 
 
 | Loop | Config | Flow (total) | Notes |
 |---|---|---|---|
-| HT | 3 × 50% | ~1,800 GPM | End-suction or vertical inline |
+| HT | 3 × 50% | ~2,000 GPM | 4 × 500 GPM CDU facility side (Deschutes basis); end-suction or vertical inline |
 | MT | 2 × 100% | ~230 GPM | |
 | HR | 3 × 50% | ~2,400 GPM | PG30 viscosity-corrected selection |
 
@@ -185,13 +192,13 @@ Concurrent maintainability target: any single chiller, pump, PHE, or dry cooler 
 | MT chiller (COP 5.5) | 0.11 MW |
 | Dry cooler fans | 0.20 MW |
 | Pumps (all loops) | 0.17 MW |
-| CDUs | 0.12 MW |
+| CDUs (4 × 74 kW, ADC-CDU-DES-BOM-001) | 0.30 MW |
 | CRAH + DOAS | 0.09 MW |
-| **Mechanical subtotal** | **1.42 MW** |
+| **Mechanical subtotal** | **1.60 MW** |
 | Electrical losses / house | ~0.30 MW |
-| **Node total, design-day peak** | **~6.7 MW** |
+| **Node total, design-day peak** | **~6.9 MW** |
 
-Mechanical load is ~28% of IT at peak, dropping toward ~15% annualized with hybrid economizer hours — consistent with the RDG 402 16–20% band. Against the 10 MW node (5 × G3520H, N+1 firm) this leaves >3 MW headroom for genset parasitics, BESS charging, and future TCS-temperature-driven IT density growth. No conflict with MGN-BOD-002.
+Mechanical load is ~32% of IT at peak, dropping toward the upper teens annualized with hybrid economizer hours — somewhat above the RDG 402 16–20% band at peak because the CDU fleet draw is carried at the ADC-CDU-DES-BOM-001 rated 74 kW per unit. Against the 10 MW node (5 × G3520H, N+1 firm) this leaves >3 MW headroom for genset parasitics, BESS charging, and future TCS-temperature-driven IT density growth. No conflict with MGN-BOD-002.
 
 BESS note: chiller AFDs are soft-start by nature; coherent motor-start steps are dominated by pump and fan groups and fall well inside the 6 MW / 3 MWh BESS step envelope. Sequence chiller staging through the plant controller to avoid coincident starts regardless.
 
@@ -203,7 +210,7 @@ The RDG 402 Metasys layer maps to the MGN-TEL-001 unified telemetry architecture
 
 - Chillers: Trane Symbio/Tracer controllers, **BACnet/IP** to plant controller (do not use proprietary Tracer SC-only integration).
 - Dry coolers, pumps, PHE valves: Modbus TCP or hardwired to plant PLC.
-- CDU fleet: per CDU-2500 controls spec, multi-unit synchronization, Modbus TCP northbound.
+- CDU fleet: per ADC-CDU-DES-BOM-001 controls (Deschutes Modbus→Redfish bridge per MGN-TEL-001), multi-unit synchronization, Modbus TCP northbound.
 - Plant controllers: N+1; supervisory historians 2N, consistent with TEL-001 five-domain model (this plant is the Thermal domain).
 - Dynamic setpoint optimization (HT supply reset upward with IT inlet margin) is the single highest-value control sequence — every degree of HT reset is direct compressor power.
 
@@ -247,6 +254,7 @@ E-coated fins, quarterly coil wash program (potable rinse — not process water 
 | M-2 | Mech | Adiabatic vs. pure-dry dry cooler decision (water budget vs. array size) |
 | M-3 | Mech | PHE vendor selection — Tranter vs. Alfa Laval, leverage existing ADC quotes |
 | M-4 | Mech | Confirm Lafayette ASHRAE 2021 design values at final selection (W-1 through W-5 carried as nominal) |
+| M-5 | Mech | Reconcile §2 design loads (90/10 RDG 402 split, loop duties) against the actual N★ block: 4× reference cluster = 4,992 kW IT, 4× 2 MW Deschutes CDUs (ADC-CLU-BOM-001 / ADC-NSTAR-001) |
 | E-1 | Elec | Chiller voltage — MV vs. 480 V; coordinate with node single-line and genset bus |
 | E-2 | Elec | Motor-start coordination study against 6 MW/3 MWh BESS step envelope |
 | C-1 | Ctrl | Map chiller/dry cooler/PHE points into MGN-TEL-001 tag schema; confirm Symbio BACnet object coverage |
@@ -255,4 +263,4 @@ E-coated fins, quarterly coil wash program (potable rinse — not process water 
 
 ---
 
-*Rev 0.1 — issued for review. Equipment capacities and COPs are catalog-basis pending vendor selections (M-1).*
+*Rev 0.2 — issued for review (CDU basis re-cut to ADC lineup per decision 0006; retained as the site-selectable zero-water option). Equipment capacities and COPs are catalog-basis pending vendor selections (M-1).*

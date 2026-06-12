@@ -62,7 +62,7 @@ split.
 |---|---|
 | [OCP_Ready_v1_Site_Assessment_v1.0_rev1.4.xlsx](OCP_Ready_v1_Site_Assessment_v1.0_rev1.4.xlsx) | Official OCP Ready™ v1 site-assessment workbook (checklist + self-assessment, dropped 2026-06-11) — the certification instrument for the CSP OCP Ready play; requires OCP membership + Solution Provider Agreement, reviewed every 12 months |
 | [Open Data center Spec Version 0.5.0.pdf](Open%20Data%20center%20Spec%20Version%200.5.0.pdf) | OCP ODS draft — feeds the SYS-OI-06 spec watch |
-| [Heat_Rejection_5MW_IT.pdf](Heat_Rejection_5MW_IT.pdf) | 5 MW heat-rejection study (evaporative + chiller trim) — the NSTAR Rev 0.2 PUE basis; architecture now subject to decision [0006](../ops/decisions/0006-heat-rejection-architecture.md) |
+| [Heat_Rejection_5MW_IT.pdf](Heat_Rejection_5MW_IT.pdf) | 5 MW heat-rejection study (evaporative + chiller trim) — the NSTAR Rev 0.2 PUE basis; per decision [0006](../ops/decisions/0006-heat-rejection-architecture.md) this and the zero-water dry-cooler plant (products/FWS/) are both retained, site-selectable |
 
 ## Open items
 

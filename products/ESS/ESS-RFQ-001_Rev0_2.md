@@ -1,32 +1,31 @@
 # ESS-RFQ-001 — Request for Quotation
 ## Package 1 — Containerized LFP Battery Energy Storage System
-### 6 MW / 3 MWh — Outdoor Containerized — DC-Coupled
+### 6 MW / 3 MWh — Outdoor Containerized — AC-Coupled Microgrid (grid-forming PCS by others)
 
 | | |
 |---|---|
 | **Document** | ESS-RFQ-001 |
-| **Revision** | 0.1 — Issued for Bid |
+| **Revision** | 0.2 — Issued for Bid |
 | **Date** | 2026-06-11 |
 | **Issued by** | Scott Tomsu — scott@adc3k.com — (337) 780-1535 |
-| **Governing engineering document** | [ESS-BOD-001 Rev 0.2](ESS-BOD-001_Rev0_2.md) — Energy Storage System Basis of Design |
+| **Governing engineering document** | [ESS-BOD-001 Rev 0.3](ESS-BOD-001_Rev0_3.md) — Energy Storage System Basis of Design |
 
-> **HOLD — do not release to bidders.** This RFQ hard-codes the DC-coupled /
-> 800 V-class architecture (§1.1, Package 2 PCS/DC-DC), which conflicts with the
-> locked AC-coupled 4.16 kV grid-forming BESS in MGN-BOD-002 Rev 0.2 §5.2/§5.3.
-> Release is gated on `ops/decisions/0007-bess-coupling.md`. Governing Markdown
-> converted 2026-06-11 from `ESS-RFQ-001_Rev0.1.docx` (original retained alongside).
+> **Release status:** coupling conflict resolved at Rev 0.2 (decision 0007 —
+> AC-coupled per MGN-BOD-002). Releasable to bidders once **Attachment A is
+> filled** from the selected site record and Scott approves the issue.
 
 ## Revision History
 
 | Rev | Date | Author | Description |
 |---|---|---|---|
-| 0.1 | 2026-06-11 | Scott Tomsu | Initial issue for bid. Scope, technical requirements, compliance gates, submittal list, evaluation criteria, and bidder compliance matrix. |
+| 0.1 | 2026-06-11 | Scott Tomsu | Initial issue for bid. Scope, technical requirements, compliance gates, submittal list, evaluation criteria, and bidder compliance matrix. DC-coupled framing (superseded). |
+| 0.2 | 2026-06-11 | Mission Control (per Scott ruling, decision 0007) | Coupling re-stated AC per ESS-BOD-001 Rev 0.3: Package 2 = 4-quadrant grid-forming PCS at the 4.16 kV node bus; battery-side DC window still required from bidders for PCS selection. Technical/safety/gate content otherwise unchanged. |
 
 ---
 
 ## §1 Introduction and Project Overview
 
-The Buyer is procuring a containerized lithium iron phosphate (LFP) Battery Energy Storage System for a grid-interactive microgrid serving a critical IT load. This Request for Quotation covers Package 1 as defined in ESS-BOD-001 Rev 0.2 (the "BOD"): the complete containerized BESS, including batteries, battery management system, container enclosures, integrated thermal management, integrated detection and explosion control within the listing boundary, and all engineering data required for permitting.
+The Buyer is procuring a containerized lithium iron phosphate (LFP) Battery Energy Storage System for a grid-interactive microgrid serving a critical IT load. This Request for Quotation covers Package 1 as defined in ESS-BOD-001 Rev 0.3 (the "BOD"): the complete containerized BESS, including batteries, battery management system, container enclosures, integrated thermal management, integrated detection and explosion control within the listing boundary, and all engineering data required for permitting.
 
 The BOD is the governing engineering document for this procurement. Requirement identifiers cited in this RFQ (G-#, D-#, SEP-1, EI-#, CE-#, PS-#, etc.) refer to the BOD. The Open Compute Project white paper "Requirements for Energy Storage Systems Used in Data Centers," Rev 1.0 (January 2026), is the governing industry reference adopted by the BOD.
 
@@ -39,7 +38,7 @@ The BOD is the governing engineering document for this procurement. Requirement 
 | BESS function | Power-oriented: load-step bridging, generator-start ride-through, controlled transfer. Not energy shifting. |
 | BESS rating | 6.0 MW PCS-side / 3.0 MWh usable (30 min at rated power, nominal) |
 | Worst-case coherent load step | 5.0 MW (full IT block); BESS rating = step × 1.20 |
-| Electrical coupling | DC-coupled to an 800 V-class common DC bus *(decision 0007 pending — see header note)*; PCS/DC-DC procured under separate Package 2; Bidder shall state battery-side DC voltage window |
+| Electrical coupling | AC-coupled at the 4.16 kV microgrid bus via 4-quadrant grid-forming PCS (procured under separate Package 2, by others); Bidder shall state battery-side DC voltage window for PCS selection |
 | Fault domains | Minimum two independent battery/PCS groups (BOD D-04) |
 | Deployment | Outdoor containerized, dedicated yard; unoccupiable enclosures (BOD D-03) |
 | Site | US Gulf Coast region. Site-specific data sheet (wind, seismic, flood, ambient design temperatures, geotechnical) issued as RFQ Attachment A upon execution of NDA. |
@@ -58,7 +57,7 @@ The BOD is the governing engineering document for this procurement. Requirement 
 - Complete engineering data package for AHJ permitting per §4.
 
 ### §2.2 Excluded from Bidder Scope (by Others)
-- PCS / DC-DC conversion (Package 2); supercapacitors (Package 3); yard-level detection head-end, thermal imaging, and constantly-attended-location alarm integration (Package 4); yard-level emergency exhaust outside the listing boundary (Package 5).
+- PCS conversion (Package 2, 4-quadrant grid-forming, AC-coupled); supercapacitors (Package 3); yard-level detection head-end, thermal imaging, and constantly-attended-location alarm integration (Package 4); yard-level emergency exhaust outside the listing boundary (Package 5).
 - Foundations, civil works, MV interconnection, and the site EMS. Bidder provides interface data for each.
 
 ### §2.3 Options to be Priced Separately
@@ -71,7 +70,7 @@ The BOD is the governing engineering document for this procurement. Requirement 
 
 ### §3.1 Chemistry and Architecture
 - Cell chemistry: lithium iron phosphate (LFP) only (BOD D-02). State cell manufacturer, factory location, and form factor. Identify domestic (US) content percentage at cell, module, and system level for ITC domestic-content evaluation.
-- DC-coupled architecture (BOD §2): state battery-side DC voltage window, permissible ripple, and any constraints on external DC-DC converter selection.
+- Battery-side electrical interface (BOD §2, W-08): state battery-side DC voltage window, permissible ripple, and any constraints on external PCS selection (Package 2 is an AC-coupled 4-quadrant grid-forming PCS at the 4.16 kV bus).
 - Minimum two fully independent fault domains (BOD D-04): independent BMS, isolation, and detection per domain. Bidder shall propose domain split (e.g., 2 × 3 MW / 1.5 MWh) with rationale; this informs Buyer decision E-1.
 
 ### §3.2 Duty Cycle and Performance
@@ -168,7 +167,7 @@ Complete every row: C = Comply, E = Exception (attach narrative), A = Alternate 
 | Ref | Requirement | C / E / A | Evidence § |
 |---|---|---|---|
 | §3.1-1 | LFP chemistry; cell maker, factory, form factor, US content declared | | |
-| §3.1-2 | DC-coupled; battery-side DC window stated | | |
+| §3.1-2 | Battery-side DC window stated; compatible with AC-coupled grid-forming PCS (Package 2) | | |
 | §3.1-3 | ≥2 independent fault domains; split proposal provided | | |
 | §3.2-1 | 6.0 MW / 30 min / 3.0 MWh usable at BOL, site ambient | | |
 | §3.2-2 | 0→6 MW step; response time stated | | |
@@ -196,4 +195,4 @@ Complete every row: C = Comply, E = Exception (attach narrative), A = Alternate 
 
 ---
 
-*ESS-RFQ-001 Rev 0.1 — drafted for bid; **HELD from release** pending decision 0007 (BESS coupling). Attachment A site data sheet: [ESS-RFQ-001_AttachmentA_SiteDataSheet.md](ESS-RFQ-001_AttachmentA_SiteDataSheet.md).*
+*ESS-RFQ-001 Rev 0.2 — coupling re-cut AC per decision 0007; releasable once Attachment A is filled and Scott approves. Attachment A site data sheet: [ESS-RFQ-001_AttachmentA_SiteDataSheet.md](ESS-RFQ-001_AttachmentA_SiteDataSheet.md).*

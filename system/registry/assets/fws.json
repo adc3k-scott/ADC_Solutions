@@ -3,16 +3,16 @@
   "name": "ADC Facility Water System (chillers & heat rejection)",
   "spec_sheet": "products/FWS/README.md",
   "source_documents": [
-    "products/FWS/FWS-COOL-001_Rev0_1.md (Rev 0.1, 2026-06-11, draft for review — architecture subject to decision 0006)",
+    "products/FWS/FWS-COOL-001_Rev0_2.md (Rev 0.2, 2026-06-11, issued for review — the zero-water site option per decision 0006; CDU basis = 4x ADC CDU)",
     "products/FWS/ADC-FAC-HRS-BOM-001_v0_1.md (v0.1, 2026-05-19, Deschutes-basis evaporative-first reference)",
-    "products/FWS/FWS-RFQ-M-001_Rev0_2.md (Rev 0.2, 2026-06-11, HELD pending decision 0006)"
+    "products/FWS/FWS-RFQ-M-001_Rev0_2.md (Rev 0.2, 2026-06-11, hold lifted by decision 0006 — issue at Scott's discretion per site architecture selection)"
   ],
   "telemetry_domain": "D4 Thermal (chillers/fluid coolers/PHE → plant controller, BACnet-IP/Modbus → MGN-TEL-001)",
   "interfaces": [],
   "parameters": [
     {"key": "design_point", "value": "5 MW IT node / 10 MW MGN-BOD-002 microgrid, Lafayette LA (ASHRAE 2A)", "tag": "L", "source": "FWS-COOL-001 §2-§3; ADC-NSTAR-001"},
-    {"key": "heat_rejection_architecture", "value": "OPEN — evaporative W32/W40 + 15-25% chiller trim (NSTAR Rev 0.2 PUE basis) vs zero-water dry-cooler + always-on chiller plant (FWS-COOL-001 D-2)", "tag": "O", "source": "ops/decisions/0006-heat-rejection-architecture.md (SYS-OI-12)"},
-    {"key": "cdu_basis_correction", "value": "FWS-COOL-001 §5.6 assumes 3x CDU-2500; locked N-star basis = 4x 2 MW Deschutes CDU (1 per reference cluster) — re-cut at next FWS-COOL revision regardless of 0006", "tag": "W", "source": "ADC-NSTAR-001; decisions 0004/0005"},
-    {"key": "rfq_status", "value": "FWS-RFQ-M-001 Rev 0.2 HELD from vendors — chiller line items sized for the dry-cooler architecture", "tag": "L", "source": "products/FWS/README.md; decision 0006 pending"}
+    {"key": "heat_rejection_architecture", "value": "BOTH retained, site-selectable (decision 0006, Scott 2026-06-11): evaporative W32/W40 + 15-25% chiller trim (NSTAR PUE basis, best PUE, consumes water) OR zero-water dry-cooler + chiller plant (FWS-COOL-001, water-constrained sites). Per-site choice driven by water availability/permitting", "tag": "L", "source": "ops/decisions/0006-heat-rejection-architecture.md"},
+    {"key": "cdu_basis", "value": "4x ADC CDU (OCP Deschutes basis, 2 MW / 500 GPM, ADC-CDU-DES-BOM-001), one per 16-rack reference cluster; the non-lineup 2.5 MW CDU model in the Rev 0.1 drop was purged system-wide per decision 0006 — never reference it", "tag": "L", "critical": true, "source": "decision 0006 ruling 2; FWS-COOL-001 Rev 0.2 §5.6"},
+    {"key": "rfq_status", "value": "FWS-RFQ-M-001 Rev 0.2 hold lifted (decision 0006); re-check quantities against FWS-COOL-001 M-5 block-load reconciliation before issue", "tag": "W", "source": "products/FWS/README.md"}
   ]
 }

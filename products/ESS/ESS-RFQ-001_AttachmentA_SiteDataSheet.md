@@ -1,12 +1,12 @@
 # ESS-RFQ-001 — Attachment A: Site Data Sheet (Fill-In Template)
 
-Companion to [ESS-RFQ-001 Rev 0.1](ESS-RFQ-001_Rev0_1.md) and [ESS-BOD-001 Rev 0.2](ESS-BOD-001_Rev0_2.md). Complete all fields before release to bidders under NDA. Fields marked with a BOD reference close or feed the corresponding open item. Enter "TBD + responsible party + date" for any value not yet available — do not leave blank at release.
+Companion to [ESS-RFQ-001 Rev 0.2](ESS-RFQ-001_Rev0_2.md) and [ESS-BOD-001 Rev 0.3](ESS-BOD-001_Rev0_3.md). Complete all fields before release to bidders under NDA. Fields marked with a BOD reference close or feed the corresponding open item. Enter "TBD + responsible party + date" for any value not yet available — do not leave blank at release.
 
 > Governing Markdown converted 2026-06-11 from
 > `ESS-RFQ-001_AttachmentA_SiteDataSheet.docx` (original retained alongside).
-> First-instance candidate site: Trappey's Compute Center
-> (`colo/sites/trappeys-compute-center.md`) — fill from the site record when
-> ESS-RFQ-001 is cleared for release (decision 0007).
+> Coupling resolved (decision 0007 — AC at 4.16 kV); the RFQ is releasable once
+> this sheet is filled. First-instance candidate site: Trappey's Compute Center
+> (`colo/sites/trappeys-compute-center.md`).
 
 ## 1. Site Identification
 
@@ -91,8 +91,8 @@ Companion to [ESS-RFQ-001 Rev 0.1](ESS-RFQ-001_Rev0_1.md) and [ESS-BOD-001 Rev 0
 
 | Parameter | Value (fill in) | Source / Reference |
 |---|---|---|
-| DC bus nominal voltage / window (V) | | Package 2 design (BOD §2) — *decision 0007 pending* |
-| PCS supplier / model (Package 2) | | Buyer award |
+| Battery-side DC voltage window (V) | | Package 1 vendor data / Package 2 PCS design (BOD W-08; coupling = AC at 4.16 kV per decision 0007) |
+| PCS supplier / model (Package 2, 4-quadrant grid-forming) | | Buyer award |
 | Aux power available to yard (V, ϕ, A) | | Electrical one-line |
 | Emergency safety-system power source (BP-1/BP-2) | | Backup power design — independent of BESS |
 | Grounding system / soil resistivity (Ω·m) | | Electrical / geotech |

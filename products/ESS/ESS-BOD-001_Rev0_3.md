@@ -4,17 +4,17 @@
 | | |
 |---|---|
 | **Document** | ESS-BOD-001 |
-| **Revision** | 0.2 — Issued for Review |
+| **Revision** | 0.3 — Issued for Review |
 | **Date** | 2026-06-11 |
 | **Prepared by** | Scott Tomsu |
 | **Governing reference** | OCP White Paper — Requirements for Energy Storage Systems Used in Data Centers, Rev 1.0 (January 2026) — filed as [OCP_WP_Requirements_for_ESS_in_Data_Centers_Rev1_0.pdf](OCP_WP_Requirements_for_ESS_in_Data_Centers_Rev1_0.pdf) |
 
-> **Governing copy note:** this Markdown is the governing repo copy, converted
-> 2026-06-11 from `ESS-BOD-001_Rev0.2.docx` (retained alongside as the original).
-> **Architecture caution (decision 0007 pending):** the DC-coupled / 800 V-class
-> classification in §1.2 (W-08) and §2 conflicts with MGN-BOD-002 Rev 0.2, which
-> locks the node BESS as **AC-coupled grid-forming on the 4.16 kV bus** [L].
-> See `ops/decisions/0007-bess-coupling.md`. ESS-RFQ-001 is **held** until decided.
+> **Governing copy note:** this Markdown is the governing repo copy (converted
+> 2026-06-11 from the Rev 0.2 docx, retained alongside as history).
+> **Coupling resolved (decision 0007, Scott 2026-06-11):** the BESS is
+> **AC-coupled, grid-forming, on the 4.16 kV node bus** per MGN-BOD-002 §5.2/§5.3
+> [L]. There is no 800 V DC distribution system for IT generally available yet;
+> DC coupling is tracked as a watch item only (D-12).
 
 ## Revision History
 
@@ -22,6 +22,7 @@
 |---|---|---|---|
 | 0.1 | 2026-06-11 | Scott Tomsu | Initial issue for review. Architecture classification, sizing basis, siting, protection, detection, compliance gates, and decision ledger established. |
 | 0.2 | 2026-06-11 | Scott Tomsu | Added Appendix A: US Supplier and Procurement Matrix, keyed to procurement packages P-1 through P-5 and compliance gates G-1 through G-5. Open item ledger unchanged. |
+| 0.3 | 2026-06-11 | Mission Control (per Scott ruling, decision 0007) | Coupling axis re-stated: **AC-coupled grid-forming at the 4.16 kV node bus** per MGN-BOD-002 §5.2/§5.3 [L], replacing the Rev 0.2 DC-coupled / 800 V-class classification (no 800 V DC system for IT is generally available). W-08, §2, §9, Package 2 scope and E-2 updated; new decision D-12. All safety, siting, detection, gate, and supplier content unchanged. |
 
 Revision control: this document follows §-numbered section conventions. Open items carry discipline prefixes (E = electrical, F = fire/life safety, C = civil/structural, T = telemetry/controls, P = procurement). Decisions are recorded in the §10 Decision Ledger and are binding on downstream deliverables unless superseded by a later revision.
 
@@ -44,7 +45,7 @@ The facility design point is defined as follows. Parameters are tagged for trace
 | W-05 | ESS power rating (PCS) | 6.0 MW (W-04 × 1.20 design margin) |
 | W-06 | ESS energy rating | 3.0 MWh (30 min at rated power, nominal) |
 | W-07 | Primary battery chemistry | Lithium iron phosphate (LFP) |
-| W-08 | DC distribution class | 800 V-class common DC bus — **conflicts with MGN-BOD-002 §5.3 AC-coupled [L]; decision 0007 pending** |
+| W-08 | Electrical coupling / interface | AC-coupled at the 4.16 kV node bus via 4-quadrant grid-forming PCS (MGN-BOD-002 §5.2/§5.3 [L]; decision 0007). Battery-side strings are high-voltage DC within the vendor's listed system. |
 | W-09 | BESS deployment model | Outdoor containerized, dedicated yard |
 
 ### §1.3 Scope
@@ -65,7 +66,7 @@ Per Table 1 of the governing reference, the ESS architecture is classified expli
 
 | Topology Axis | Classification | Rationale | Codes / Standards |
 |---|---|---|---|
-| Electrical coupling | DC-coupled *(decision 0007 pending — see header note)* | ESS connects directly to the DC distribution path serving IT | NFPA 70, 855; IEC 62933-1; IEC 62933-5-1 |
+| Electrical coupling | AC-coupled (decision 0007) | ESS connects to the 4.16 kV node bus via a 4-quadrant grid-forming PCS; it forms the island bus and black-starts the node (MGN-BOD-002 §5.2/§5.3 [L]) | NFPA 70, 855; IEC 62933-1; IEC 62933-5-1 |
 | System distribution | Distributed | Storage segmented across ≥2 defined fault domains; limits single-unit HMA consequence; preserves load-step duty at N-1 | NFPA 70, 855; IEC TS 62933-2-2 |
 | Control architecture | Coordinated / hierarchical | Site EMS dispatches ESS against generator governor response | NFPA 70, 855; IEC 62933-2-1; IEC 61850 |
 | Energy vs power orientation | Power-oriented | Load-step bridging and ride-through; short duration at high power | NFPA 70, 855; IEC 62933-1 |
@@ -99,10 +100,10 @@ Supercapacitor trays at the rack/row tier absorb GPU/TPU power excursions, consi
 | Thermal/safety risk | Medium | Medium–high | Low | Not susceptible to thermal runaway |
 | Cycle life | High (thousands to 5k+) | Medium–high | Low (hundreds) | — (slow positive-electrode depletion) |
 | Lifespan | Long (10–20 yrs) | Medium–long (8–15 yrs) | Short (3–6 yrs) | Long-life alkaline chemistry |
-| 800 V bus practicality | High | High | High | High |
+| High-voltage string practicality (battery side) | High | High | High | High |
 | Disposition | **Selected** | Rejected on safety margin | Rejected on life/cycle | Tracked as alternative; ecosystem immature at 6 MW class |
 
-LFP is selected on the combination of medium thermal/safety risk (versus medium–high for NMC 811), high cycle life, long lifespan, and high voltage-rating practicality for the 800 V-class bus. NiZn is recorded as the no-thermal-runaway alternative and shall be re-evaluated at the next major revision if vendor offerings mature at this power class. Hazard references: NFPA 855 (2026) Annex B.5.3 and Annex G; IEC 62619; IEC 63056; IEC 62933-5-2; functional safety per IEC TS 62933-2-2.
+LFP is selected on the combination of medium thermal/safety risk (versus medium–high for NMC 811), high cycle life, long lifespan, and high voltage-rating practicality for high-voltage battery strings. NiZn is recorded as the no-thermal-runaway alternative and shall be re-evaluated at the next major revision if vendor offerings mature at this power class. Hazard references: NFPA 855 (2026) Annex B.5.3 and Annex G; IEC 62619; IEC 63056; IEC 62933-5-2; functional safety per IEC TS 62933-2-2.
 
 ### §3.3 Tier 3 — Generation Island
 The on-site generation island (10 MW) remains the energy source for the microgrid. The BESS bridges steps and transients only. Generator controls and the ESS are coordinated through the hierarchical EMS (§2).
@@ -256,7 +257,7 @@ Design baseline is NFPA 855 (2026) regardless of the locally adopted edition, be
 | EMS functional specification | Charging-energy constraints CE-1 / CE-2 as hard interlocks; hierarchical dispatch coordination of BESS vs generator governors; recharge shedding priority |
 | Telemetry architecture | Safety-instrumented ESS domain (§6.6); first-responder read-only view; alarm routing to constantly attended location; IEC 61850 interoperability input to protocol decision |
 | Generation island design | Separation distances to BESS yard per FMDS 1-20 / HC-3; no load-bearing steel in assumed fire envelope without protection |
-| Electrical one-line | DC-coupled BESS on 800 V-class bus *(decision 0007 pending)*; ≥2 PCS fault domains; automatic isolation devices actuated by EI-1/EI-2 |
+| Electrical one-line | AC-coupled BESS at the 4.16 kV node bus via grid-forming PCS (decision 0007; MGN-BOD-002 §5.3); ≥2 PCS fault domains; automatic isolation devices actuated by EI-1/EI-2 |
 | Site/civil package | BESS yard layout with conservative inter-container spacing (SEP-1); pile-assumed foundations pending geotech (C-1); responder access and egress; blast-barrier contingency |
 | Backup power design | Independent 24–48 h safety-system power (BP-1/BP-2), not derived from the protected BESS |
 | Procurement | Gates G-1 through G-5 as shortlist/PO conditions; UN 38.3 documentation flow-down; liquid-cooled module leak detection if applicable |
@@ -280,13 +281,14 @@ Design baseline is NFPA 855 (2026) regardless of the locally adopted edition, be
 | D-09 | Propagation assumed between containers absent installation-level LSFT (SEP-1) | Governing-reference default position |
 | D-10 | Safety-system backup power independent of protected BESS, 24–48 h (BP-1/BP-2) | NFPA 855 4.1; ventilation duty during event |
 | D-11 | Charging energy as hard EMS interlock (CE-1/CE-2) | Governing-reference charging-energy requirement; 10 MW island ceiling |
+| D-12 | Coupling: AC-coupled grid-forming at 4.16 kV per MGN-BOD-002 [L]; DC coupling to an IT DC distribution bus rejected for now — no such system is generally available — and tracked as a watch item for a future major revision | Scott ruling 2026-06-11, decision 0007 |
 
 ### §10.2 Open Items
 
 | ID | Item | Owner | Need Date |
 |---|---|---|---|
 | E-1 | PCS fault-domain split: 2×3 MW vs 3×2 MW. Drives HMA single-unit consequence, yard area, and one-line | Electrical | 30% design |
-| E-2 | DC bus integration detail: isolation device class and coordination with EI-1/EI-2 trips | Electrical | 30% design |
+| E-2 | Battery-DC / PCS integration detail: isolation device class on the battery side and coordination with EI-1/EI-2 trips and PCS protective functions | Electrical | 30% design |
 | E-3 | Vendor LSFT status: installation-level non-propagation result sets inter-container spacing; absent that, SEP-1 governs | Procurement | Shortlist |
 | F-1 | AHJ engagement: confirm adopted IFC/NFPA editions; brief on NFPA 855 (2026) baseline and managed burn-down ERP | Fire/LS | Pre-permit |
 | F-2 | NFPA 69 CCR vs NFPA 68 venting allocation per container — HMA output plus AHJ position | Fire/LS | HMA issue |
@@ -333,16 +335,16 @@ This appendix maps United States suppliers to the procurement packages establish
 
 RFQ flow-downs for all Package 1 bidders: UL 9540 NRTL listing with test data and calculations releasable to the AHJ (G-1); LSFT report with bid (G-2, PS-2); installation-level non-propagation result if claiming reduced inter-container spacing (SEP-1 / E-3); UN 38.3 test summaries (§8.2); declaration of liquid-cooled vs air-cooled modules — liquid-cooled triggers mandatory leak detection scope (P-1, §6.5); NFPA 68/69 design data for the container envelope (G-5); BMS interface specification for the safety-instrumented telemetry domain (§6.6, T-1) including IEC 61850 capability statement (T-2 input).
 
-### A.3 Package 2 — PCS / DC-DC Conversion (DC-coupled; E-2)
+### A.3 Package 2 — PCS Conversion (AC-coupled grid-forming, 4.16 kV; D-12, E-2)
 
 | Supplier | US Base | Notes / RFQ Items |
 |---|---|---|
-| Dynapower (Sensata) | South Burlington, VT | Strongest US name for the DC-DC side of a DC-coupled 800 V-class architecture; inverters, DC converters, rectifiers, custom transformers |
-| EPC Power | Poway, CA | Designs and builds all product in the US; SiC, >99% efficiency; grid-forming capability — relevant to islanded operation |
+| EPC Power | Poway, CA | Designs and builds all product in the US; SiC, >99% efficiency; grid-forming capability — directly relevant to the bus-forming/black-start duty (MGN-BOD-002 §5.2) |
+| Dynapower (Sensata) | South Burlington, VT | Inverters, converters, rectifiers, custom transformers; confirm 4-quadrant grid-forming offering at 6 MW class |
 | GE Vernova | US PCS operations | Utility-scale quote breadth; confirm factory of record |
 | Power Electronics USA | Phoenix, AZ manufacturing | US plant of Spanish parent; high-volume utility PCS |
 
-RFQ flow-downs: DC-coupling architecture compatibility at the 800 V-class bus; coordination of PCS protective functions with EI-1/EI-2 automatic isolation trips (§6.1); grid-forming capability statement; fault-domain partitioning consistent with the E-1 decision (2×3 MW vs 3×2 MW).
+RFQ flow-downs: 4-quadrant **grid-forming** PCS, AC-coupled at the 4.16 kV node bus (forms the island bus, black-starts the node, absorbs full load rejection — MGN-BOD-002 §5.2/§5.3); coordination of PCS protective functions with EI-1/EI-2 automatic isolation trips (§6.1); fault-domain partitioning consistent with the E-1 decision (2×3 MW vs 3×2 MW).
 
 ### A.4 Package 3 — Supercapacitors (Tier 1; SC-1)
 
@@ -380,4 +382,4 @@ F-2 design input (recorded): Vendor literature notes that deflagration-panel eff
 
 ---
 
-*ESS-BOD-001 Rev 0.2 — issued for review, pending Scott Tomsu approval. Governing Markdown converted from the 2026-06-11 docx drop; original retained alongside.*
+*ESS-BOD-001 Rev 0.3 — issued for review, pending Scott Tomsu approval. Coupling re-stated AC per decision 0007 (Scott ruling 2026-06-11). Rev 0.2 docx retained alongside as history.*

@@ -3,8 +3,8 @@
   "name": "ADC Energy Storage System (facility BESS + rack-tier supercaps)",
   "spec_sheet": "products/ESS/README.md",
   "source_documents": [
-    "products/ESS/ESS-BOD-001_Rev0_2.md (Rev 0.2, 2026-06-11, governing Markdown — issued for review; coupling axis subject to decision 0007)",
-    "products/ESS/ESS-RFQ-001_Rev0_1.md (Rev 0.1, 2026-06-11, HELD pending decision 0007)",
+    "products/ESS/ESS-BOD-001_Rev0_3.md (Rev 0.3, 2026-06-11, governing Markdown — issued for review; coupling AC per decision 0007; Rev 0.2 docx = history)",
+    "products/ESS/ESS-RFQ-001_Rev0_2.md (Rev 0.2, 2026-06-11, AC re-cut — releasable after Attachment A filled + Scott approval)",
     "products/ESS/OCP_WP_Requirements_for_ESS_in_Data_Centers_Rev1_0.pdf (governing industry reference, Jan 2026)"
   ],
   "telemetry_domain": "D1 power island (BMS/PCS via Modbus TCP, IEC 61850 input to RELAY-PROTO) + safety-instrumented ESS domain with first-responder read-only view (ESS-BOD-001 §6.6)",
@@ -12,13 +12,13 @@
   "parameters": [
     {"key": "rating", "value": "6 MW PCS / 3 MWh usable (30 min), power-oriented; 5 MW coherent step x 1.20", "tag": "L", "critical": true, "source": "ESS-BOD-001 D-01 = MGN-BOD-002 §5.3 (consistent)"},
     {"key": "chemistry", "value": "LFP only; NMC 811 rejected; NiZn tracked as no-thermal-runaway alternative (P-2)", "tag": "L", "source": "ESS-BOD-001 D-02"},
-    {"key": "coupling", "value": "OPEN — MGN-BOD-002 locks AC-coupled 4.16 kV grid-forming [L]; ESS-BOD-001 classifies DC-coupled 800 V-class (forward-looking; equipment not generally available)", "tag": "O", "source": "ops/decisions/0007-bess-coupling.md (SYS-OI-13)"},
+    {"key": "coupling", "value": "AC-coupled, grid-forming, 4.16 kV node bus (forms island bus, black-starts node) per MGN-BOD-002 §5.2/§5.3; no 800 V DC system for IT exists yet — DC coupling = watch item only (D-12), never state as fact", "tag": "L", "critical": true, "source": "ops/decisions/0007-bess-coupling.md (Accepted 2026-06-11); ESS-BOD-001 Rev 0.3 W-08"},
     {"key": "deployment", "value": "Outdoor containerized, dedicated yard, FM DS 5-33 preference #1; unoccupiable; no interior battery rooms", "tag": "L", "source": "ESS-BOD-001 D-03"},
     {"key": "fault_domains", "value": ">=2 independent battery/PCS groups (split 2x3 MW vs 3x2 MW open, ESS-OI-01)", "tag": "L", "source": "ESS-BOD-001 D-04"},
     {"key": "rack_tier", "value": "EDLC supercapacitors only; hybrid (Li-ion-containing) supercap devices prohibited (SC-1)", "tag": "L", "source": "ESS-BOD-001 D-05"},
     {"key": "compliance_gates", "value": "G-1..G-7 per NFPA 855 (2026); LSFT report (UL 9540A 5th Ed. / CSA C800:25) is a BID requirement (PS-2); propagation assumed between containers absent installation-level result (SEP-1)", "tag": "L", "critical": true, "source": "ESS-BOD-001 §7, A.1"},
     {"key": "suppression_philosophy", "value": "No integrated water suppression (managed burn-down ERP, D-06); clean agent excluded from BESS envelope (FP-1, D-07); EI-1 + EI-2 early intervention both implemented (D-08)", "tag": "L", "source": "ESS-BOD-001 §5-§6"},
     {"key": "ems_constraint", "value": "CE-1/CE-2 hard interlocks: IT + house + recharge <= dispatch ceiling; recharge sheds first", "tag": "L", "source": "ESS-BOD-001 §3.4 D-11"},
-    {"key": "rfq_status", "value": "ESS-RFQ-001 Rev 0.1 HELD from bidders — §1.1/Package 2 hard-code DC coupling; Attachment A site data sheet unfilled (first instance: Trappey's)", "tag": "L", "source": "products/ESS/README.md; decision 0007 pending"}
+    {"key": "rfq_status", "value": "ESS-RFQ-001 Rev 0.2 (AC re-cut) releasable once Attachment A is filled from the selected site record (first instance: Trappey's) and Scott approves the issue", "tag": "W", "source": "products/ESS/README.md; decision 0007 Accepted"}
   ]
 }
