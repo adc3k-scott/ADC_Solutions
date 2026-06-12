@@ -174,7 +174,7 @@ within a reference cluster needs this reconciliation. New open item
   site-specific PTE math (ENV-001). Sites above 20 blocks need a
   multi-envelope or Title V strategy *before* commitment.
 - **Partial blocks:** a site may deploy sub-block (1–3 clusters on
-  utility AC, no node) only as POC/validation scale — MARLIE 1
+  utility AC, no node) only as POC/validation scale — the Marlie Hub
   pattern. Production commitments are whole blocks.
 - Every commercial commitment re-derives: firm MW at site ambient
   (ELEC-006), heat rejection at site wet-bulb, PTE at site stack
