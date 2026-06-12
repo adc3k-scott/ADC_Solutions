@@ -61,12 +61,28 @@ if ($oi) {
         foreach ($r in $item.related) {
             if (-not $itemIds.ContainsKey($r)) { $failures += "OPEN-ITEM '$($item.id)' related unknown item '$r'" } } } }
 
+# Deadlines: optional 'due' (YYYY-MM-DD) on open items -- overdue fails, due within 21 days warns
+$today = (Get-Date).Date
+$dueLines = @()
+if ($oi) {
+    foreach ($item in ($oi.items | Where-Object { $_.due })) {
+        $d = [datetime]::MinValue
+        if (-not [datetime]::TryParseExact($item.due, 'yyyy-MM-dd', $null, 'None', [ref]$d)) {
+            $failures += "OPEN-ITEM '$($item.id)' due '$($item.due)' is not YYYY-MM-DD"; continue }
+        if (($item.status -join ' ') -match 'CLOSED|RESOLVED') { continue }
+        $days = ($d.Date - $today).Days
+        $dueLines += [pscustomobject]@{ Due = $item.due; Days = $days; Id = $item.id }
+        if ($days -lt 0) { $failures += "OVERDUE: '$($item.id)' was due $($item.due) ($(-$days) days ago) -- close it or move the date" }
+        elseif ($days -le 21) { $warnings += "DUE SOON: '$($item.id)' due $($item.due) (in $days days)" } } }
+
 # Report
 Write-Output "=== ADC-SYS-001 registry validation ==="
 Write-Output ("Assets: {0}   Interfaces: {1}   Parameters: {2} (critical: {3})   Tags L/W/O: {4}/{5}/{6}   Open items: {7}" -f `
     $assets.Count, $ifaces.Count, $paramCount, $criticalCount, $tagTally.L, $tagTally.W, $tagTally.O, $itemIds.Count)
 $byProduct = $oi.items | Group-Object product | Sort-Object Name
 foreach ($g in $byProduct) { Write-Output ("  open items - {0}: {1}" -f $g.Name, $g.Count) }
+if ($dueLines.Count) { Write-Output "--- DEADLINES ---"
+    $dueLines | Sort-Object Due | ForEach-Object { Write-Output ("  {0}  ({1,3} days)  {2}" -f $_.Due, $_.Days, $_.Id) } }
 if ($warnings.Count) { Write-Output "--- WARNINGS ---"; $warnings | ForEach-Object { Write-Output "  $_" } }
 if ($failures.Count) { Write-Output "--- FAILURES ---"; $failures | ForEach-Object { Write-Output "  $_" }; Write-Output "RESULT: FAIL"; exit 1 }
 Write-Output "RESULT: PASS"

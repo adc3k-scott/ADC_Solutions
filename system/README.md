@@ -25,7 +25,7 @@ system/
 │   │                    hac-structural         Redmond critical envelope
 │   │                    node-compute-electrical  the double bridge
 │   │                    telemetry-northbound   Redfish model, cadences, authority
-│   └── open-items.json  unified register — 60 items across all documents
+│   └── open-items.json  unified register across all documents
 │                        with cross-product gating made explicit
 ├── tools/
 │   ├── validate-registry.ps1      zero-dependency validator (PS 5.1)
@@ -51,6 +51,10 @@ system/
 - **Open items** carry `gates` (what they block, free text) and
   `related` (validated cross-links — e.g., TCS SUP-01 ↔ HAC-OI-01 ↔
   CDU-G8 are one Louisiana-PE engagement seen from three products).
+- **Hard external deadlines** get a `due` field (`YYYY-MM-DD`). The
+  validator prints a DEADLINES table, warns when an item is due within
+  21 days, and **fails** on overdue items — a date in prose is
+  invisible; a date in `due` is enforced.
 
 ## Validation
 
@@ -61,7 +65,8 @@ system/
 Checks: JSON parse, id/filename agreement, interface↔asset
 cross-references (both directions), parameter schema (key/value/source/
 L-W-O tag, critical⇒locked), open-item id uniqueness, product validity,
-and `related` linkage. Run it after any registry or spec-sheet change;
+`related` linkage, and `due` deadlines (overdue = FAIL, ≤21 days = warn).
+Run it after any registry or spec-sheet change;
 a sheet that contradicts the registry is a bug in one of them.
 
 ```powershell
@@ -75,8 +80,9 @@ floor met. Run after regenerating the twin tree or editing the
 profile; point `-TwinRoot` at a bridge-endpoint dump to use it as the
 vendor acceptance test.
 
-Current state: **6 assets · 6 interfaces · 90 parameters (36 critical) ·
-60 open items — PASS.**
+Current state: **11 assets · 6 interfaces · 121 parameters (47 critical) ·
+107 open items — PASS.** (Counts are reprinted by the validator on every
+run; trust its output over this line.)
 
 ## Change rule
 
