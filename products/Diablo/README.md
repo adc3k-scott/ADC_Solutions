@@ -19,6 +19,8 @@ chain.
 | Document | Role |
 |---|---|
 | [Diablo_text_markdown.md](Diablo_text_markdown.md) | PoC procurement study (dropped by Scott 2026-06-12): what is orderable today vs sampling vs custom, staged PoC plan, compliance risks |
+| [Diablo400-PoC-BOM-001_Rev0.3.xlsx](Diablo400-PoC-BOM-001_Rev0.3.xlsx) | PoC bill-of-materials workbook (Rev 0.3, dropped with the study) — **reference only while watch status holds**; no procurement before a decision-0011 trigger fires |
+| [OCP-Specification-Diablo 400 v0.7.0 FINAL.pdf](OCP-Specification-Diablo%20400%20v0.7.0%20FINAL.pdf) | The OCP Diablo 400 base specification itself, v0.7.0 (pre-1.0 — its own tables are marked "to be updated in future revision") |
 
 ## Study bottom line (as of June 2026)
 
