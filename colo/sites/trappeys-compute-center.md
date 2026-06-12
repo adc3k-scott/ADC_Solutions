@@ -34,7 +34,7 @@ ledger ID.
 | Play | Brownfield repurposing — adaptive reuse of historic cannery (scale exceeds BL2 profile, see flag above) | [W] | ST-TRAP-BOD-001 §A |
 | Address / parcel | 22-acre Trappey's Cannery site, Vermilion River, Lafayette, LA | [L] | ST-TRAP-BOD-001 P-01 |
 | Historic structures | 12 nationally registered | [L] | P-02 |
-| Site control | [O] — not stated in BOD | [O] | — |
+| Site control | **$1.5M purchase offer prepared, submitting 2026-06-16** — outcome tracked as CAP-OI-01 (decision [0009](../../ops/decisions/0009-three-property-acquisition-seed-capital.md); seed capital package [ADC-CAP-001](../../company/capital/ADC-CAP-001_Rev0_1.md)); offer framed with diligence contingencies (structural assessment B-07 not commissioned; SHPO Part 1 not filed) | [W] | Scott 2026-06-11 |
 | Governing doc | ST-TRAP-BOD-001 Rev 0.6 (working draft; external repo) | [W] | doc header |
 | Stage | diligence/proposal — engineering package in active development; C1 critical-path gates all open (NVIDIA allocation, Cat CSA, tower sizing, SHPO Part 1, LPDES + Title V pre-apps, ITEP, gas supply) | [W] | ST-TRAP-BOD-001 §M |
 | Revenue model | Colocation only, base case; LUS sell-back excluded (future optionality) | [L] | P-09, P-10 |

@@ -19,8 +19,9 @@ not a compute site — confirm intended use [O].
 | Offer | $6,000,000 sale; or lease $5.00/SF/yr NNN ($72,265.42/mo) | [L] | brochure |
 | Building | ±173,437 SF dry warehouse/distribution; laydown yard; leftmost space formerly cold storage | [L] | brochure |
 | Brokers | Elifin — Alex Ruch 225.485.0238, Mark Johns 501.513.7394 | [L] | brochure |
-| Site control | None — listed property | [L] | brochure |
-| Stage | Diligence (buy/lease-vs-build memo prepared 2026-05-30) | [W] | comparison memo |
+| Site control | **Lease agreement submitted** for the two large empty sections — occupy now, possible later building purchase (decision [0009](../../ops/decisions/0009-three-property-acquisition-seed-capital.md); CAP-OI-02). Mark Johns (Elifin) also works with ADC — buyer-side leverage; **dual-agency disclosure required in writing** | [W] | Scott 2026-06-11 |
+| Stage | Lease pending; acquisition path in seed capital package [ADC-CAP-001](../../company/capital/ADC-CAP-001_Rev0_1.md) (buy/lease-vs-build memo 2026-05-30) | [W] | Scott 2026-06-11; comparison memo |
+| Solar candidate | ±173 kSF roof — §48E begin-construction window closes 2026-07-04 (CAP-OI-07); **roof load unverified** — folds into building-condition diligence (memo §5.2) | [O] | ADC-CAP-001 §6 |
 
 ## The economics (comparison memo bottom line)
 

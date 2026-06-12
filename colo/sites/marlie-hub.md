@@ -19,7 +19,7 @@ Modular TCS, HAC, reference cluster, Telemetry).
 | Designation | **Mission Control Node 0** — zeroth node of the ADC fleet; hosts Mission Control (team + AI ops layer) and the Telemetry supervisory head-end; every future node reports here | [L] | Scott 2026-06-11 |
 | Role | **Home office that supports compute** — the ADC Solutions team office is physically located here | [L] | Scott 2026-06-11 |
 | Address | **1201 SE Evangeline Thruway, Lafayette, LA** | [L] | Scott 2026-06-11 |
-| Site control | Established — ADC team office on site | [W] | Scott 2026-06-11 (instrument/lease form not documented) |
+| Site control | Established — ADC team office on site; **only ~$15k remains owed** — payoff + title/instrument documentation tracked as CAP-OI-03 (decision [0009](../../ops/decisions/0009-three-property-acquisition-seed-capital.md)) | [W] | Scott 2026-06-11 |
 | Governing doc | [ADC-MHUB-001 Rev 0.2](marlie-hub-engineering/ADC-MHUB-001_Rev0_2.md) — compute scope, **issued 2026-06-11 pending Scott approval** (closes COLO-03 on approval) | [W] | marlie-hub-engineering/ |
 | Stage | Operating home office; compute scope issued — Phase 0 (utility inquiry, building survey, heat-rejection selection) starts on approval | [W] | ADC-MHUB-001 §3 |
 

@@ -50,7 +50,18 @@ pending approval — SYS-OI-08).
 | Cameron Street (Entergy, dual-utility) | [sites/cameron-street.md](sites/cameron-street.md) | **Filled 2026-06-11 from MGN-PROP-004 Rev 0.3** (Entergy BTM proposal; 2623 Cameron St, Entergy ops site + adjacent substation; Phase-1 pilot + single 10 MW node). PROP-004 does **not** subsume MGN-PROP-005 — **SYS-OI-02 stays open**; retail-territory check = CAM-OI-03 |
 | Willow Glen Compute Campus | [sites/willow-glen.md](sites/willow-glen.md) | **Created 2026-06-11** — retired riverfront power station (WGT campus, Zydeco/Yorktown); deal playbook = ground lease/option, gated on independent Entergy/MISO load inquiry (COLO-02). Comp: Hut 8 River Bend 25 mi north |
 | Marlie Hub | [sites/marlie-hub.md](sites/marlie-hub.md) | **Mission Control Node 0** — home office that supports compute; ADC team physically here. 1201 SE Evangeline Thruway, Lafayette. Name = "Marlie Hub" exclusively. **Seed/POC = 8 racks scalable in place to 16** (SCALE-1). Compute scope **ADC-MHUB-001 Rev 0.2 ISSUED 2026-06-11** ([sites/marlie-hub-engineering/](sites/marlie-hub-engineering/)) — pending approval; closes COLO-03 |
-| Evangeline Distribution Hub | [sites/evangeline-distribution-hub.md](sites/evangeline-distribution-hub.md) | **Created 2026-06-11** — 1016 SW Evangeline Thruway: $6M leasehold-only offer (land = Union Pacific), 173 kSF warehouse / 12.26 ac; likely BL1 distribution hub; ground-lease diligence = COLO-04 |
+| Evangeline Distribution Hub | [sites/evangeline-distribution-hub.md](sites/evangeline-distribution-hub.md) | **Created 2026-06-11** — 1016 SW Evangeline Thruway: $6M leasehold-only ask (land = Union Pacific), 173 kSF warehouse / 12.26 ac; **lease submitted for the two empty sections 2026-06-11 (CAP-OI-02)**; manufacturing = leading candidate, COLO-04 open; ground-lease diligence = EVA-OI-01 |
+
+### Capital & acquisition (decision 0009)
+
+Decision [0009](../ops/decisions/0009-three-property-acquisition-seed-capital.md):
+three-property control (Marlie Hub ~$15k payoff, **Trappey's $1.5M
+offer submitting 2026-06-16**, Evangeline lease-now/option-later) for
+under ~$10M total, funded per the seed capital package
+[ADC-CAP-001](../company/capital/ADC-CAP-001_Rev0_1.md)
+(**Rev 0.1 issued 2026-06-11, pending approval** — Ornn Plan A +
+bank/SBA + strategic + seller-terms waterfall; solar element forced by
+the §48E begin-construction cutoff **2026-07-04**, CAP-OI-07).
 
 **COLO-01 CLOSED 2026-06-11:** Trappey's and Cameron Street are
 **different sites**, confirmed by Scott (decision 0003). Records stay

@@ -1,0 +1,22 @@
+{
+  "id": "cap",
+  "name": "Seed Capital & Property Acquisition Package (three-property control + waterfall)",
+  "spec_sheet": "company/capital/README.md",
+  "source_documents": [
+    "company/capital/ADC-CAP-001_Rev0_1.md (Rev 0.1, 2026-06-11, seed capital and property package - issued pending Scott approval; decision 0009)",
+    "ops/decisions/0009-three-property-acquisition-seed-capital.md",
+    "colo/sites/evangeline-distribution-hub.md (greenfield comparison memo economics)",
+    "colo/sites/trappeys-compute-center.md (site facts; HTC posture)",
+    "colo/sites/marlie-hub.md (Mission Control Node 0; ADC-MHUB-001 seed envelope)"
+  ],
+  "telemetry_domain": "n/a (capital/business document set)",
+  "interfaces": [],
+  "parameters": [
+    {"key": "property_stack", "value": "Three Lafayette properties under ~$10M total: Marlie Hub (~$15k owed), Trappey's ($1.5M offer submitting 2026-06-16), Evangeline Distribution Hub (lease submitted, two empty sections; possible later $6M leasehold purchase - land stays Union Pacific)", "tag": "W", "critical": false, "source": "Scott 2026-06-11; decision 0009; ADC-CAP-001 SS2"},
+    {"key": "seed_structures", "value": "Both modeled by ruling: Structure A = one combined raise (~$10M, properties + Marlie Hub POC + manufacturing start-up); Structure B = ~$5M compute seed per ADC-MHUB-001 SS8 + separate property financing. Investor conversation picks.", "tag": "L", "critical": true, "source": "Scott 2026-06-11; decision 0009; ADC-CAP-001 SS4"},
+    {"key": "capital_waterfall", "value": "Plan A Ornn (first choice, framing re-cut per decision 0005 - overlay not offtake); Plan B bank + SBA 504; Plan C strategic investors; Plan D seller financing / lease-to-own; incentive/credit stack as overlay on every plan. All strategies recognized.", "tag": "L", "critical": true, "source": "Scott 2026-06-11; decision 0009; ADC-CAP-001 SS5"},
+    {"key": "solar_element", "value": "Solar is a major package element on both large-footprint properties; modules = First Solar Series 7 (New Iberia, LA). Schedule forced by the federal SS48E begin-construction cutoff 2026-07-04 (qualifying action = CAP-OI-07). Deadline/test facts themselves are [W], verified 2026-06-11.", "tag": "L", "critical": true, "source": "Scott 2026-06-11; decision 0009; ADC-CAP-001 SS6"},
+    {"key": "incentive_matrix", "value": "Verified 2026-06-11: SS48E BOC cutoff 2026-07-04; IRS Notice 2025-42 VACATED 2026-06-06 (5% safe harbor restored, appeal likely); domestic-content bonus +10% (50% threshold for CY2026 starts); SS6418 transferability survives; LA HTC 25% sunset 2028-12-31 + fed 20%; SBA 504 small-manufacturer $5.5M/project no aggregate cap, cumulative limit doubles to $10M on 2026-07-04; OZ permanent (Lafayette tract status unverified [O]). Refresh per CAP-OI-06 before any presentation; never assert eligibility/award as fact.", "tag": "W", "critical": false, "source": "ADC-CAP-001 SS6 (sources + accessed dates in doc)"},
+    {"key": "colo_04_status", "value": "Evangeline intended use stays OPEN by ruling - manufacturing (CDU line + clean-area TCS assembly) is the leading candidate, not locked", "tag": "L", "critical": true, "source": "Scott 2026-06-11; decision 0009"}
+  ]
+}
