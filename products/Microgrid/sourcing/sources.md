@@ -58,10 +58,14 @@ oilfield/broker contacts you know, and confirm the Tier-3/4 lanes.
 
 | On | Source | URL | Poll | Notes |
 |----|--------|-----|------|-------|
-| ✅ | Clarke Energy (Jenbacher reconditioned) | clarke-energy.com | weekly | EU/global Jenbacher gas. |
+| ✅ | Gas Engine Exchange | gasengineexchange.com | daily | **Specialist** — 50-100 used Jenbacher/CAT/MWM/MAN gas gensets, mostly 50 Hz. High-yield. |
+| ✅ | Machineseeker (EU) | machineseeker.co.uk | daily | Largest EU used-machine marketplace; complete Jenbacher/MWM gas plants 50 Hz. |
+| ✅ | Salvex | salvex.com | daily | Global surplus/salvage (insurance, bankruptcy, disaster) — ME/Asia reach, sleeper deals. |
+| ✅ | Plant & Equipment | plantandequipment.com | weekly | ME/Africa/Europe dealers + live auctions. |
+| ✅ | Mid-America Engine | midamericaengine.com | weekly | Global-reach surplus power-gen; ships EMEA/Asia. |
+| ✅ | Industrial Marine Power | industrialmarinepower.com | weekly | International broker; MWM/Jenbacher 50 Hz power plants. |
+| ✅ | Clarke Energy (Jenbacher reconditioned) | clarke-energy.com | weekly | EU/global Jenbacher gas, factory-reconditioned. |
 | ✅ | Aggreko / APR retired fleet | aggreko.com | weekly | Rental-fleet retirements; 50 Hz. |
-| ⬜ | EU plant liquidation brokers | — | weekly | **Seed list TBD — Scott confirm appetite.** |
-| ⬜ | ME/Asia surplus traders | — | weekly | **Seed list TBD — Scott confirm appetite.** |
 
 ## Tier 5 — noisy / manual (lower cadence)
 
