@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ADC Genset Tracker</title>
+<style>
+  :root{
+    --bg:#0b0f14; --panel:#121922; --panel2:#0e141c; --line:#1f2a37;
+    --ink:#e6edf3; --muted:#8aa0b4; --faint:#5c7081;
+    --accent:#39d0d8; --accent2:#2bb3ba;
+    --fund:#f2b441; --modular:#5fa8ff; --flip:#b07cf0;
+    --good:#3ddc84; --mid:#f2c14e; --warn:#ff7a59; --bad:#ff5d6c;
+    --chip:#1a2530; --chipon:#13343a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);
+    font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1400px;margin:0 auto;padding:22px 22px 60px}
+
+  /* Header */
+  header{border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:18px}
+  .title-row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  h1{font-size:24px;margin:0;letter-spacing:.3px}
+  h1 .mark{color:var(--accent)}
+  .built{margin-left:auto;color:var(--faint);font-size:12px;text-align:right}
+  .built b{color:var(--muted)}
+  .sub{color:var(--muted);margin:6px 0 0;font-size:13px}
+  .sub code{background:#0e1620;border:1px solid var(--line);padding:1px 6px;border-radius:5px;color:var(--accent)}
+
+  /* Stat tiles */
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:12px;margin:18px 0 6px}
+  .tile{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);
+    border-radius:10px;padding:12px 14px}
+  .tile .n{font-size:26px;font-weight:700;line-height:1}
+  .tile .l{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.6px;margin-top:6px}
+  .tile.fund .n{color:var(--fund)} .tile.modular .n{color:var(--modular)} .tile.flip .n{color:var(--flip)}
+  .tile.star .n{color:var(--accent)} .tile.hz .n{color:#9fd2ff} .tile.frt .n{color:var(--warn)}
+
+  /* Controls */
+  .controls{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:14px;margin:18px 0;display:flex;flex-direction:column;gap:12px}
+  .ctl-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .ctl-row .lbl{color:var(--faint);font-size:11px;text-transform:uppercase;letter-spacing:.6px;min-width:74px}
+  .search{flex:1;min-width:220px;background:#0c131b;border:1px solid var(--line);color:var(--ink);
+    padding:9px 12px;border-radius:8px;font-size:14px}
+  .search::placeholder{color:var(--faint)}
+  .chip{background:var(--chip);border:1px solid var(--line);color:var(--muted);cursor:pointer;
+    padding:6px 12px;border-radius:20px;font-size:12.5px;user-select:none;transition:.12s}
+  .chip:hover{border-color:var(--accent2);color:var(--ink)}
+  .chip.on{background:var(--chipon);border-color:var(--accent);color:var(--accent)}
+  .chip.lane-FUND.on{background:#332702;border-color:var(--fund);color:var(--fund)}
+  .chip.lane-MODULAR.on{background:#0b2138;border-color:var(--modular);color:var(--modular)}
+  .chip.lane-FLIP.on{background:#241338;border-color:var(--flip);color:var(--flip)}
+  .reset{margin-left:auto;background:none;border:1px solid var(--line);color:var(--muted);
+    padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12px}
+  .reset:hover{border-color:var(--bad);color:var(--bad)}
+
+  /* Sections */
+  h2{font-size:15px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);
+    margin:30px 0 10px;display:flex;align-items:center;gap:10px}
+  h2::after{content:"";flex:1;height:1px;background:var(--line)}
+  .count-tag{color:var(--faint);font-size:12px;text-transform:none;letter-spacing:0}
+
+  /* Table */
+  .tbl-wrap{border:1px solid var(--line);border-radius:10px;overflow:auto;background:var(--panel)}
+  table{border-collapse:collapse;width:100%;font-size:13px}
+  thead th{position:sticky;top:0;background:#0e151d;color:var(--muted);text-align:left;
+    padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap;cursor:pointer;
+    font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.5px}
+  thead th.nosort{cursor:default}
+  thead th:hover:not(.nosort){color:var(--ink)}
+  th .arrow{color:var(--accent);font-size:10px;margin-left:4px}
+  tbody td{padding:10px 12px;border-bottom:1px solid #16202b;vertical-align:top}
+  tbody tr:hover{background:#0f1822}
+  tbody tr:last-child td{border-bottom:none}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .unit{font-weight:600}
+  .unit .mk{color:var(--faint);font-weight:400;font-size:12px}
+  .lane-pill{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.5px;
+    padding:2px 8px;border-radius:5px;border:1px solid}
+  .lane-pill.FUND{color:var(--fund);border-color:#5a4410;background:#231a04}
+  .lane-pill.MODULAR{color:var(--modular);border-color:#1c3a5c;background:#0a1726}
+  .lane-pill.FLIP{color:var(--flip);border-color:#3d2659;background:#180c26}
+  tr.lane-FUND td:first-child{box-shadow:inset 3px 0 0 var(--fund)}
+  tr.lane-MODULAR td:first-child{box-shadow:inset 3px 0 0 var(--modular)}
+  tr.lane-FLIP td:first-child{box-shadow:inset 3px 0 0 var(--flip)}
+  .badge{font-size:11px;margin-left:4px}
+  .star{color:var(--fund)}
+  .frt{color:var(--warn);cursor:help}
+  .oob{display:inline-block;font-size:10px;font-weight:700;color:var(--warn);
+    border:1px solid #5c3320;background:#2a1408;padding:1px 6px;border-radius:4px;margin-left:6px}
+  tr.is-oob{opacity:.92}
+  tr.is-oob td{background-image:repeating-linear-gradient(45deg,transparent,transparent 9px,rgba(255,122,89,.04) 9px,rgba(255,122,89,.04) 18px)}
+  .pill-50{color:#9fd2ff;font-weight:600}
+  .cond{color:var(--muted);font-size:12px}
+  .fit{display:inline-flex;align-items:center;gap:8px;min-width:90px}
+  .fitbar{flex:1;height:7px;border-radius:4px;background:#16202b;overflow:hidden;min-width:46px}
+  .fitbar i{display:block;height:100%}
+  .fitval{font-variant-numeric:tabular-nums;font-weight:600;width:26px;text-align:right}
+  .src{white-space:nowrap}
+  .seller{color:var(--faint);font-size:11px;display:block;margin-top:2px}
+  .norows{padding:26px;text-align:center;color:var(--faint)}
+
+  /* comp + sources */
+  .grid2{display:grid;grid-template-columns:1fr;gap:0}
+  .comp td .rng{color:var(--faint);font-size:12px}
+  .bench{color:var(--fund);font-size:11px;margin-left:6px}
+  .src-tier{margin-bottom:6px}
+  .src-tier h3{font-size:12px;color:var(--accent2);text-transform:uppercase;letter-spacing:.6px;
+    margin:16px 0 6px;border-bottom:1px solid var(--line);padding-bottom:5px}
+  .src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
+  .src-card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 11px;
+    display:flex;gap:10px;align-items:flex-start}
+  .src-card.off{opacity:.45}
+  .dot{width:9px;height:9px;border-radius:50%;margin-top:4px;flex:none}
+  .dot.on{background:var(--good);box-shadow:0 0 6px rgba(61,220,132,.6)}
+  .dot.off{background:var(--faint)}
+  .src-card .nm{font-weight:600;font-size:13px}
+  .src-card .meta{color:var(--faint);font-size:11px;margin-top:2px}
+  .poll{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:.4px;
+    padding:1px 6px;border-radius:4px;border:1px solid var(--line);color:var(--muted);margin-left:4px}
+  .poll.daily{color:var(--good);border-color:#1c4a30}
+  .poll.weekly{color:#9fd2ff;border-color:#1c3a5c}
+  .poll.manual{color:var(--warn);border-color:#5c3320}
+
+  footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);
+    color:var(--faint);font-size:12px;line-height:1.7}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;color:var(--muted);font-size:12px}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  @media (max-width:640px){.built{margin-left:0;text-align:left}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="title-row">
+      <h1><span class="mark">ADC</span> Genset Tracker</h1>
+      <div class="built">
+        Built from digest <b id="digestDate">—</b><br>
+        <span id="buildTs">—</span>
+      </div>
+    </div>
+    <p class="sub">Live secondary-market inventory from the <b>MGN-SRC-001</b> daily sweep ·
+      buy-box gate <code>MGN-BOD-002</code> (Cat G3520H @ 2.5 MW · Cummins HSK78G 2nd source) ·
+      50 Hz is a sourcing <b>edge</b>, not a filter — the target node is islanded behind-the-meter.</p>
+
+    <div class="tiles" id="tiles"></div>
+  </header>
+
+  <div class="controls">
+    <div class="ctl-row">
+      <span class="lbl">Search</span>
+      <input id="search" class="search" type="search" placeholder="make, model, location…">
+      <button class="reset" id="reset">Reset filters</button>
+    </div>
+    <div class="ctl-row"><span class="lbl">Lane</span><div id="laneChips"></div></div>
+    <div class="ctl-row"><span class="lbl">Fuel</span><div id="fuelChips"></div></div>
+    <div class="ctl-row"><span class="lbl">Frequency</span><div id="hzChips"></div></div>
+    <div class="ctl-row"><span class="lbl">Condition</span><div id="condChips"></div></div>
+    <div class="ctl-row"><span class="lbl">Flags</span>
+      <span class="chip" data-flag="node">⭐ Node-make only</span>
+      <span class="chip" data-flag="freight">⚠ Freight-heavy only</span>
+      <span class="chip" data-flag="oob">Hide &gt;2.5 MW out-of-band</span>
+    </div>
+  </div>
+
+  <h2>Inventory <span class="count-tag" id="invCount"></span></h2>
+  <div class="tbl-wrap">
+    <table id="invTable">
+      <thead><tr>
+        <th data-k="unit">Unit</th>
+        <th data-k="lane">Lane</th>
+        <th data-k="kW" class="num">kW</th>
+        <th data-k="fuel">Fuel</th>
+        <th data-k="hzv">Hz / V</th>
+        <th data-k="hours" class="num">Hours</th>
+        <th data-k="year" class="num">Year</th>
+        <th data-k="condition">Condition</th>
+        <th data-k="price" class="num">Price</th>
+        <th data-k="location">Location</th>
+        <th data-k="node_fit" class="num">Node fit</th>
+        <th data-k="src" class="nosort">Source</th>
+      </tr></thead>
+      <tbody id="invBody"></tbody>
+    </table>
+  </div>
+  <div class="legend">
+    <span><span class="star">★</span> node-make / standout</span>
+    <span><span class="frt">⚠</span> freight-heavy (Alberta / overseas)</span>
+    <span><span class="oob" style="margin:0">&gt;2.5 MW</span> out-of-band</span>
+    <span><span class="pill-50">50 Hz</span> sourcing edge</span>
+  </div>
+
+  <h2>Comp Book <span class="count-tag">sold / last-seen price intelligence</span></h2>
+  <div class="tbl-wrap">
+    <table class="comp">
+      <thead><tr>
+        <th>Class</th><th class="num">Low</th><th class="num">High</th><th class="nosort">Range basis / note</th>
+      </tr></thead>
+      <tbody id="compBody"></tbody>
+    </table>
+  </div>
+
+  <h2>Source Registry <span class="count-tag" id="srcCount"></span></h2>
+  <div id="sources"></div>
+
+  <footer>
+    Data from the <b>MGN-SRC-001</b> daily sourcing sweep · feeds Decision 0017 / FUND-OI-01 (NG genset acquisition fund).
+    First baseline run — all units NEW, no deltas yet; prices marked “Call” are seller-quoted on inquiry,
+    <b>*</b> = directional from market range (confirm on call).<br>
+    Internal viewer only — not deployed to adc3k.com. Page rendered <span id="footTs">—</span>.
+  </footer>
+</div>
+
+<!-- GENSET_DATA_START -->
+<script>window.GENSET_DATA = {
+  "meta": {
+    "agent": "MGN-SRC-001",
+    "digest_date": "2026-06-13",
+    "digest_file": "digests/2026-06-13.md",
+    "buy_box": "NG/dual-fuel + low-hour diesel · <1 MW–2.5 MW (>2.5 MW alerts out-of-band) · 50 + 60 Hz",
+    "node_standard": "Cat G3520H @ 2.5 MW (MGN-BOD-002); Cummins HSK78G second source",
+    "note": "First baseline run — all units NEW, no deltas yet. Prices marked 'Call' are seller-quoted on inquiry; * = directional from market range, confirm on call."
+  },
+  "listings": [
+    {"id":"FUND-001","lane":"FUND","make":"Caterpillar","model":"G3520","kW":2055,"fuel":"NG","hz":60,"voltage":"MV (ABB switchgear)","hours":1100,"hours_display":"700–1,500","year":null,"condition":"used","price":null,"price_display":"~mid-6 fig*","location":"US","freight_flag":false,"seller":"PowerGen Enterprises","source_url":"https://powergenenterprises.com/product/caterpillar-g3520-2055-kw-natural-gas-generator/","node_fit":100,"standout":true,"out_of_band":false,"notes":"Node-make G3520, low-hour, MV-capable — cleanest drop into MGN-BOD-002."},
+    {"id":"FUND-002","lane":"FUND","make":"Caterpillar","model":"G3520","kW":2000,"fuel":"NG","hz":60,"voltage":"480","hours":null,"hours_display":"—","year":2024,"condition":"used","price":null,"price_display":"Call","location":"—","freight_flag":false,"seller":"USP&E","source_url":"https://uspeglobal.com/inventory/used-caterpillar-g3520-natural-gas-generator-set/","node_fit":95,"standout":true,"out_of_band":false,"notes":"2024 unit. USP&E page 403s on WebFetch — needs P3 fetcher to confirm specs."},
+    {"id":"FUND-003","lane":"FUND","make":"Cummins","model":"C1600N5CD / HSK78G","kW":1600,"fuel":"NG","hz":50,"voltage":"—","hours":null,"hours_display":"—","year":null,"condition":"used","price":null,"price_display":"Call","location":"—","freight_flag":false,"seller":"Surplus Record","source_url":"https://surplusrecord.com/listing/1600-kw-cummins-c1600n5cd-natural-gas-generator-set-cummins-hsk78g-engine-9-06-stroke-1500-rpm-50-hz-1047996/","node_fit":85,"standout":true,"out_of_band":false,"notes":"HSK78G = 0017 second-source make. 50 Hz / 1500 rpm — sourcing edge for islanded BTM node, not a problem."},
+    {"id":"FUND-004","lane":"FUND","make":"INNIO Jenbacher","model":"JGS 620 (3×, 10 MW total)","kW":3300,"fuel":"NG","hz":60,"voltage":"4160","hours":0,"hours_display":"never-run","year":null,"condition":"new-surplus","price":null,"price_display":"Call","location":"Alberta, Canada","freight_flag":true,"seller":"Crusader JV","source_url":"https://crusaderjv.com/for-sale-surplus-stock-never-used-jenbacher-j620-3mw-4160v-natural-gas-generator-sets-10mw-total/","node_fit":75,"standout":false,"out_of_band":true,"notes":"Factory-new surplus, never-run, ships immediately — beats a 2-yr OEM queue. >2.5 MW per-unit (adapt). Alberta freight to Gulf — verify landed cost."},
+    {"id":"FUND-005","lane":"FUND","make":"INNIO Jenbacher","model":"J620 GS","kW":3000,"fuel":"NG","hz":50,"voltage":"11kV","hours":null,"hours_display":"—","year":2008,"condition":"used","price":null,"price_display":"Call","location":"—","freight_flag":false,"seller":"USP&E","source_url":"https://uspeglobal.com/inventory/jenbacher-j-620-gs-natural-gas-generator-set/","node_fit":70,"standout":false,"out_of_band":true,"notes":">2.5 MW out-of-band. 50 Hz / 11kV. 2008 vintage."},
+    {"id":"FUND-006","lane":"FUND","make":"INNIO Jenbacher","model":"JGS-620 (4×, 10.75 MW total)","kW":2750,"fuel":"NG","hz":50,"voltage":"11kV","hours":null,"hours_display":"—","year":2015,"condition":"used","price":null,"price_display":"Call","location":"—","freight_flag":false,"seller":"USP&E","source_url":"https://www.uspeglobal.com/listings/6599788-used-10-75-mw-2015-used-jenbacher-jgs-620-natural-gas-generator-sets","node_fit":72,"standout":false,"out_of_band":true,"notes":">2.5 MW out-of-band. 50 Hz / 11kV. 2015 fleet of 4."},
+    {"id":"MOD-001","lane":"MODULAR","make":"Waukesha","model":"L7044GSI","kW":1200,"fuel":"NG","hz":null,"voltage":"—","hours":0,"hours_display":"new/never-used","year":null,"condition":"new-surplus","price":null,"price_display":"Call","location":"Alberta, Canada","freight_flag":true,"seller":"Crusader JV","source_url":"https://crusaderjv.com/surplus-new-never-used-waukesha-1-2-mw-l7044gsi-natural-gas-generator-package-for-sale/","node_fit":55,"standout":false,"out_of_band":false,"notes":"New / never-used, ships immediately. Alberta freight to Gulf — verify landed cost."},
+    {"id":"MOD-002","lane":"MODULAR","make":"Waukesha","model":"L7042GL","kW":1000,"fuel":"NG","hz":null,"voltage":"—","hours":34000,"hours_display":"34,000","year":null,"condition":"rebuilt","price":null,"price_display":"Call","location":"—","freight_flag":false,"seller":"Crusader JV","source_url":"https://crusaderjv.com/1000-kw-generator-natural-gas-powered-1-mw/","node_fit":40,"standout":false,"out_of_band":false,"notes":"Overhauled, high lifetime hours (34,000). 1 MW gas modular candidate."},
+    {"id":"FLIP-001","lane":"FLIP","make":"Caterpillar","model":"3516C","kW":2000,"fuel":"diesel","hz":null,"voltage":"—","hours":205,"hours_display":"205","year":null,"condition":"used","price":null,"price_display":"Call","location":"—","freight_flag":false,"seller":"PowerSystemsToday","source_url":"https://www.powersystemstoday.com/listings/for-sale/caterpillar/generators/153001","node_fit":25,"standout":true,"out_of_band":false,"notes":"Very low-hour diesel (205 hrs) — strong arbitrage / rebuild-to-gas core candidate."},
+    {"id":"FLIP-002","lane":"FLIP","make":"Caterpillar","model":"XQ2000 power module","kW":2000,"fuel":"diesel","hz":null,"voltage":"—","hours":null,"hours_display":"—","year":2013,"condition":"used","price":null,"price_display":"Call","location":"—","freight_flag":false,"seller":"USP&E","source_url":"https://uspeglobal.com/inventory/diesel-generators/","node_fit":20,"standout":false,"out_of_band":false,"notes":"2013 packaged power module. Diesel flip/resale candidate."},
+    {"id":"FLIP-003","lane":"FLIP","make":"Caterpillar","model":"3516B","kW":2000,"fuel":"diesel","hz":null,"voltage":"—","hours":null,"hours_display":"new","year":2025,"condition":"new-surplus","price":null,"price_display":"Call","location":"—","freight_flag":false,"seller":"USP&E","source_url":"https://uspeglobal.com/inventory/diesel-generators/","node_fit":22,"standout":false,"out_of_band":false,"notes":"2025 new-surplus diesel. Resale arbitrage candidate."}
+  ],
+  "comps": [
+    {"class":"Used G3520-class (2026)","low_price":85000,"low_note":"G3412 high-hr","high_price":785000,"high_note":"G3520H low-hr","benchmark":true,"note":"Node-make benchmark."},
+    {"class":"Jenbacher J620","low_price":30000,"low_note":"high-hr","high_price":745000,"high_note":"low-hr / never-run","benchmark":false,"note":"As listings go GONE, freeze last price → builds FUND-001 negotiation comps."}
+  ],
+  "sources": [
+    {"on":true,"tier":"Tier 1 — structured / auction feeds","name":"Ritchie Bros","url":"rbauction.com","poll":"daily","notes":"Largest industrial auctioneer; gensets by kW."},
+    {"on":true,"tier":"Tier 1 — structured / auction feeds","name":"IronPlanet","url":"ironplanet.com","poll":"daily","notes":"Ritchie online arm."},
+    {"on":true,"tier":"Tier 1 — structured / auction feeds","name":"GovPlanet","url":"govplanet.com","poll":"daily","notes":"Gov/military surplus gensets — low-hour MEP units."},
+    {"on":true,"tier":"Tier 1 — structured / auction feeds","name":"GovDeals","url":"govdeals.com","poll":"daily","notes":"Municipal/utility surplus; sleeper deals."},
+    {"on":true,"tier":"Tier 1 — structured / auction feeds","name":"Public Surplus","url":"publicsurplus.com","poll":"daily","notes":"Gov agencies."},
+    {"on":true,"tier":"Tier 1 — structured / auction feeds","name":"Purple Wave","url":"purplewave.com","poll":"daily","notes":"Midwest unreserved auctions."},
+    {"on":true,"tier":"Tier 1 — structured / auction feeds","name":"Machinery Trader","url":"machinerytrader.com","poll":"daily","notes":"Dealer aggregator, strong genset category."},
+    {"on":true,"tier":"Tier 1 — structured / auction feeds","name":"EquipmentFacts","url":"equipmentfacts.com","poll":"daily","notes":"Auction aggregator."},
+    {"on":true,"tier":"Tier 1 — structured / auction feeds","name":"Bid-on-Equipment","url":"bid-on-equipment.com","poll":"daily","notes":"Used industrial, gensets."},
+    {"on":true,"tier":"Tier 2 — dealer / broker catalogs","name":"Woodstock Power","url":"woodstockpower.com","poll":"daily","notes":"Deep used-genset inventory, NG + diesel."},
+    {"on":true,"tier":"Tier 2 — dealer / broker catalogs","name":"Generator Source","url":"generatorsource.com","poll":"daily","notes":"Used/surplus, good specs listed."},
+    {"on":true,"tier":"Tier 2 — dealer / broker catalogs","name":"Worldwide Power Products","url":"wpowerproducts.com","poll":"daily","notes":"Houston — local freight edge."},
+    {"on":true,"tier":"Tier 2 — dealer / broker catalogs","name":"USP&E","url":"uspeglobal.com","poll":"daily","notes":"Atlanta; exports — global/50 Hz reach."},
+    {"on":true,"tier":"Tier 2 — dealer / broker catalogs","name":"Power Plus International","url":"powerplusintl.com","poll":"daily","notes":"Used/surplus broker."},
+    {"on":true,"tier":"Tier 2 — dealer / broker catalogs","name":"Depco Power Systems","url":"depcollc.com","poll":"daily","notes":"Used industrial gensets."},
+    {"on":true,"tier":"Tier 2 — dealer / broker catalogs","name":"Collicutt Energy","url":"collicutt.com","poll":"weekly","notes":"Canada; gas RICE specialist."},
+    {"on":true,"tier":"Tier 2 — dealer / broker catalogs","name":"AB Industrial / AB Power","url":"—","poll":"weekly","notes":"Industrial surplus."},
+    {"on":true,"tier":"Tier 2 — dealer / broker catalogs","name":"Central States Diesel","url":"centralstatesdieselgenerators.com","poll":"weekly","notes":"Diesel-heavy (FLIP lane)."},
+    {"on":true,"tier":"Tier 2 — dealer / broker catalogs","name":"General Power","url":"generalpower.com","poll":"weekly","notes":"New + used."},
+    {"on":true,"tier":"Tier 2 — dealer / broker catalogs","name":"Americas Generators","url":"shopgenerators.com","poll":"weekly","notes":"Miami; export-oriented."},
+    {"on":true,"tier":"Tier 3 — oilfield / gas-compression","name":"Kruse Energy Auctioneers","url":"kruseenergy.com","poll":"daily","notes":"Oilfield equipment auctions — gas gensets/compression."},
+    {"on":true,"tier":"Tier 3 — oilfield / gas-compression","name":"Archrock retirements","url":"archrock.com","poll":"weekly","notes":"Gas-compression fleet; watch for retirements."},
+    {"on":true,"tier":"Tier 3 — oilfield / gas-compression","name":"Flogistix used","url":"flogistix.com","poll":"weekly","notes":"Gas-lift/compression packages."},
+    {"on":true,"tier":"Tier 3 — oilfield / gas-compression","name":"CSI Compco","url":"—","poll":"weekly","notes":"Compression packager used inventory."},
+    {"on":false,"tier":"Tier 3 — oilfield / gas-compression","name":"(Scott warm leads)","url":"—","poll":"—","notes":"Add oilfield contacts here."},
+    {"on":true,"tier":"Tier 4 — global 50 Hz surplus","name":"Gas Engine Exchange","url":"gasengineexchange.com","poll":"daily","notes":"Specialist — 50-100 used Jenbacher/CAT/MWM/MAN gas gensets, mostly 50 Hz. High-yield."},
+    {"on":true,"tier":"Tier 4 — global 50 Hz surplus","name":"Machineseeker (EU)","url":"machineseeker.co.uk","poll":"daily","notes":"Largest EU used-machine marketplace; complete Jenbacher/MWM gas plants 50 Hz."},
+    {"on":true,"tier":"Tier 4 — global 50 Hz surplus","name":"Salvex","url":"salvex.com","poll":"daily","notes":"Global surplus/salvage (insurance, bankruptcy, disaster) — ME/Asia reach, sleeper deals."},
+    {"on":true,"tier":"Tier 4 — global 50 Hz surplus","name":"Plant & Equipment","url":"plantandequipment.com","poll":"weekly","notes":"ME/Africa/Europe dealers + live auctions."},
+    {"on":true,"tier":"Tier 4 — global 50 Hz surplus","name":"Mid-America Engine","url":"midamericaengine.com","poll":"weekly","notes":"Global-reach surplus power-gen; ships EMEA/Asia."},
+    {"on":true,"tier":"Tier 4 — global 50 Hz surplus","name":"Industrial Marine Power","url":"industrialmarinepower.com","poll":"weekly","notes":"International broker; MWM/Jenbacher 50 Hz power plants."},
+    {"on":true,"tier":"Tier 4 — global 50 Hz surplus","name":"Clarke Energy (Jenbacher reconditioned)","url":"clarke-energy.com","poll":"weekly","notes":"EU/global Jenbacher gas, factory-reconditioned."},
+    {"on":true,"tier":"Tier 4 — global 50 Hz surplus","name":"Aggreko / APR retired fleet","url":"aggreko.com","poll":"weekly","notes":"Rental-fleet retirements; 50 Hz."},
+    {"on":true,"tier":"Tier 5 — noisy / manual","name":"eBay (industrial generators)","url":"ebay.com","poll":"daily","notes":"High noise; watchlist-filtered."},
+    {"on":false,"tier":"Tier 5 — noisy / manual","name":"Facebook Marketplace","url":"facebook.com","poll":"manual","notes":"Anti-bot; manual or P3 fetcher."},
+    {"on":false,"tier":"Tier 5 — noisy / manual","name":"Craigslist (multi-metro)","url":"craigslist.org","poll":"weekly","notes":"Regional steals."},
+    {"on":true,"tier":"Tier 5 — noisy / manual","name":"LinkedIn equipment posts","url":"linkedin.com","poll":"weekly","notes":"Broker/seller posts."},
+    {"on":true,"tier":"OEM certified-used (rebuilt lane)","name":"Cat Used / Cat Reman","url":"catused.cat.com","poll":"daily","notes":"Node-standard make; certified condition."},
+    {"on":true,"tier":"OEM certified-used (rebuilt lane)","name":"Cummins","url":"cummins.com","poll":"weekly","notes":"HSK78G second-source make."},
+    {"on":true,"tier":"OEM certified-used (rebuilt lane)","name":"MTU reconditioned","url":"mtu-solutions.com","poll":"weekly","notes":"Premium recip."},
+    {"on":true,"tier":"OEM certified-used (rebuilt lane)","name":"Wärtsilä reconditioned","url":"wartsila.com","poll":"weekly","notes":"34SG-class gas."}
+  ]
+};</script>
+<!-- GENSET_DATA_END -->
+
+<script>
+(function(){
+  "use strict";
+  var D = window.GENSET_DATA || {meta:{},listings:[],comps:[],sources:[]};
+  var L = D.listings || [], C = D.comps || [], S = D.sources || [];
+
+  // ---------- header / build info ----------
+  document.getElementById('digestDate').textContent = (D.meta && D.meta.digest_date) || '—';
+  var now = new Date();
+  var ts = now.toLocaleString();
+  document.getElementById('buildTs').textContent = 'page opened ' + ts;
+  document.getElementById('footTs').textContent = ts;
+
+  // node-make detector (G3520 / HSK78G family)
+  function isNodeMake(it){
+    var m = ((it.make||'') + ' ' + (it.model||'')).toUpperCase();
+    return /G3520|HSK78G/.test(m);
+  }
+  function fmtMoney(n){
+    if(n==null) return '—';
+    return '$' + Number(n).toLocaleString();
+  }
+  function hzText(it){ return it.hz==null ? '—' : (it.hz + ' Hz'); }
+
+  // ---------- stat tiles ----------
+  var inBox = L.length;
+  var byLane = function(l){ return L.filter(function(x){return x.lane===l;}).length; };
+  var nodeStand = L.filter(isNodeMake).length;
+  var hz50 = L.filter(function(x){return x.hz===50;}).length;
+  var freight = L.filter(function(x){return x.freight_flag;}).length;
+  var tiles = [
+    {n:inBox, l:'Units in-box', c:''},
+    {n:byLane('FUND'), l:'FUND lane', c:'fund'},
+    {n:byLane('MODULAR'), l:'MODULAR lane', c:'modular'},
+    {n:byLane('FLIP'), l:'FLIP lane', c:'flip'},
+    {n:nodeStand, l:'Node-make ★', c:'star'},
+    {n:hz50, l:'50 Hz units', c:'hz'},
+    {n:freight, l:'Freight-heavy ⚠', c:'frt'}
+  ];
+  document.getElementById('tiles').innerHTML = tiles.map(function(t){
+    return '<div class="tile '+t.c+'"><div class="n">'+t.n+'</div><div class="l">'+t.l+'</div></div>';
+  }).join('');
+
+  // ---------- filter state ----------
+  var state = {
+    q:'', lanes:new Set(), fuels:new Set(), hz:new Set(), conds:new Set(),
+    node:false, freight:false, hideOob:false,
+    sortKey:'node_fit', sortDir:-1
+  };
+
+  function makeChips(containerId, items, kind){
+    var c = document.getElementById(containerId);
+    c.innerHTML = items.map(function(v){
+      var cls = 'chip' + (kind==='lane' ? ' lane-'+v : '');
+      return '<span class="'+cls+'" data-kind="'+kind+'" data-val="'+v+'">'+v+'</span>';
+    }).join('');
+  }
+  var lanes = ['FUND','MODULAR','FLIP'];
+  var fuels = Array.from(new Set(L.map(function(x){return x.fuel;}))).sort();
+  var hzs = ['50','60'];
+  var conds = Array.from(new Set(L.map(function(x){return x.condition;}))).sort();
+  makeChips('laneChips', lanes, 'lane');
+  makeChips('fuelChips', fuels, 'fuel');
+  makeChips('hzChips', hzs, 'hz');
+  makeChips('condChips', conds, 'cond');
+
+  function setForKind(k){
+    return k==='lane'?state.lanes : k==='fuel'?state.fuels : k==='hz'?state.hz : state.conds;
+  }
+
+  document.querySelectorAll('.controls').forEach(function(){});
+  document.getElementById('search').addEventListener('input', function(e){
+    state.q = e.target.value.trim().toLowerCase(); render();
+  });
+  document.querySelectorAll('.chip[data-kind]').forEach(function(ch){
+    ch.addEventListener('click', function(){
+      var k = ch.getAttribute('data-kind'), v = ch.getAttribute('data-val');
+      var set = setForKind(k);
+      if(set.has(v)){ set.delete(v); ch.classList.remove('on'); }
+      else { set.add(v); ch.classList.add('on'); }
+      render();
+    });
+  });
+  document.querySelectorAll('.chip[data-flag]').forEach(function(ch){
+    ch.addEventListener('click', function(){
+      var f = ch.getAttribute('data-flag');
+      state[f] = !state[f];
+      ch.classList.toggle('on', state[f]);
+      render();
+    });
+  });
+  document.getElementById('reset').addEventListener('click', function(){
+    state.q=''; state.lanes.clear(); state.fuels.clear(); state.hz.clear(); state.conds.clear();
+    state.node=false; state.freight=false; state.hideOob=false;
+    document.getElementById('search').value='';
+    document.querySelectorAll('.chip').forEach(function(c){c.classList.remove('on');});
+    render();
+  });
+
+  // ---------- sorting ----------
+  function sortVal(it, k){
+    switch(k){
+      case 'unit': return (it.make+' '+it.model).toLowerCase();
+      case 'lane': return ({FUND:0,MODULAR:1,FLIP:2})[it.lane];
+      case 'kW': return it.kW==null?-1:it.kW;
+      case 'fuel': return it.fuel||'';
+      case 'hzv': return it.hz==null?0:it.hz;
+      case 'hours': return it.hours==null?Infinity:it.hours; // unknowns sort last asc
+      case 'year': return it.year==null?-1:it.year;
+      case 'condition': return it.condition||'';
+      case 'price': return it.price==null?-1:it.price;
+      case 'location': return (it.location||'').toLowerCase();
+      case 'node_fit': return it.node_fit==null?-1:it.node_fit;
+      default: return 0;
+    }
+  }
+  document.querySelectorAll('#invTable thead th').forEach(function(th){
+    if(th.classList.contains('nosort')) return;
+    th.addEventListener('click', function(){
+      var k = th.getAttribute('data-k');
+      if(state.sortKey===k){ state.sortDir*=-1; }
+      else { state.sortKey=k; state.sortDir = (k==='node_fit'||k==='kW'||k==='year') ? -1 : 1; }
+      render();
+    });
+  });
+
+  // ---------- filter + render table ----------
+  function passes(it){
+    if(state.lanes.size && !state.lanes.has(it.lane)) return false;
+    if(state.fuels.size && !state.fuels.has(it.fuel)) return false;
+    if(state.hz.size && !state.hz.has(String(it.hz))) return false;
+    if(state.conds.size && !state.conds.has(it.condition)) return false;
+    if(state.node && !isNodeMake(it)) return false;
+    if(state.freight && !it.freight_flag) return false;
+    if(state.hideOob && it.out_of_band) return false;
+    if(state.q){
+      var hay = ((it.make||'')+' '+(it.model||'')+' '+(it.location||'')+' '+(it.seller||'')).toLowerCase();
+      if(hay.indexOf(state.q)<0) return false;
+    }
+    return true;
+  }
+  function fitColor(v){
+    if(v==null) return 'var(--faint)';
+    if(v>=85) return 'var(--good)';
+    if(v>=65) return '#a8d84a';
+    if(v>=45) return 'var(--mid)';
+    if(v>=30) return 'var(--warn)';
+    return 'var(--bad)';
+  }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+
+  function render(){
+    var rows = L.filter(passes);
+    var k = state.sortKey, dir = state.sortDir;
+    rows.sort(function(a,b){
+      var va=sortVal(a,k), vb=sortVal(b,k);
+      if(va<vb) return -1*dir; if(va>vb) return 1*dir; return 0;
+    });
+
+    // header arrows
+    document.querySelectorAll('#invTable thead th').forEach(function(th){
+      var base = th.getAttribute('data-k');
+      var label = th.textContent.replace(/[▲▼]/g,'').trim();
+      th.innerHTML = label;
+      if(base===k && !th.classList.contains('nosort')){
+        th.innerHTML = label + ' <span class="arrow">'+(dir>0?'▲':'▼')+'</span>';
+      }
+    });
+
+    var body = document.getElementById('invBody');
+    if(!rows.length){
+      body.innerHTML = '<tr><td colspan="12" class="norows">No units match the current filters.</td></tr>';
+    } else {
+      body.innerHTML = rows.map(function(it){
+        var node = isNodeMake(it);
+        var star = (it.standout || node) ? ' <span class="badge star" title="'+(node?'Node-standard make (G3520 / HSK78G)':'Standout — low hours')+'">★</span>' : '';
+        var frt = it.freight_flag ? ' <span class="badge frt" title="Freight-heavy — verify landed cost to Gulf">⚠</span>' : '';
+        var oob = it.out_of_band ? ' <span class="oob" title="Out-of-band: >2.5 MW">&gt;2.5MW</span>' : '';
+        var hzv = (it.hz===50 ? '<span class="pill-50">50 Hz</span>' : hzText(it)) +
+                  '<span class="cond"> / '+esc(it.voltage||'—')+'</span>';
+        var fit = it.node_fit==null ? '<span class="cond">—</span>' :
+          '<span class="fit"><span class="fitbar"><i style="width:'+it.node_fit+'%;background:'+fitColor(it.node_fit)+'"></i></span>'+
+          '<span class="fitval" style="color:'+fitColor(it.node_fit)+'">'+it.node_fit+'</span></span>';
+        var price = it.price!=null ? fmtMoney(it.price) : esc(it.price_display||'—');
+        var hoursDisp = it.hours_display!=null ? it.hours_display : (it.hours!=null?it.hours.toLocaleString():'—');
+        return '<tr class="lane-'+it.lane+(it.out_of_band?' is-oob':'')+'" title="'+esc(it.notes||'')+'">'+
+          '<td class="unit">'+esc(it.model)+star+frt+oob+'<span class="mk"> '+esc(it.make)+'</span></td>'+
+          '<td><span class="lane-pill '+it.lane+'">'+it.lane+'</span></td>'+
+          '<td class="num">'+(it.kW!=null?it.kW.toLocaleString():'—')+'</td>'+
+          '<td>'+esc(it.fuel)+'</td>'+
+          '<td>'+hzv+'</td>'+
+          '<td class="num">'+esc(hoursDisp)+'</td>'+
+          '<td class="num">'+(it.year||'—')+'</td>'+
+          '<td class="cond">'+esc(it.condition)+'</td>'+
+          '<td class="num">'+price+'</td>'+
+          '<td>'+esc(it.location||'—')+'</td>'+
+          '<td class="num">'+fit+'</td>'+
+          '<td class="src"><a href="'+esc(it.source_url)+'" target="_blank" rel="noopener">open ↗</a>'+
+            '<span class="seller">'+esc(it.seller)+'</span></td>'+
+        '</tr>';
+      }).join('');
+    }
+    document.getElementById('invCount').textContent =
+      rows.length + ' of ' + L.length + ' units shown';
+  }
+
+  // ---------- comp book ----------
+  document.getElementById('compBody').innerHTML = C.map(function(c){
+    return '<tr>'+
+      '<td class="unit">'+esc(c.class)+(c.benchmark?'<span class="bench">★ benchmark</span>':'')+'</td>'+
+      '<td class="num">'+fmtMoney(c.low_price)+' <span class="rng">'+esc(c.low_note)+'</span></td>'+
+      '<td class="num">'+fmtMoney(c.high_price)+' <span class="rng">'+esc(c.high_note)+'</span></td>'+
+      '<td class="cond">'+esc(c.note)+'</td>'+
+    '</tr>';
+  }).join('');
+
+  // ---------- sources ----------
+  var tiers = [];
+  S.forEach(function(s){ if(tiers.indexOf(s.tier)<0) tiers.push(s.tier); });
+  var onCount = S.filter(function(s){return s.on;}).length;
+  document.getElementById('srcCount').textContent = onCount+' of '+S.length+' sources enabled';
+  document.getElementById('sources').innerHTML = tiers.map(function(t){
+    var items = S.filter(function(s){return s.tier===t;});
+    var cards = items.map(function(s){
+      var pollCls = (s.poll==='daily'||s.poll==='weekly'||s.poll==='manual') ? s.poll : '';
+      var url = (s.url && s.url!=='—') ?
+        '<a href="https://'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.url)+'</a>' :
+        '<span class="cond">no URL</span>';
+      return '<div class="src-card'+(s.on?'':' off')+'">'+
+        '<span class="dot '+(s.on?'on':'off')+'"></span>'+
+        '<div><div class="nm">'+esc(s.name)+
+          '<span class="poll '+pollCls+'">'+esc(s.poll)+'</span></div>'+
+          '<div class="meta">'+url+' · '+esc(s.notes)+'</div></div>'+
+      '</div>';
+    }).join('');
+    var on = items.filter(function(s){return s.on;}).length;
+    return '<div class="src-tier"><h3>'+esc(t)+' <span class="count-tag" style="text-transform:none;letter-spacing:0;font-weight:400">('+on+'/'+items.length+' on)</span></h3>'+
+      '<div class="src-grid">'+cards+'</div></div>';
+  }).join('');
+
+  render();
+})();
+</script>
+</body>
+</html>
