@@ -176,6 +176,31 @@ AGING / LEVERAGE
 Repo store (`products/Microgrid/sourcing/`) holds the full dataset and
 comp book; email surfaces only what changed.
 
+## 8a. Machine-readable feed + Genset Tracker refresh [W — Scott 2026-06-13]
+
+Each run also maintains a structured feed and a visual dashboard so the
+data is browsable, not just emailed:
+
+- **`sourcing/listings.json`** — canonical structured array of every
+  active listing (the §4 data model fields). Rewritten each run from the
+  day's normalized inventory. This is the single source the dashboard and
+  any future tool reads.
+- **`sourcing/genset-tracker.html`** — single-file, self-contained,
+  offline-openable dashboard (built separately; see its own build prompt).
+  The page embeds a copy of the listings JSON between fixed markers:
+  ```
+  <!-- GENSET_DATA_START -->
+  <script>window.GENSET_DATA = { ... }</script>
+  <!-- GENSET_DATA_END -->
+  ```
+  **Daily refresh rule:** after writing the digest and `listings.json`,
+  the agent replaces only the block **between** `GENSET_DATA_START` and
+  `GENSET_DATA_END` with the current data (plus the build date) — it does
+  **not** touch the page's layout, CSS, or JS. If `genset-tracker.html`
+  does not yet exist, skip this step (the dashboard hasn't been built
+  yet) and note it in the run log. The page is internal-only — **never
+  deploy it to adc3k.com.**
+
 ## 9. Build phases
 
 - **P1 (this week):** source registry + Tier 1 + Tier 2 (top 8–10
