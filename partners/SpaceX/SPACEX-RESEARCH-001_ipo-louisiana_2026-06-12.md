@@ -1,5 +1,9 @@
 # SpaceX Deep Dive: The Record IPO, the Louisiana Play, and Where a Lafayette Power/Cooling/Construction Firm Fits
 
+> **As-of note (added 2026-06-12 post-close):** IPO price/market-cap figures below are
+> intraday. Day-1 close ($160.95, ~$2.1T) and Musk's post-IPO "AI data centers in
+> space" statement are in `SPACEX-RESEARCH-002_day1-close-ai-datacenters_2026-06-12.md`.
+
 ## TL;DR
 - **The IPO is real and historic.** SpaceX (the parent company, not a Starlink spinoff) priced at $135/share on June 11 and began trading June 12, 2026 on Nasdaq under ticker **SPCX**, raising ~$75 billion at a ~$1.77 trillion IPO valuation — the largest IPO in history — and opened up 11.11% at $150 (intraday high $168.75), with one tracker (TradingKey) putting intraday market cap as high as ~$2.05 trillion. Elon Musk became the world's first trillionaire.
 - **Louisiana is SpaceX's most important near-term expansion story, and it's in your backyard.** SpaceX is the rumored (not yet officially confirmed) buyer of a ~136,000-acre ExxonMobil tract in Vermilion Parish near Pecan Island — roughly 30 minutes south of Lafayette — backed by a fast-tracked package of state aerospace-incentive laws signed in 2026. Likely use: Starship manufacturing, Raptor engine testing, and barge logistics rather than primarily a launch pad.

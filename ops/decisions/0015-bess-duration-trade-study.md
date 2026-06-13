@@ -2,7 +2,7 @@
 
 - **Date:** 2026-06-12
 - **Decided by:** Scott Tomsu, President
-- **Status:** ISSUED 2026-06-12 (Rev 0.1) — pending Scott approval
+- **Status:** APPROVED by Scott 2026-06-12, as issued (Mission Control session ruling [W])
 
 ## Decision
 

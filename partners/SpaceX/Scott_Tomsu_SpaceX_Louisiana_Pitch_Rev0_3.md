@@ -1,12 +1,13 @@
-# Scott Tomsu — SpaceX Louisiana Pitch (Rev 0.2)
+# Scott Tomsu — SpaceX Louisiana Pitch (Rev 0.3)
 
-> **Rev 0.2 — SUPERSEDED by Rev 0.3 (2026-06-12). NOT SENT.**
-> Changes from Rev 0.1 (.docx, retained in this folder): power/compute
-> paragraph corrected per decision 0007 / 0013 (800 V DC claim replaced
-> with the truthful two-lane statement); Vermilion "confirmed" wording
-> corrected to sourced status; header city corrected to Lafayette
-> (canonical, CLAUDE.md). Dual-track framing (operations role + local
-> contracting) retained per Scott's ruling 2026-06-12.
+> **Rev 0.3 — ISSUED 2026-06-12, pending Scott approval. NOT SENT.**
+> Change from Rev 0.2 (retained in this folder): power/compute paragraph
+> adds the AI-data-centers-in-space hook from SpaceX's own IPO statement
+> (sourced, SPACEX-RESEARCH-002). All Rev 0.2 corrections stand: truthful
+> two-lane power statement (decisions 0007/0013), Vermilion sourced-not-
+> confirmed wording, Lafayette header. Dual-track framing (operations
+> role + local contracting) retained per Scott's ruling 2026-06-12;
+> personal ambition stays implicit per Scott's ruling 2026-06-12 [W].
 
 ---
 
@@ -16,7 +17,7 @@ ROV Superintendent · Licensed Louisiana General Contractor · AI Infrastructure
 
 Lafayette, Louisiana · [phone] · [email] · [LinkedIn]
 
-June 12, 2026
+June 15, 2026
 
 SpaceX — Site Development & Launch Infrastructure
 
@@ -32,7 +33,7 @@ Three capabilities I can put to work immediately:
 
 **Marine and recovery operations.** ROV piloting and supervision (Oceaneering, CTC Marine, KMI), vessel-based campaign management, and subsea intervention — directly applicable to droneship support, booster and hardware recovery, and any anomaly response on the Gulf floor. FAA Private Pilot and Part 107 certificates round out airspace and UAS survey work.
 
-**Power and compute infrastructure.** I currently develop modular GPU compute platforms: natural-gas generation (Cat G3520H) with combined heat and power, AC-coupled 4.16 kV grid-forming distribution with grid-scale battery storage, and liquid cooling — the same gas-generation-plus-grid-battery pattern the Colossus complex runs today. We are also designing on the NVIDIA/OCP 800-volt DC roadmap that Colossus-class clusters are moving toward. Fourteen NVIDIA DLI certifications (InfiniBand, RoCE, Cumulus, NetQ, Run:ai platform deployment) plus CompTIA A+/Network+, with CDCDP in progress. A deepwater umbilical and an AI factory are the same problem: utility feed, transformation, distribution, multiplexed fiber, uptime in a hostile environment.
+**Power and compute infrastructure.** I currently develop modular GPU compute platforms: natural-gas generation (Cat G3520H) with combined heat and power, AC-coupled 4.16 kV grid-forming distribution with grid-scale battery storage, and liquid cooling — the same gas-generation-plus-grid-battery pattern the Colossus complex runs today. We are also designing on the NVIDIA/OCP 800-volt DC roadmap that Colossus-class clusters are moving toward. At the IPO, SpaceX named AI data centers in space among the things this raise will build; the engineering between here and there is my daily work — liquid-loop thermal transport, which is the only way a watt leaves a computer in vacuum, and the ground-segment power that 100,000 satellites will demand on the Gulf Coast. Fourteen NVIDIA DLI certifications (InfiniBand, RoCE, Cumulus, NetQ, Run:ai platform deployment) plus CompTIA A+/Network+, with CDCDP in progress. A deepwater umbilical and an AI factory are the same problem: utility feed, transformation, distribution, multiplexed fiber, uptime in a hostile environment.
 
 The thread through all of it: operating complex electromechanical systems at the end of a long, fragile link, where mistakes are expensive — an ROV at 3,000 meters, a drag bike running a closed-loop FuelTech ECM (2023 AMRA Racer of the Year), a launch site in a working marsh. Most builders have never run robotics offshore; most roboticists have never pulled a permit. I have done both, here, for 25 years.
 
