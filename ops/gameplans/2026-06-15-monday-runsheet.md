@@ -14,6 +14,8 @@ proceeds if it needs the time.**
 | ADC-GPA-001 (GP-A playbook) | Issued Rev 0.1 |
 | ADC-GPB-001 (GP-B playbook) | Issued Rev 0.1 |
 | ADC-PORT-001 (portfolio one-pager) | Issued Rev 0.1 |
+| Decision 0017 (NG genset acquisition fund) | Issued Rev 0.1 |
+| ADC-FUND-001 (Ornn anchor-LP fund brief) | Issued Rev 0.1 |
 | Pitch letter Rev 0.3 | Issued — NOT SENT |
 | EVH-HUB-001 Rev 0.1 (Evangeline hub concept) | Issued under approved 0014 |
 | ESS-TRADE-001 Rev 0.1 (duration study framework) | Issued under approved 0015 |
@@ -54,6 +56,14 @@ GP-A external actions stay blocked until 0016 + Rev 0.3 are approved.
   branch explicit (ADC-GPB-001 §5).
 - Start CAP-OI-06 incentive refresh — Notice 2025-42 appeal status
   first; mandatory before the meeting.
+- **NEW — NG genset acquisition fund (decision 0017):** add the
+  anchor-LP ask to the Ornn agenda. Lead with the scarcity window
+  (gensets 2+ yrs out, recips the fast path — research note
+  2026-06-13-genset-lead-times.md), the 50/60 Hz sourcing edge, the
+  asset-backed SPV (Ornn anchor LP), and first deploy = ADC own-use BTM
+  on the 0009 triangle. Brief: ADC-FUND-001. **First conversation only —
+  no term sheet, no purchase commitment** (FUND-OI-01/-02 gate any
+  capital or iron). Subordinate to GP-A and the calendar guard.
 
 ## PM — Housekeeping
 
