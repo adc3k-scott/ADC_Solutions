@@ -6,6 +6,19 @@ product stack (CDU, Modular TCS, HAC, 10 MW Microgrid Node, Telemetry)
 and our in-house Louisiana General Contractor License. Mission context:
 [MISSION.md](../MISSION.md) §Business line 2.
 
+## Why here — the regional siting thesis
+
+Why Acadiana, specifically, is structurally advantaged for behind-the-meter
+AI compute is captured in **[ADC-ACAD-001 — The Acadiana Compute Moat](ADC-ACAD-001_Acadiana-Compute-Moat_Rev0_1.md)
+(Rev 0.1, ISSUED 2026-06-13, pending Scott approval)**: the moat is *integration
+depth into the energy value chain* — speed-to-power as the binding constraint
+(~4.5-yr interconnection queues), BTM gas as the answer, and the five-layer
+stack (fuel at Henry Hub next door + brownfield shells + water + LUS Fiber +
+oilfield workforce) that already exists here. It is the "why here" the
+oilfield-services program, the utility program, the genset acquisition fund
+([ADC-FUND-001](../company/capital/ADC-FUND-001_genset-btm-acquisition-fund_Rev0_1.md)),
+and the investor narrative all lean on.
+
 ## The three plays
 
 | # | Play | Profile |
