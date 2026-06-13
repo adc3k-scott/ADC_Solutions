@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scott Tomsu — Resume v4</title>
+<!--
+  Resume v4. Live, editable HTML (no baked images) — derived from the canonical
+  profile: company/Personnel/Scott Tomsu/scott-tomsu-profile.md (source of truth).
+  SpaceX-first ordering: tuner thesis -> built-and-shipped proof -> operating
+  record -> SpaceX fit. Theme carried from resume v3 (gold/dark, NVIDIA green).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #070707;
+    --dark: #0d0d0d;
+    --panel: #0c0c0c;
+    --text: #d8d4c8;
+    --text-dim: #8a8a80;
+    --gold: #c9a84c;
+    --gold-mid: #a07830;
+    --gold-dim: #6b5220;
+    --gold-glow: rgba(201,168,76,0.18);
+    --green: #76b900;
+    --green-dim: #3a5000;
+    --border: #2a2a2a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px 80px;
+  }
+  .mono { font-family: 'Source Code Pro', monospace; }
+
+  /* ---------- HEADER ---------- */
+  header {
+    padding: 54px 0 30px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  header::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim) 20%, var(--gold) 50%, var(--gold-dim) 80%, transparent);
+  }
+  .name {
+    font-weight: 700;
+    font-size: 46px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 1;
+  }
+  .role {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 14px;
+  }
+  .meta {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--text-dim);
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+  }
+  .meta a { color: var(--gold-mid); text-decoration: none; }
+  .meta a:hover { color: var(--gold); }
+
+  /* ---------- SECTION ---------- */
+  section { padding: 38px 0 6px; }
+  .sec-label {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .sec-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold-dim), transparent);
+  }
+
+  /* ---------- THESIS / HERO ---------- */
+  .thesis {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 23px;
+    line-height: 1.45;
+    color: var(--text);
+  }
+  .thesis strong { color: var(--gold); font-weight: 500; }
+  .thesis-sub {
+    margin-top: 18px;
+    font-size: 15px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .thesis-sub strong { color: var(--text); font-weight: 400; }
+
+  /* ---------- PROOF CARDS ---------- */
+  .proof { display: grid; gap: 14px; }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--gold-dim);
+    padding: 18px 20px;
+    transition: border-color .2s, background .2s;
+  }
+  .card:hover { border-left-color: var(--gold); background: #100d06; }
+  .card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    letter-spacing: .5px;
+    color: var(--gold);
+    margin-bottom: 7px;
+  }
+  .card p { font-size: 14.5px; line-height: 1.6; color: var(--text); }
+  .card p strong { color: #fff; font-weight: 400; }
+  .card a { color: var(--gold-mid); text-decoration: none; border-bottom: 1px dotted var(--gold-dim); }
+  .card a:hover { color: var(--gold); }
+
+  /* ---------- RECORD GRID ---------- */
+  .record { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .rec {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 16px 18px;
+  }
+  .rec .tag {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-mid);
+    display: block;
+    margin-bottom: 9px;
+  }
+  .rec p { font-size: 13.5px; line-height: 1.55; color: var(--text); }
+  .rec p strong { color: #fff; font-weight: 400; }
+  .rec.nv { border-color: #1d2a00; }
+  .rec.nv .tag { color: var(--green); }
+  .rec.nv p strong { color: var(--green); font-weight: 400; }
+
+  /* ---------- SPACEX FIT ---------- */
+  .fit-intro { font-size: 15px; color: var(--text-dim); line-height: 1.6; margin-bottom: 20px; }
+  .fit-intro strong { color: var(--text); font-weight: 400; }
+  .fit { display: grid; gap: 11px; }
+  .fit-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid #1a1a1a;
+    align-items: start;
+  }
+  .fit-row:last-child { border-bottom: none; }
+  .fit-key {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding-top: 2px;
+  }
+  .fit-val { font-size: 14px; line-height: 1.55; color: var(--text); }
+  .fit-val strong { color: #fff; font-weight: 400; }
+
+  /* ---------- POSITIONING ---------- */
+  .quote {
+    background: linear-gradient(135deg, #0e0e0e 0%, #141008 55%, #0e0e0e 100%);
+    border: 1px solid var(--gold-dim);
+    padding: 28px 30px;
+    position: relative;
+  }
+  .quote::before {
+    content: "";
+    position: absolute; top: 0; left: 0; width: 3px; height: 100%;
+    background: linear-gradient(180deg, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+  }
+  .quote p {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .quote p strong { color: var(--gold); font-weight: 500; }
+  .quote .kicker {
+    display: block;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    margin-top: 16px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    margin-top: 46px;
+    padding-top: 26px;
+    border-top: 1px solid var(--border);
+    font-family: 'Source Code Pro', monospace;
+    font-size: 12px;
+    line-height: 1.9;
+    color: var(--text-dim);
+  }
+  footer .row { display: flex; flex-wrap: wrap; gap: 4px 24px; }
+  footer strong { color: var(--gold); font-weight: 600; }
+  footer a { color: var(--gold-mid); text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+  .src { margin-top: 20px; font-size: 10px; color: #555; line-height: 1.6; letter-spacing: .5px; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 640px) {
+    .name { font-size: 32px; letter-spacing: 3px; }
+    .record { grid-template-columns: 1fr; }
+    .fit-row { grid-template-columns: 1fr; gap: 4px; }
+    .thesis { font-size: 19px; }
+  }
+
+  /* ---------- PRINT ---------- */
+  @media print {
+    body { background: #fff; color: #1a1a1a; }
+    .page { max-width: 100%; padding: 0; }
+    .name { color: #000; }
+    .card, .rec, .quote { background: #fafafa; border-color: #ccc; }
+    .card h3, .role, .sec-label, .fit-key, .quote p strong, .thesis strong { color: #8a6a10; }
+    .rec.nv .tag, .rec.nv p strong { color: #3a6000; }
+    .card p strong, .rec p strong, .fit-val strong, .thesis-sub strong { color: #000; }
+    .meta, footer, .src, .thesis-sub, .fit-intro { color: #444; }
+    a { color: #6a5010 !important; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ====================== HEADER ====================== -->
+  <header>
+    <div class="name">Scott Tomsu</div>
+    <div class="role">ROV Superintendent · Licensed Louisiana General Contractor · AI Infrastructure Builder</div>
+    <div class="meta">
+      <span>Lafayette, Louisiana</span>
+      <span>President, ADC Solutions Inc</span>
+      <span><a href="mailto:scott@adc3k.com">scott@adc3k.com</a></span>
+      <span>337-780-1535</span>
+      <span><a href="https://www.adc3k.com">www.ADC3K.com</a></span>
+    </div>
+  </header>
+
+  <!-- ====================== THE ONE LINE ====================== -->
+  <section>
+    <div class="sec-label">The one line</div>
+    <p class="thesis">
+      Scott Tomsu doesn't just <em>operate</em> complex systems — he
+      <strong>designs the hardest part of the system and ships it.</strong>
+      For 25 years he has built, powered, rigged, and run mission-critical
+      electromechanical systems where failure is expensive and no one is coming
+      to help: subsea robotics to 3,000 meters, high-voltage and fiber-optic
+      power chains, national-championship race engines he designed himself, and
+      Louisiana construction he permits and self-performs.
+    </p>
+    <p class="thesis-sub">
+      The thread isn't a long résumé of unrelated things. It's <strong>one
+      discipline</strong> — design it, build it, tune it to the limit, run it
+      live — applied to engines, robots, power, structures, and now AI. An
+      umbilical, a race motor, a launch-site power spine, and an AI factory are
+      the same problem: feed → transform → distribute → signal over fiber → hold
+      uptime in a hostile environment.
+    </p>
+  </section>
+
+  <!-- ====================== BUILT AND SHIPPED ====================== -->
+  <section>
+    <div class="sec-label">Built &amp; shipped — the proof</div>
+    <div class="proof">
+      <div class="card">
+        <h3>Production race hardware — under the CP-Carrillo name</h3>
+        <p>
+          Designed the <strong>Big Bore Pistons and race connecting rods for the
+          Harley-Davidson Milwaukee-8 (2017–present)</strong>, produced through
+          CP-Carrillo — a top-tier piston and rod manufacturer that does not
+          build hobbyist parts. Sold through his own brand,
+          <strong>STFU Motorcycles</strong> ("Scott's Tuning &amp; Factory
+          Upgraded Motorcycles",
+          <a href="https://stfumotorcycles.com">stfumotorcycles.com</a>) — a full
+          shop with a Dynojet 250i dyno, SuperFlow 600 flowbench, and in-house
+          machine shop.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Inventions he still sells — and gives away</h3>
+        <p>
+          The <strong>Rocker Box Buddy</strong> (2018) and the
+          <strong>SE Air Cleaner Modification Kit</strong> (built around an
+          S&amp;B-manufactured filter, fits 2017–2023 Screamin' Eagle oval air
+          cleaners). Both <strong>deliberately left unpatented</strong> — he
+          calls them open source and isn't worried about it. The same instinct
+          that put him on open-weight AI.
+        </p>
+      </div>
+      <div class="card">
+        <h3>AI-native before the wave — "AI Advantage" and Roxy</h3>
+        <p>
+          In <strong>February 2026</strong>, months before most of his industry
+          could spell "agent", he built <strong>Roxy</strong>, an AI voice agent,
+          and formed a company around her called AI Advantage. Roxy runs on
+          <strong>Qwen3-8B</strong> (open weights) with <strong>18 tools</strong>
+          baked in and answers in a British accent. The demo line is still live —
+          call <strong>337-486-3149</strong> and talk to her.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Autonomous operations — today</h3>
+        <p>
+          Scott doesn't <em>use</em> an AI assistant; he runs
+          <strong>ADC Solutions through an autonomous AI "Mission Control"</strong>
+          with the company's GitHub repository as its single source of truth. He
+          builds and operates AI the same way he builds and operates everything
+          else.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== OPERATING RECORD ====================== -->
+  <section>
+    <div class="sec-label">Operating record — the backup</div>
+    <div class="record">
+      <div class="rec">
+        <span class="tag">Subsea &amp; Marine</span>
+        <p>
+          25-year offshore ROV career at supervisor/superintendent level —
+          deepwater inspection, installation, intervention, recovery for major
+          operators (<strong>Subsea 7, Oceaneering, CTC Marine, RACAL/Thales,
+          ExxonMobil-MEGI</strong>). IMCA ROV Supervisor. Certified commercial
+          diver with <strong>saturation experience to 760 ft</strong>.
+          480V/4.16kV power and ±5V signal through 3,000 m of fiber-optic
+          umbilical — the AI factory in its hardest form.
+        </p>
+      </div>
+      <div class="rec">
+        <span class="tag">Construction</span>
+        <p>
+          <strong>Licensed Louisiana General Contractor, active since 2003</strong>
+          — pulls his own permits, hires trades, self-performs. ~80 homes, the
+          Family Practice Medical Center in New Iberia, and commercial interiors
+          across Acadiana.
+        </p>
+      </div>
+      <div class="rec">
+        <span class="tag">High-Performance Engineering</span>
+        <p>
+          <strong>2023 AMRA Racer of the Year</strong>, multi-time motorcycle
+          drag-racing champion — NHRA events including the Jim McClure World
+          Finals and Silver Dollar Nationals — <strong>and</strong> the
+          builder/tuner behind the bike. Closed-loop control where failure is
+          expensive, proven against specialists.
+        </p>
+      </div>
+      <div class="rec">
+        <span class="tag">Aviation</span>
+        <p>
+          <strong>FAA Private Pilot</strong> (fixed wing) and <strong>FAA Part
+          107</strong> remote pilot — airspace and UAS survey capability, rapid
+          regional mobility.
+        </p>
+      </div>
+      <div class="rec nv" style="grid-column: 1 / -1;">
+        <span class="tag">Compute &amp; Networking</span>
+        <p>
+          <strong>14 NVIDIA DLI certifications</strong> (InfiniBand, RoCE,
+          Cumulus, NetQ, NVIDIA License System, Run:ai platform deployment, AI
+          Infrastructure &amp; Operations), <strong>CompTIA A+ / Network+</strong>,
+          <strong>CDCDP in progress</strong> (Uptime Institute / CNet).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== WHY SPACEX ====================== -->
+  <section>
+    <div class="sec-label">Why this points at SpaceX</div>
+    <p class="fit-intro">
+      SpaceX's reported Vermilion Parish program demands exactly Scott's stack —
+      and the fit is almost uncomfortably close.
+    </p>
+    <div class="fit">
+      <div class="fit-row">
+        <div class="fit-key">Build in the marsh</div>
+        <div class="fit-val">An active Louisiana GC who self-performs coastal construction <strong>one hour from Pecan Island</strong>.</div>
+      </div>
+      <div class="fit-row">
+        <div class="fit-key">Power &amp; fiber</div>
+        <div class="fit-val">The high-voltage distribution and fiber-optic signal chains a <strong>100,000-satellite ground segment and Colossus-class compute</strong> will demand — already his daily work.</div>
+      </div>
+      <div class="fit-row">
+        <div class="fit-key">Marine &amp; recovery</div>
+        <div class="fit-val">ROV piloting/supervision and dive capability directly applicable to <strong>droneship support and booster/hardware recovery</strong>.</div>
+      </div>
+      <div class="fit-row">
+        <div class="fit-key">Tune the robots</div>
+        <div class="fit-val">As embodied AI floods the physical world, Scott understands the <strong>model</strong> and masters the <strong>machine it lives in</strong>. "Baking in" a model is tuning — he's been tuning critical systems his whole life.</div>
+      </div>
+    </div>
+    <p class="fit-intro" style="margin-top:22px;margin-bottom:0;">
+      No MIT pedigree — by design. An engineer can train a model;
+      <strong>Scott can land it in the mud, power it, cool it, rig it with a
+      crane, fix it when it breaks, and tune it to run</strong> — offshore or
+      onshore. Not credentialed in it. Proven in it.
+    </p>
+  </section>
+
+  <!-- ====================== POSITIONING ====================== -->
+  <section>
+    <div class="sec-label">Positioning</div>
+    <div class="quote">
+      <p>
+        <strong>Scott Tomsu is a master tuner of mission-critical systems across
+        the physical-to-digital frontier.</strong> For 25 years he has built,
+        powered, rigged, and operated complex electromechanical systems where
+        failure is expensive — subsea robotics to 3,000 m, high-voltage and fiber
+        power chains, national-championship race engines he designed himself, and
+        Louisiana construction he permits and self-performs. He is also AI-native
+        ahead of his peers: he deployed a live LLM voice agent and founded a
+        company around it in early 2026, and runs his business through autonomous
+        AI. As embodied AI and robotics move into the physical world, Scott is the
+        rare operator who can do both halves — understand the model and master the
+        machine it lives in.
+        <span class="kicker">Not credentialed in it. Proven in it.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer>
+    <div class="row">
+      <span><strong>ADC Solutions Inc</strong> — President</span>
+      <span><a href="mailto:scott@adc3k.com">scott@adc3k.com</a></span>
+      <span>337-780-1535</span>
+      <span><a href="https://www.adc3k.com">www.ADC3K.com</a></span>
+    </div>
+    <div class="row" style="margin-top:6px;">
+      <span><strong>STFU Motorcycles</strong> — <a href="https://stfumotorcycles.com">stfumotorcycles.com</a> · 337-706-8810</span>
+      <span><strong>Roxy</strong> (AI Advantage voice agent) — 337-486-3149</span>
+    </div>
+    <div class="row" style="margin-top:6px;">
+      <span><strong>Credentials</strong> — Louisiana GC (since 2003) · IMCA ROV Supervisor · Commercial Diver · FAA Private Pilot &amp; Part 107 · 14 NVIDIA DLI certs</span>
+    </div>
+    <p class="src">
+      Resume v4 — built from the canonical profile (company/Personnel/Scott Tomsu/scott-tomsu-profile.md),
+      the single source of truth. All facts trace to Scott's word, his files, or the live STFU site.
+      Company facts per CLAUDE.md. Live HTML — edit this file, not a baked image.
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
