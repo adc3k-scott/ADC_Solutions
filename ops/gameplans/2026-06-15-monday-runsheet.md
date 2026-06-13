@@ -14,8 +14,8 @@ proceeds if it needs the time.**
 | ADC-GPA-001 (GP-A playbook) | Issued Rev 0.1 |
 | ADC-GPB-001 (GP-B playbook) | Issued Rev 0.1 |
 | ADC-PORT-001 (portfolio one-pager) | Issued Rev 0.1 |
-| Decision 0017 (NG genset acquisition fund) | Issued Rev 0.1 |
-| ADC-FUND-001 (Ornn anchor-LP fund brief) | Issued Rev 0.1 |
+| Decision 0017 (NG genset acquisition fund) | APPROVED 2026-06-13 |
+| ADC-FUND-001 (Ornn anchor-LP fund brief) | APPROVED 2026-06-13 |
 | Pitch letter Rev 0.3 | Issued — NOT SENT |
 | EVH-HUB-001 Rev 0.1 (Evangeline hub concept) | Issued under approved 0014 |
 | ESS-TRADE-001 Rev 0.1 (duration study framework) | Issued under approved 0015 |

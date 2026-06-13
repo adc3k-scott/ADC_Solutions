@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | Document | ADC-FUND-001 |
-| Revision | 0.1 — issued 2026-06-13, pending Scott approval |
+| Revision | 0.1 — APPROVED by Scott 2026-06-13 (issued-not-sent; Scott presents, no term sheet in the room) |
 | Decision | [0017](../../ops/decisions/0017-ng-genset-acquisition-fund.md) (this vehicle); frames under [0016](../../ops/decisions/0016-two-game-plan-deployment.md) GP-B, [0009](../../ops/decisions/0009-three-property-acquisition-seed-capital.md) capital |
 | Owner | Scott Tomsu, President — **Scott presents; nothing is sent from this repo** |
 | Audience | Jack Minor / Ornn — anchor-LP ask |

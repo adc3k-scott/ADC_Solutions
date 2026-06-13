@@ -2,7 +2,7 @@
 
 - **Date:** 2026-06-13
 - **Decided by:** Scott Tomsu, President
-- **Status:** ISSUED 2026-06-13 (Rev 0.1) — pending Scott approval
+- **Status:** APPROVED by Scott 2026-06-13 (Rev 0.1)
 - **Parameter tags:** [L] Locked · [W] Working (Scott's word this session) · [O] Open
 
 ## Decision
